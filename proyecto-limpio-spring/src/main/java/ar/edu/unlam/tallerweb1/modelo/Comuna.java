@@ -15,8 +15,8 @@ public class Comuna {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String calle;
-	private String numero;
+	private String nombre;
+	
 	
 	@OneToMany
 	private Set<Barrio> barrio = new HashSet<Barrio>(0);
@@ -27,18 +27,13 @@ public class Comuna {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getCalle() {
-		return calle;
+	public String getNombre() {
+		return nombre;
 	}
-	public void setCalle(String calle) {
-		this.calle = calle;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public String getNumero() {
-		return numero;
-	}
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+	
 	public Comuna() {
 	}
 	

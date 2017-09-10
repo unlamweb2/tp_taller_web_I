@@ -23,6 +23,15 @@ public class Farmacia {
 	@OneToOne
 	private Punto punto;
 	
+	public Farmacia(){
+		}
+	
+	public Farmacia(String nombre,String telefono, String diaDeTurno) {
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.diaDeTurno = diaDeTurno;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -48,7 +57,6 @@ public class Farmacia {
 	public void setDiaDeTurno(String diaDeTurno) {
 		this.diaDeTurno = diaDeTurno;
 	}
-	
 	
 	public Direccion getDireccion() {
 		return direccion;

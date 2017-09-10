@@ -16,6 +16,13 @@ public class Barrio {
 	
 	@ManyToOne
 	private Comuna comuna;
+	
+	private Barrio(){
+		}
+	
+	private Barrio(String nombre){
+		this.nombre=nombre;
+	}
 
 	public Long getId() {
 		return id;
