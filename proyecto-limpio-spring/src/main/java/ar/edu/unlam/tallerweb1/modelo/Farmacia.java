@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Farmacia {
@@ -16,6 +17,11 @@ public class Farmacia {
 	private String telefono;
 	private String diaDeTurno;
 	
+	@OneToOne
+	private Direccion direccion;
+	
+	@OneToOne
+	private Punto punto;
 	
 	public Long getId() {
 		return id;
@@ -44,5 +50,17 @@ public class Farmacia {
 	}
 	
 	
+	public Direccion getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(Direccion direccion) {
+		this.direccion = direccion;
+	}
 
+	public Punto getPunto() {
+		return punto;
+	}
+	public void setPunto(Punto punto) {
+		this.punto = punto;
+	}
 }

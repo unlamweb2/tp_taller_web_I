@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Barrio {
@@ -12,6 +13,9 @@ public class Barrio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
+	
+	@ManyToOne
+	private Comuna comuna;
 
 	public Long getId() {
 		return id;
@@ -28,5 +32,12 @@ public class Barrio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public Comuna getComuna() {
+		return comuna;
+	}
 
+	public void setComuna(Comuna comuna) {
+		this.comuna = comuna;
+	}
 }
