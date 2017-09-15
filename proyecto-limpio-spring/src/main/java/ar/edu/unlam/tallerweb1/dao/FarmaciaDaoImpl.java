@@ -21,6 +21,6 @@ public class FarmaciaDaoImpl implements FarmaciaDao {
 		final Session session = sessionFactory.getCurrentSession();
 		return (Farmacia) session.createCriteria(Farmacia.class)
 				.add(Restrictions.eq("diaDeTurno", farmacia.getDiaDeTurno()))
-				.uniqueResult();		
+				.list();		
     }
 }

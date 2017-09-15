@@ -26,11 +26,11 @@ public class Farmacia {
 	public Farmacia(){
 		}
 	
-	public Farmacia(String nombre,String telefono, String diaDeTurno) {
+	/*public Farmacia(String nombre,String telefono, String diaDeTurno) {
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.diaDeTurno = diaDeTurno;
-	}
+	}*/
 	
 	public Long getId() {
 		return id;
