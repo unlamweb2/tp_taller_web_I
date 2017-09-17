@@ -10,12 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Sumar {
 
-	@RequestMapping(path = "/cualquierVerdura/{operacion}/{operando1}/{operando2}", method = RequestMethod.GET) // action
-	public ModelAndView sumar(@PathVariable String operacion, @PathVariable String operando1, @PathVariable String operando2) {
+	@RequestMapping(path = "/cualquierVerdura/{operando1}/{operando2}", method = RequestMethod.GET) // action
+	public ModelAndView sumar(@PathVariable int operando1, @PathVariable int operando2) {
+		
+		int operacion = operando1 + operando2;
+		String mensaje = "El resultado de Sumar " + operando1 + " y " + operando2 + "=" + operacion;
 
-		String mensaje = "El resultado de Sumar" + operando1 + "y" + operando2 + "=" + operacion;
-
-		operacion = operando1 + operando2;
+		
 
 		ModelMap model = new ModelMap();
 		model.put("op1", mensaje);
@@ -25,3 +26,4 @@ public class Sumar {
 	}
 
 }
+//http://localhost:8080/proyecto-limpio-spring/cualquierVerdura/3/6
