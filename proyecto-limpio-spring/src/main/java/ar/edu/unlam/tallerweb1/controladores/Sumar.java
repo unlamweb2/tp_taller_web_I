@@ -11,11 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class Sumar {
 
 	@RequestMapping(path = "/cualquierVerdura/{operando1}/{operando2}/{suma}", method = RequestMethod.GET) // action
-	public ModelAndView sumar(@PathVariable int operando1, @PathVariable int operando2, @PathVariable String suma) {
+	public ModelAndView sumar(@PathVariable String operando1, @PathVariable String operando2, @PathVariable String suma) {
 		
-		if((operando1==3) && (operando2== 6)&&("+".equals(suma)))
+		if((operando1.matches("[0-9]*")) && (operando2.matches("[0-9]*"))&&("+".equals(suma)))
 		{
-			int resultado = operando1 + operando2;
+			//int numEntero = Integer.parseInt(numCadena);
+			int operando1Int = Integer.parseInt(operando1);
+			int operando2Int = Integer.parseInt(operando2);
+			int resultado =  operando1Int + operando2Int;
 			String mensaje = "El resultado de Sumar " + operando1 + " y " + operando2 + " da = " + resultado;
 			ModelMap model = new ModelMap();
 			model.put("op1", mensaje);

@@ -11,7 +11,9 @@
 	<body>
 			
 	 <h3>Farmacia</h3> 
-	 			  						
+	 		<c:forEach items="${command}" var="listaFarmacia" >
+	 		${listaFarmacia.nombre} 
+	 		</c:forEach>		  						
 
 	</body>
 </html>
