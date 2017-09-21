@@ -23,7 +23,7 @@ public class FarmaciaDaoImpl implements FarmaciaDao {
 	public Farmacia consultarFarmaciaDiaMartes(Farmacia farmacia){	
 		final Session session = sessionFactory.getCurrentSession();		
 		return (Farmacia) session.createCriteria(Farmacia.class)
-				.add(Restrictions.eq("diaDeTurno", "martes"))				
+				.add(Restrictions.eq("DiaDeTurno", "martes"))				
 				.list();		
     }	
 	
@@ -33,7 +33,8 @@ public class FarmaciaDaoImpl implements FarmaciaDao {
 	@Override
 	public Farmacia farmaciasDeUnaCalle(Farmacia farmacia, Direccion direccion){
 		final Session session = sessionFactory.getCurrentSession();
-		return (Farmacia) session.createCriteria(Farmacia.class)    
+		return (Farmacia) session.createCriteria(Farmacia.class) 
+				.createAlias("Direccion", "direccion")
 				.add(Restrictions.eq("direccion.calle","Einstein"))
 				.list();
 	
@@ -44,7 +45,9 @@ public class FarmaciaDaoImpl implements FarmaciaDao {
 	@Override
 	public Farmacia farmaciasDeUnBarrio(Farmacia farmacia, Barrio barrio){
 		final Session session = sessionFactory.getCurrentSession();
-		return (Farmacia) session.createCriteria(Farmacia.class)    
+		return (Farmacia) session.createCriteria(Farmacia.class)  
+				.createAlias("Direccion", "dir")
+				.createAlias("dir.Barrio", "barrio")
 				.add (Restrictions.eq("barrio.nombre","Hurlingham"))
 				.list();
 	}
