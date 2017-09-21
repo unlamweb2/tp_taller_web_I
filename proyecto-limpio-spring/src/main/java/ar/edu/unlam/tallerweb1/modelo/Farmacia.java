@@ -15,10 +15,10 @@ public class Farmacia {
 	
 	private String nombre;
 	private String telefono;
-	private String diaDeTurno;
+	private static String diaDeTurno;
 	
 	@OneToOne
-	private Direccion direccion;
+	private static Direccion direccion;
 	
 	@OneToOne
 	private Punto punto;
@@ -51,14 +51,14 @@ public class Farmacia {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public String getDiaDeTurno() {
+	public static String getDiaDeTurno() {
 		return diaDeTurno;
 	}
 	public void setDiaDeTurno(String diaDeTurno) {
 		this.diaDeTurno = diaDeTurno;
 	}
 	
-	public Direccion getDireccion() {
+	public static Direccion getDireccion() {
 		return direccion;
 	}
 	public void setDireccion(Direccion direccion) {

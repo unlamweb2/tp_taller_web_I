@@ -14,4 +14,6 @@ public interface FarmaciaDao {
 
 	Farmacia farmaciasDeUnBarrio(Farmacia farmacia, Barrio barrio);
 
+	void consultarFarmaciaDiaMartes();
+
 }
