@@ -46,5 +46,10 @@ public class Direccion {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public Barrio getBarrio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

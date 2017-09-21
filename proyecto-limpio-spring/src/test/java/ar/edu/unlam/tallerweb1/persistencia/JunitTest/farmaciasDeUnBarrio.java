@@ -3,12 +3,19 @@ package ar.edu.unlam.tallerweb1.persistencia.JunitTest;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
-public class farmaciasDeUnBarrio {
+import ar.edu.unlam.tallerweb1.dao.FarmaciaDaoImpl;
+import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+
+public class farmaciasDeUnBarrio extends FarmaciaDaoImpl{
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	@Transactional @Rollback(true)
+	public void farmaciasDeUnBarrio(){
+		
+		assertEquals(Farmacia.getDireccion().getBarrio().getNombre(),"Hurlingham");
 	}
 
 }

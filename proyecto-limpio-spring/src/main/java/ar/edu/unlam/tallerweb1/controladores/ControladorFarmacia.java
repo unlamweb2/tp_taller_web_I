@@ -1,7 +1,5 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
-import java.util.ArrayList;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,18 +11,15 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 @Controller
 public class ControladorFarmacia {
 	
-	ArrayList<Farmacia> listaFarmacia = new ArrayList<Farmacia>();
-	
 	@RequestMapping("/Farmacia")
 	
-	public ModelAndView consultarFarmaciaDiaMartes(Farmacia farmacia){
+	public ModelAndView Farmacia(){
 		
 		ModelMap modelo = new ModelMap();
-		//Farmacia Farmacia = new Farmacia();
+		Farmacia Farmacia = new Farmacia();
 		
-		//modelo.put("Farmacia", Farmacia);
-		listaFarmacia.add(farmacia);
-		return new ModelAndView("Farmacia","command", listaFarmacia);//"Farmacia" es la vista
+		modelo.put("Farmacia", Farmacia);
+		return new ModelAndView("Farmacia", modelo);
 		
 	}	
 	
