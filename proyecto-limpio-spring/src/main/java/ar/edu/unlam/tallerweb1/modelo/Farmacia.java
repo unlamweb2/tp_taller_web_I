@@ -11,17 +11,17 @@ public class Farmacia {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	public Long id;
 	
-	private String nombre;
-	private String telefono;
-	private static String diaDeTurno;
-	
-	@OneToOne
-	private static Direccion direccion;
+	public String nombre;
+	public String telefono;
+	public  String diaDeTurno;
 	
 	@OneToOne
-	private Punto punto;
+	public Direccion direccion;
+	
+	@OneToOne
+	public Punto punto;
 	
 	public Farmacia(){
 		}
@@ -51,14 +51,15 @@ public class Farmacia {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public static String getDiaDeTurno() {
+	public String getDiaDeTurno() {
 		return diaDeTurno;
 	}
 	public void setDiaDeTurno(String diaDeTurno) {
 		this.diaDeTurno = diaDeTurno;
 	}
 	
-	public static Direccion getDireccion() {
+	
+	public Direccion getDireccion() {
 		return direccion;
 	}
 	public void setDireccion(Direccion direccion) {

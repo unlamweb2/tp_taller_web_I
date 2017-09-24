@@ -1,6 +1,6 @@
 package ar.edu.unlam.tallerweb1.persistencia.JunitTest;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ import ar.edu.unlam.tallerweb1.SpringTest;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 
 
+	@SuppressWarnings("unused")
 	public class farmaciasDeTurnoDiaMartes extends SpringTest{
 
 
@@ -22,7 +23,7 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 		
 		
 		
-		@SuppressWarnings({ "unchecked", "static-access" })
+		@SuppressWarnings({ "unchecked" })
 		@Test
 		@Transactional @Rollback(true)
 		

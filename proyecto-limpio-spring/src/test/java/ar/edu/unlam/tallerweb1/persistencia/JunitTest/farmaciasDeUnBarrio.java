@@ -20,7 +20,7 @@ public class farmaciasDeUnBarrio extends SpringTest{
 	@Test
 	@Transactional @Rollback(true)
 	
-	public void farmaciasDeUnBarrio()
+	public void farmaciasDeUnBarrio1()
 	{
 		
 		
@@ -28,12 +28,12 @@ public class farmaciasDeUnBarrio extends SpringTest{
 		Farmacia = getSession().createCriteria(Farmacia.class)
 				.createAlias("Direccion", "dir")
 				.createAlias("dir.Barrio", "barrio")
-				.add (Restrictions.eq("barrio.nombre","Hurlingham"))
+				.add (Restrictions.eq("barrio.nombre","San Justo"))
 				.list();
 				
 		
 		for(Farmacia f : Farmacia){
-			Assert.assertEquals(f.getDireccion().getBarrio().getNombre(),"Hurlingham");
+			Assert.assertEquals(f.getDireccion().getBarrio().getNombre(),"San Justo");
 	}
 
  }
