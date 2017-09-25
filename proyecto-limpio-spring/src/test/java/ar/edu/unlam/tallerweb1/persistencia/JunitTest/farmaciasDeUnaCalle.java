@@ -22,7 +22,7 @@ public class farmaciasDeUnaCalle extends SpringTest{
 	@Test
 	@Transactional @Rollback(true)
 	
-	public void farmaciasDeUnaCalle()
+	public void farmaciasDeUnaCalle1()
 	{
 		
 		List <Farmacia> Farmacia = new ArrayList <Farmacia>();
@@ -31,8 +31,6 @@ public class farmaciasDeUnaCalle extends SpringTest{
 				cr.add(Restrictions.eq("direccion.calle","Arieta"));
 				Farmacia =   cr.list();	
 		
-		
-	
 		for(Farmacia f : Farmacia){
 			Assert.assertEquals(f.getDireccion().getCalle(),"Arieta");
 	}

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Direccion {
@@ -13,11 +13,8 @@ public class Direccion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String calle;
 	private String numero;
-	@OneToOne
-	private Farmacia farmacia;
 	
 	@ManyToOne
 	private Barrio barrio;
@@ -52,7 +49,10 @@ public class Direccion {
 
 	public Barrio getBarrio() {
 		// TODO Auto-generated method stub
-		return null;
+		return barrio;
+	}
+	public void setBarrio(Barrio barrio) {
+		this.barrio = barrio;
 	}
 	
 }

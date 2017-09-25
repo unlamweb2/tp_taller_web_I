@@ -17,10 +17,10 @@ public class Barrio {
 	@ManyToOne
 	private Comuna comuna;
 	
-	private Barrio(){
+	public Barrio(){
 		}
 	
-	private Barrio(String nombre){
+	public Barrio(String nombre){
 		this.nombre=nombre;
 	}
 
