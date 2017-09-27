@@ -21,12 +21,6 @@ public class Direccion {
 	
 	public Direccion() {
 	}
-
-	public Direccion(String calle,String numero, Barrio barrio) {
-		this.calle = calle;
-		this.numero = numero;
-		this.barrio = barrio;
-	}
 	
 	public Long getId() {
 		return id;
@@ -47,8 +41,9 @@ public class Direccion {
 		this.numero = numero;
 	}
 
-	public Barrio getBarrio() {
-		// TODO Auto-generated method stub
+	
+	/*Relacion Barrio*/
+	public Barrio getBarrio() {		
 		return barrio;
 	}
 	public void setBarrio(Barrio barrio) {

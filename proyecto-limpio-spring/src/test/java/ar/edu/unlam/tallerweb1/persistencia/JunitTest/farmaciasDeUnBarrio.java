@@ -1,6 +1,5 @@
 package ar.edu.unlam.tallerweb1.persistencia.JunitTest;
 
-import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +26,13 @@ public class farmaciasDeUnBarrio extends SpringTest{
 		List <Farmacia> Farmacia = new ArrayList <Farmacia>();
 		Farmacia = getSession().createCriteria(Farmacia.class)
 				.createAlias("Direccion", "dir")
-				.createAlias("dir.Barrio", "barrio")
-				.add (Restrictions.eq("barrio.nombre","San Justo"))
+				.createAlias("dir.barrio", "barrio")
+				.add (Restrictions.eq("barrio.nombre","hurlingham"))
 				.list();
 				
 		
 		for(Farmacia f : Farmacia){
-			Assert.assertEquals(f.getDireccion().getBarrio().getNombre(),"San Justo");
+			Assert.assertEquals(f.getDireccion().getBarrio().getNombre(),"hurlingham");
 	}
 
  }

@@ -18,19 +18,13 @@ public class Farmacia {
 	private  String diaDeTurno;
 	
 	@OneToOne
-	private Direccion direccion;
+	private Direccion Direccion;
 	
 	@OneToOne
 	private Punto punto;
 	
 	public Farmacia(){
 		}
-	
-	/*public Farmacia(String nombre,String telefono, String diaDeTurno) {
-		this.nombre = nombre;
-		this.telefono = telefono;
-		this.diaDeTurno = diaDeTurno;
-	}*/
 	
 	public Long getId() {
 		return id;
@@ -58,17 +52,22 @@ public class Farmacia {
 		this.diaDeTurno = diaDeTurno;
 	}
 	
+	
+	/*Relacion Direccion*/
 	public Direccion getDireccion() {
-		return direccion;
+		return Direccion;
 	}
-	public void setDireccion(Direccion direccion) {
-		this.direccion = direccion;
+	public void setDireccion(Direccion Direccion) {
+		this.Direccion = Direccion;
 	}
 
+	/*Relacion Punto*/
 	public Punto getPunto() {
 		return punto;
 	}
 	public void setPunto(Punto punto) {
 		this.punto = punto;
 	}
+	
+	
 }
