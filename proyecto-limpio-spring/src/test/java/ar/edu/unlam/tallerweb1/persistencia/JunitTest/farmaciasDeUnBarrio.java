@@ -21,8 +21,7 @@ public class farmaciasDeUnBarrio extends SpringTest{
 	
 	public void farmaciasDeUnBarrio1()
 	{
-		
-		
+			
 		List <Farmacia> Farmacia = new ArrayList <Farmacia>();
 		Farmacia = getSession().createCriteria(Farmacia.class)
 				.createAlias("Direccion", "dir")

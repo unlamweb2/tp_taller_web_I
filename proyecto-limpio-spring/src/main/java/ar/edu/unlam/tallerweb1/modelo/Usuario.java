@@ -21,6 +21,13 @@ public class Usuario {
 	private String password;
 	private String rol;
 	
+	public Usuario(){};
+	public Usuario(String email,String password) {
+		this.email = email;
+		this.password = password;
+		this.rol="docente";
+	}
+	
 	public Long getId() {
 		return id;
 	}

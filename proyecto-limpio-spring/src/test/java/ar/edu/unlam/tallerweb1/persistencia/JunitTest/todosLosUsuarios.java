@@ -1,7 +1,5 @@
 package ar.edu.unlam.tallerweb1.persistencia.JunitTest;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +15,9 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public class todosLosUsuarios extends SpringTest{
 
-	@SuppressWarnings({ "unchecked", "static-access" })
+	@SuppressWarnings({ "unchecked" })
 	@Test
 	@Transactional @Rollback(true)
-	
 	
 	public void consultarTodosLosUsuarios()
 	{		
@@ -30,11 +27,8 @@ public class todosLosUsuarios extends SpringTest{
 				.add(Restrictions.eq("password", "diego"))
 				.list();
    	
-		
 		for(Usuario f : usuario){
-		Assert.assertEquals(f.getPassword(), "diego");
-		
+		Assert.assertEquals(f.getPassword(), "diego");	
 	}
-
 	}
 }

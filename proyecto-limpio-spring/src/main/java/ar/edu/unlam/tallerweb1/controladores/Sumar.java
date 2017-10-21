@@ -15,15 +15,14 @@ public class Sumar {
 		
 		if((operando1.matches("[0-9]*")) && (operando2.matches("[0-9]*"))&&("+".equals(suma)))
 		{
-			//int numEntero = Integer.parseInt(numCadena);
+			
 			int operando1Int = Integer.parseInt(operando1);
 			int operando2Int = Integer.parseInt(operando2);
 			int resultado =  operando1Int + operando2Int;
 			String mensaje = "El resultado de Sumar " + operando1 + " y " + operando2 + " da = " + resultado;
 			ModelMap model = new ModelMap();
-			model.put("op1", mensaje);
-			model.put("op2", mensaje);
-			model.put("operacion", mensaje);
+			
+			model.put("operacion", mensaje);//"operacion": lo que mostrara la vista, adentro tiene a mensaje.
 			return new ModelAndView("Resultado", model);	
 		}
 		else

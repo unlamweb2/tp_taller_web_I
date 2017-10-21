@@ -18,15 +18,10 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 	@SuppressWarnings("unused")
 	public class farmaciasDeTurnoDiaMartes extends SpringTest{
 
-
-		/*- Hacer con junit un test que busque todas las farmacias de turno los días martes.*/
-		
-		
-		
+	
 		@SuppressWarnings({ "unchecked" })
 		@Test
 		@Transactional @Rollback(true)
-		
 		
 		public void consultarFarmaciaDiaMartes()
 		{		
@@ -35,13 +30,10 @@ import ar.edu.unlam.tallerweb1.modelo.Farmacia;
 			Farmacia = getSession().createCriteria(Farmacia.class)
 					.add(Restrictions.eq("diaDeTurno", "martes"))
 					.list();
-	   	
-			
+	   		
 			for(Farmacia f : Farmacia){
 			Assert.assertEquals(f.getDiaDeTurno(), "martes");
 			
 		}
-
     }
-	
 }
