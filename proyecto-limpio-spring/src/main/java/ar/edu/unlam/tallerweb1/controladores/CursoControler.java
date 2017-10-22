@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Curso;
-import ar.edu.unlam.tallerweb1.servicios.ServicioCurso;
+import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
 
 
 

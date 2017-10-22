@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Docente;
 //import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import ar.edu.unlam.tallerweb1.servicios.ServicioDocente;
+import ar.edu.unlam.tallerweb1.servicios.Docente.ServicioDocente;
 //import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 
 @Controller
