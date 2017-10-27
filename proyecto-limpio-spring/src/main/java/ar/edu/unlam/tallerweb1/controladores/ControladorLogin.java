@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unlam.tallerweb1.modelo.Docente;
 import ar.edu.unlam.tallerweb1.modelo.Persona;
-import ar.edu.unlam.tallerweb1.servicios.Docente.ServicioDocente;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 
 
 @Controller
@@ -25,8 +25,8 @@ public class ControladorLogin {
 	// La anotacion @Inject indica a Spring que en este atributo se debe setear (inyeccion de dependencias)
 	// un objeto de una clase que implemente la interface ServicioLogin, dicha clase debe estar anotada como
 	// @Service o @Repository y debe estar en un paquete de los indicados en applicationContext.xml
-	@Inject
-	private ServicioDocente servicioDocente;
+	 @Inject
+		private ServicioLogin servicioLogin;
 
 	// Este metodo escucha la URL localhost:8080/NOMBRE_APP/login si la misma es invocada por metodo http GET
 	@RequestMapping("/login")
@@ -35,8 +35,8 @@ public class ControladorLogin {
 		ModelMap modelo = new ModelMap();
 		// Se agrega al modelo un objeto del tipo Usuario con key 'usuario' para que el mismo sea asociado
 		// al model attribute del form que esta definido en la vista 'login'
-		Docente docente = new Docente();
-		modelo.put("docente", docente);
+		Usuario usuario = new Usuario();
+		modelo.put("usuario", usuario);
 		// Se va a la vista login (el nombre completo de la lista se resuelve utilizando el view resolver definido en el archivo spring-servlet.xml)
 		// y se envian los datos a la misma  dentro del modelo
 		return new ModelAndView("login", modelo);
@@ -46,21 +46,24 @@ public class ControladorLogin {
 	// El método recibe un objeto Usuario el que tiene los datos ingresados en el form correspondiente y se corresponde con el modelAttribute definido en el
 	// tag form:form
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("docente") Docente docente, HttpServletRequest request) {
+	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();
 		
 		// invoca el metodo consultarUsuario del servicio y hace un redirect a la URL /home, esto es, en lugar de enviar a una vista
 		// hace una llamada a otro action a través de la URL correspondiente a ésta
-		Docente docenteBuscado = servicioDocente.consultarDocente(docente);
-		if (docenteBuscado != null) {
+		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
+		if (usuarioBuscado != null) {
 			//request.getSession().setAttribute("ROL", docenteBuscado.getRol());//???
 			//Docente rolDocente = servicioDocente.consultarRol(docente);//no le manda el rol por modelatributte
 			
-			if(("docente".equals(docenteBuscado.getRol())))// no entraaa
+			if(("docente".equals(usuarioBuscado.getRol())))
 			{
 				return new ModelAndView("redirect:/homeDocente");}
 			else{
-				return new ModelAndView("redirect:/home");}
+				if(("alumno".equals(usuarioBuscado.getRol())))
+				return new ModelAndView("redirect:/homeAlumno");
+				return new ModelAndView("redirect:/home");
+			}
 			
 		} else {
 			// si el usuario no existe agrega un mensaje de error en el modelo.
@@ -78,6 +81,11 @@ public class ControladorLogin {
 	@RequestMapping(path = "/homeDocente", method = RequestMethod.GET)
 	public ModelAndView irAHomeDocente() {
 		return new ModelAndView("homeDocente");
+	}
+	
+	@RequestMapping(path = "/homeAlumno", method = RequestMethod.GET)
+	public ModelAndView irAHomeAlumno() {
+		return new ModelAndView("homeAlumno");
 	}
 
 
