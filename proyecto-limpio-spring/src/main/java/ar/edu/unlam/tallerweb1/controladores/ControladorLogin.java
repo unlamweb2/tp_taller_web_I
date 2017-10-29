@@ -61,7 +61,8 @@ public class ControladorLogin {
 				return new ModelAndView("redirect:/homeDocente");}
 			else{
 				if(("alumno".equals(usuarioBuscado.getRol())))
-				return new ModelAndView("redirect:/homeAlumno");
+					{model.put("usuario", usuarioBuscado);
+				return new ModelAndView("homeAlumno", model);}
 				return new ModelAndView("redirect:/home");
 			}
 			
@@ -83,10 +84,13 @@ public class ControladorLogin {
 		return new ModelAndView("homeDocente");
 	}
 	
-	@RequestMapping(path = "/homeAlumno", method = RequestMethod.GET)
-	public ModelAndView irAHomeAlumno() {
-		return new ModelAndView("homeAlumno");
-	}
+	/*@RequestMapping(path = "/homeAlumno/{usuario}", method = RequestMethod.GET)
+	public ModelAndView irAHomeAlumno(@PathVariable("usuario") Usuario usuario) {
+		ModelMap model = new ModelMap();
+		model.put("usuario", usuario.getId());
+		model.put("usuario", usuario.getEmail());
+		return new ModelAndView("homeAlumno", model);
+	}*/
 
 
 	// Escucha la url /, y redirige a la URL /login, es lo mismo que si se invoca la url /login directamente.
