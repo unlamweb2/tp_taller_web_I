@@ -11,6 +11,25 @@ pageEncoding="UTF-8"%>
 <c:forEach items= "${ListadoPreguntas}" var="pregunta" >
 
 <div>${pregunta.descripcion}</div>
+
+<div class="myDiv">
+    <div class="divClass">
+           <input type="checkbox" name="someData" value="0" id="id1">
+        <label for="id1">${pregunta.rtaCorrecta}</label>
+    </div>
+    <div class="divClass">
+        <input type="checkbox" name="someData" value="1" id="id2">
+        <label for="id2">${pregunta.rtaIncorrecta1}</label>
+    </div>
+    <div class="divClass">
+        <input type="checkbox" name="someData" value="2" id="id3">
+            <label for="id3">${pregunta.rtaIncorrecta2}</label>
+    </div>
+    </br>
+</div>
+
+
+
 </c:forEach> 
 <br/>
 </body>
