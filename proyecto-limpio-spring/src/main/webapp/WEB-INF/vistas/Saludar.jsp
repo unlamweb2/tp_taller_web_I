@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HOLA PROFE</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>HOLA PROFESOR</h1>
+<h3>Prueba</h3>
+${msg}
 </body>
 </html>
