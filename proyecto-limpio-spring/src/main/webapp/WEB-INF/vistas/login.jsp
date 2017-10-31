@@ -55,7 +55,7 @@
 					<br>
 					<button class="btn btn-lg btn-primary btn-block" Type="Submit">Login</button>
 				</form:form>
-
+				</br><div><a href="ingresarAlumno"  class="btn btn-lg btn-danger btn-block" role="button">Registrarse</a></div>			
 				<%--Bloque que es visible si el elemento error no está vacío	--%>
 				<c:if test="${not empty error}">
 			        <h4><span>${error}</span></h4>
