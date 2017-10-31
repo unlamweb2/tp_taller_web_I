@@ -5,8 +5,37 @@
 	<head>
 	<!-- Bootstrap core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    
+	   
+	    
+	<!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="css/estilos.css" rel="stylesheet">
+	    
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <link href="js/bootstrap.min.js" rel="stylesheet" >
+	    <link href="js/jquery-1.11.3.min.js" rel="stylesheet" >
+	    
+	      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  			
+  			
+  			<!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	    <!-- Bootstrap theme -->
+	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="css/estilos.css" rel="stylesheet">
+	    
+	     <style>
+    h4 { color: red; }
+    h1 { color: black; }
+  		</style>
+  		
 	</head>
 	<body>
 		<div class = "container">
@@ -15,13 +44,15 @@
 				<%--debe referenciar con el nombre usuario, spring mapea los elementos de la vista con los atributos de dicho objeto--%>
 					<%--para eso debe coincidir el valor del elemento path de cada input con el nombre de un atributo del objeto --%>
 				<form:form action="validar-login" method="POST" modelAttribute="usuario">
-			    	<h3 class="form-signin-heading">Taller Web I</h3>
+			    	<h1 class="page-header text-center titulo">COLMENA</h1>
 					<hr class="colorgraph"><br>
 
 					<%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
 					<form:input path="email" id="email" type="email"  class="form-control" />
+					<br>
 					<form:input path="password" type="password" id="password" class="form-control"/>     		  
-					
+					<br>
+					<br>
 					<button class="btn btn-lg btn-primary btn-block" Type="Submit">Login</button>
 				</form:form>
 
