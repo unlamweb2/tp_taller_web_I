@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>HOLA ${alumno.nombre}</h1>
+<h1>HOLA ${usuario.nombre}</h1>
 
 <div><a href="rendirExamen"  class="btn btn-danger btn-sm active" role="button">Rendir examen</a></div>
 </body>
