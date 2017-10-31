@@ -61,7 +61,7 @@ public class ControladorLogin {
 				return new ModelAndView("redirect:/homeDocente");}
 			else{
 				if(("alumno".equals(usuarioBuscado.getRol())))
-					{model.put("usuario", usuarioBuscado);
+					{model.put("alumno", usuarioBuscado);
 				return new ModelAndView("homeAlumno", model);}
 				return new ModelAndView("redirect:/home");
 			}
