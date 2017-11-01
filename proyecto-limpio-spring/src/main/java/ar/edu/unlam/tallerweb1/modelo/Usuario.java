@@ -1,9 +1,16 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
@@ -23,6 +30,11 @@ public class Usuario {
 	private String password;
 	private String rol;
 	
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinColumn (name="idCurso")
+	// @JoinTable(name="UsuarioCurso", joinColumns={@JoinColumn(name="IdUsuario")})
+	private Set<Curso> cursos=new HashSet();
+	
 	public Usuario(){};
 	/*public Usuario(String email,String password) {
 		this.email = email;
@@ -33,6 +45,7 @@ public class Usuario {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -68,4 +81,11 @@ public class Usuario {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+	public Set<Curso> getCursos() {
+		return cursos;
+	}
+	public void setCursos(Set<Curso> cursos) {
+		this.cursos = cursos;
+	}
+	
 }

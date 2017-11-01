@@ -1,29 +1,31 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Curso {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long idCurso;
 	private String nombre;
-	private long docenteId;
-	private long alumnoID;
 	private long examenId;
 	
+	/*@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinColumn (name="idUsuario")
+	private Set<Usuario> usuarios=new HashSet();*/
 	
 	//public Curso(){}
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -37,18 +39,21 @@ public class Curso {
 	public void setExamenId(long examenId) {
 		this.examenId = examenId;
 	}
-	public long getDocenteId() {
-		return docenteId;
+	public long getIdCurso() {
+		return idCurso;
 	}
-	public void setDocenteId(long docenteId) {
-		this.docenteId = docenteId;
+	public void setIdCurso(long idCurso) {
+		this.idCurso = idCurso;
 	}
-	public long getAlumnoID() {
-		return alumnoID;
+	/*public Set<Usuario> getUsuarios() {
+		return usuarios;
 	}
-	public void setAlumnoID(long alumnoID) {
-		this.alumnoID = alumnoID;
-	}
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}*/
+	
+	
+	
 
 	
 
