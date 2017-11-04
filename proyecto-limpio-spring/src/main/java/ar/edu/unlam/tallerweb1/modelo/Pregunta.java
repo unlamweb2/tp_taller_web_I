@@ -12,6 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Pregunta {
 	
@@ -20,8 +24,12 @@ public class Pregunta {
 	private Long id;	
 	private String nombre;
 	
-	@OneToMany (fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	@JoinColumn (name="idPregunta")
+//	@OneToMany (cascade=CascadeType.ALL)
+//	@JoinColumn (name="idPregunta")	
+	
+	@OneToMany(fetch=FetchType.EAGER)
+	@JoinColumn (name="idPregunta")	
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Respuesta> respuestas; 
 	
 	

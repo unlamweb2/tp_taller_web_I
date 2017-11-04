@@ -23,7 +23,7 @@ public class Examen {
 	private String tipo;
 	
 	
-	@OneToMany (fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idExamen")
 	private List<Pregunta> preguntas;
 	
