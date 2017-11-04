@@ -27,7 +27,7 @@ public class Pregunta {
 //	@OneToMany (cascade=CascadeType.ALL)
 //	@JoinColumn (name="idPregunta")	
 	
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idPregunta")	
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Respuesta> respuestas; 
