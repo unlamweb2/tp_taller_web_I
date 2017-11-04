@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class TestExamen extends SpringTest{
+/*public class TestExamen extends SpringTest{
       
     Examen examen;
 	Pregunta pregunta;
@@ -126,5 +126,5 @@ public class TestExamen extends SpringTest{
     
    
     
-}
+}*/
     

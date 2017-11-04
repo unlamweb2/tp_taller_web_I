@@ -1,9 +1,11 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,15 +13,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
 // busque entities en él
-@Entity
-public class Usuario {
+@Entity 
+@Table(name="Usuario")
+
+public class Usuario implements Serializable{
 
 	// La anotacion id indica que este atributo es el utilizado como clave primaria de la entity, se indica que el valor es autogenerado.
 	@Id
+	@Column(name="Id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	// para el resto de los atributo no se usan anotaciones entonces se usa el default de hibernate: la columna se llama igual que
@@ -30,17 +36,18 @@ public class Usuario {
 	private String password;
 	private String rol;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
-	@JoinColumn (name="idCurso")
-	// @JoinTable(name="UsuarioCurso", joinColumns={@JoinColumn(name="IdUsuario")})
-	private Set<Curso> cursos=new HashSet();
+	/*@ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="UsuarioCurso")
+    private Set<Curso> cursos=new HashSet<Curso>();*/
+	 @ManyToMany
+	    Set<Curso> cursos;
 	
 	public Usuario(){};
-	/*public Usuario(String email,String password) {
+	public Usuario(String email,String password, String rol) {
 		this.email = email;
 		this.password = password;
-		this.rol="docente";
-	}*/
+		this.rol= rol;
+	}
 	
 	public Long getId() {
 		return id;
