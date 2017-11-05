@@ -37,27 +37,10 @@
   		</style>
   		
 	</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>El resultado del parcial realizado es:</title>
+</head>
 <body>
 
-<h1 class="page-header text-center titulo">${Examen.nombre}</h1>
-<form:form action="corregir-examen.html" method="POST" modelAttribute="Examen">
-<c:forEach items= "${Examen.preguntas}" var="pregunta" >
-
-<div>${pregunta.nombre}</div>
-
-	<c:forEach items= "${pregunta.respuestas}" var="respuesta" >
-				
-		<div class="divClass">
-          <input type="checkbox" name="Respuesta" value="${pregunta.respuestas}" id="${pregunta.id}">
-        <label for="id1">${respuesta.nombre}</label>
-   </div>
-    
-</c:forEach> 
-
- 
-</c:forEach> 
-<input type="submit" value="Enviar"/>
-</form:form>
-<br/>
 </body>
 </html>
