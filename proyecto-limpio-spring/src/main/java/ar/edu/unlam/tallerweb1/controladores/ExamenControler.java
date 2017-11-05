@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,9 +10,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 import ar.edu.unlam.tallerweb1.servicios.ServicioExamen;;
 
 @Controller
@@ -24,23 +28,24 @@ public class ExamenControler {
 		
 		Examen examen = new Examen();	
 		ModelMap model= new ModelMap();					
-		
 		//pido el examen con ID 1
 		examen= GetExamen.cargarExamen((long)1);
 		model.put("Examen", examen);
-		return new ModelAndView("homeExamen",model);	
-		
-	}
-
-		
-	
-@RequestMapping(path = "/corregir-examen", method = RequestMethod.POST)
-public ModelAndView corregirExamen(@ModelAttribute("Examen") Examen examen, HttpServletRequest request) {
-		ModelMap model = new ModelMap();
-				
-		//model.put("Examen", examen.getNombre());		
-		return new ModelAndView("Resultado", model);//como no existe te manda de vuelta al login
+		return new ModelAndView("homeExamen",model);		
 	}
 	
-	
+	/*@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
+	public ModelAndView validarLogin(@ModelAttribute("Respuesta") ArrayList<Respuesta> respuesta, HttpServletRequest request)
+	{
+		 ModelMap model = new ModelMap();
+		model.put("Respuesta", respuesta);
+		return new ModelAndView("Resultado", model);
+	}*/
+	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
+	public ModelAndView validarLogin(@RequestParam("RespuestadelExamen")String[] checkboxValue)
+	{
+		 ModelMap model = new ModelMap();
+		model.put("Respuesta", checkboxValue);
+		return new ModelAndView("Resultado", model);
+	}
 }

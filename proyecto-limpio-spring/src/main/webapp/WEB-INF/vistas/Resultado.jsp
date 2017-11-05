@@ -38,9 +38,13 @@
   		
 	</head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>El resultado del parcial realizado es:</title>
+<title>Insert title here</title>
 </head>
 <body>
+<h1>Aprobado, Genio!!!</h1>
 
+<c:forEach items="${Respuesta}" var="respuestas" >
+${respuestas}
+</c:forEach> 
 </body>
 </html>
