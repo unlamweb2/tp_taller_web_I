@@ -40,9 +40,10 @@
 </head>
 <body>
 
-<h1 class="page-header text-center titulo">${Examen.nombre}</h1>
+<h1 class="page-header text-center titulo">${Examen.nombre} </h1>
 <form:form action="corregir-examen" method="POST" >
-<input type="hidden" name="id" value="${Examen.id}"/>
+<input type="hidden" name="IdExamen" value="${Examen.id}"/>
+
 <c:forEach items= "${Examen.preguntas}" var="pregunta" >
 
 <div>${pregunta.nombre}</div>

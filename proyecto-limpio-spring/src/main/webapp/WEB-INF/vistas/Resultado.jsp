@@ -44,8 +44,8 @@
 <h1>Aprobado, Genio!!!</h1>
 
 <c:forEach items="${Respuesta}" var="respuestas" >
-${respuestas.nombre}
+${respuestas}
 </c:forEach></br>
-${respuestas.id} 
+${Examen} 
 </body>
 </html>
