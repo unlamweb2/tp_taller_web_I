@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.ExamenDao;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
 @Service("ServicioExamen")
 @Transactional
@@ -26,7 +27,11 @@ public class ServicioExamenImpl implements ServicioExamen{
 	public Examen cargarExamen(long Idexamen){
 		return examendao.cargarExamen(Idexamen);
 	}
-	
+
+	@Transactional
+	public ArrayList<Respuesta> corregirRta(String[] rta){
+		return examendao.corregirRta(rta);
+	}
 }
 
 

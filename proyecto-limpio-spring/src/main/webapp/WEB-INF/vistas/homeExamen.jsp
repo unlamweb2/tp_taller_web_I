@@ -42,6 +42,7 @@
 
 <h1 class="page-header text-center titulo">${Examen.nombre}</h1>
 <form:form action="corregir-examen" method="POST" >
+<input type="hidden" name="id" value="${Examen.id}"/>
 <c:forEach items= "${Examen.preguntas}" var="pregunta" >
 
 <div>${pregunta.nombre}</div>
@@ -50,7 +51,7 @@
 				
 		<div class="divClass">
 		
-          <input type="checkbox" name="RespuestadelExamen" value="${respuesta.nombre}" id="Id-rta-alumno">
+          <input type="checkbox" name="RespuestadelExamen" value="${respuesta.nombre}" id="Id-rta-alumno" >
         <label for="id1">${respuesta.nombre}</label>
    </div>
     

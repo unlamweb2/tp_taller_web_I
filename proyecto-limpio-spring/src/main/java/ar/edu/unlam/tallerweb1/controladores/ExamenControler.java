@@ -42,10 +42,13 @@ public class ExamenControler {
 		return new ModelAndView("Resultado", model);
 	}*/
 	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
-	public ModelAndView validarLogin(@RequestParam("RespuestadelExamen")String[] checkboxValue)
+	public ModelAndView validarLogin(String[] checkboxValue,long id)
 	{
+		ArrayList<Respuesta> rta = new ArrayList<Respuesta>();
 		 ModelMap model = new ModelMap();
+		// rta = GetExamen.corregirRta(checkboxValue);
 		model.put("Respuesta", checkboxValue);
+		model.put("Respuesta", id);
 		return new ModelAndView("Resultado", model);
 	}
 }

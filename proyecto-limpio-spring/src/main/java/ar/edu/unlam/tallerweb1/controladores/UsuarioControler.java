@@ -1,16 +1,21 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Curso;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
 import ar.edu.unlam.tallerweb1.servicios.Usuario.ServicioUsuario;
 
 
@@ -55,6 +60,18 @@ public class UsuarioControler {
 	alumno.setRol("alumno");
 	registrarDocente.grabarUsuario(alumno);
 	return new ModelAndView("homeAlumno",model);	
+	}
+	
+	@Inject
+	private ServicioCurso BuscarCursos;
+	@RequestMapping(value="/verCursos/{idCurso}", method = RequestMethod.GET)
+	public ModelAndView verCursos(@PathVariable(value="idCurso")long idCurso)
+	{
+	ModelMap model= new ModelMap();	
+	ArrayList<Curso>cursos = new ArrayList<Curso>();
+	cursos = BuscarCursos.consultarTodosLosCursos(idCurso);
+	model.put("CursosdelAlumno", cursos);
+	return new ModelAndView("cursosAlumno",model);	
 	}
 	
 	

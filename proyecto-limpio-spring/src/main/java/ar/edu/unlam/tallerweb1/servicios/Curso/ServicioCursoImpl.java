@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios.Curso;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -19,6 +21,11 @@ public class ServicioCursoImpl implements ServicioCurso{
 	@Transactional
 	public void grabarCurso(Curso curso){
 		cursoDao.grabarCurso(curso);
+	}
+	
+	@Transactional
+	public ArrayList<Curso> consultarTodosLosCursos(Long id){
+		return cursoDao.consultarTodosLosCursos(id);
 	}
 	
 }
