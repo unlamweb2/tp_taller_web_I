@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.dao;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Pregunta;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -40,6 +42,23 @@ public class ExamenDaoImpl implements ExamenDao {
 		return ex;
 		
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override	
+	 public ArrayList<Pregunta>  cargarPreguntaPorExamen(long Idexamen){
+		
+		@SuppressWarnings("unused")	
+		ArrayList <Pregunta> pr;
+		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		pr= (ArrayList<Pregunta>) session.createCriteria(Pregunta.class)
+				.add (Restrictions.eq("examen.id",Idexamen))
+    			.list();				
+		
+		return pr;	 
+		 
+	 }
 	
 	
 }

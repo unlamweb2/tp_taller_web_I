@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.ExamenDao;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 
 @Service("ServicioExamen")
 @Transactional
@@ -25,6 +26,10 @@ public class ServicioExamenImpl implements ServicioExamen{
 	@Transactional
 	public Examen cargarExamen(long Idexamen){
 		return examendao.cargarExamen(Idexamen);
+	}
+	
+	public ArrayList<Pregunta> cargarPreguntaPorExamen(long Idexamen){
+		return examendao.cargarPreguntaPorExamen(Idexamen);		
 	}
 	
 }
