@@ -35,6 +35,7 @@ public class PreguntasController{
 		model.put("pregunta", Pregunta);
 		crearPregunta.grabarPregunta(Pregunta);
 		return new ModelAndView("PreguntaExito", model);		
+	
 		
 	}
 }

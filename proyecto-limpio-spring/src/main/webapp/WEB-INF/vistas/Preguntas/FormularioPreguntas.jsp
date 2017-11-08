@@ -16,6 +16,7 @@
 
 	<form:label path="nombre">Por favor, ingrese la pregunta</form:label>
 	<form:input path="nombre"/><br><br>
+	
 		
 	
 	
