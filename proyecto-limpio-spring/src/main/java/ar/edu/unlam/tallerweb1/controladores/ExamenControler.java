@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 import ar.edu.unlam.tallerweb1.servicios.ServicioExamen;;
 
@@ -34,14 +36,7 @@ public class ExamenControler {
 		return new ModelAndView("homeExamen",model);		
 	}
 	
-	/*@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("Respuesta") ArrayList<Respuesta> respuesta, HttpServletRequest request)
-	{
-		 ModelMap model = new ModelMap();
-		model.put("Respuesta", respuesta);
-		return new ModelAndView("Resultado", model);
-	}*/
-	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
+	@RequestMapping(path ="/corregir-examen22", method=RequestMethod.POST)
 	public ModelAndView validarLogin(String[] checkboxValue,long id)
 	{
 		ArrayList<Respuesta> rta = new ArrayList<Respuesta>();
@@ -49,6 +44,47 @@ public class ExamenControler {
 		// rta = GetExamen.corregirRta(checkboxValue);
 		model.put("Respuesta", checkboxValue);
 		model.put("Respuesta", id);
+		return new ModelAndView("Resultado", model);
+	}
+	
+		
+	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
+	public ModelAndView validarLogin(@RequestParam("RespuestadelExamen")long[] checkboxValue, @RequestParam("IdExamen")Long idExamen)
+	{		
+		 ModelMap model = new ModelMap();
+		 int aciertos=0; 
+		 
+				 
+		 ArrayList <Pregunta>  pregunta;
+		 List<Respuesta>  respuesta;
+		 
+		 pregunta= GetExamen.cargarPreguntaPorExamen(idExamen);
+				
+			for (int i=0; i< pregunta.size();i++){
+				
+				respuesta = pregunta.get(i).getRespuestas();
+												
+				for (int j=0; j< respuesta.size();j++){
+					
+					for (int z=0; z< checkboxValue.length;z++){
+						
+						if (respuesta.get(j).getId()==(long) checkboxValue[z] ){
+							
+							if (respuesta.get(j).getCorrecta()){
+								aciertos++;
+							}								
+						}							
+					}					
+				
+			}
+			
+			}
+						
+									
+			model.put("Respuesta",aciertos);
+			 
+			 
+		
 		return new ModelAndView("Resultado", model);
 	}
 }

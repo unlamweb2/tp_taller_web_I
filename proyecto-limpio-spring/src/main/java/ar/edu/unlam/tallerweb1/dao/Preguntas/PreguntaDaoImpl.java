@@ -25,6 +25,7 @@ public class PreguntaDaoImpl implements PreguntaDao{
 	public void grabarPregunta(Pregunta Pregunta){	
 		Session s = sessionFactory.openSession();
 		s.save(Pregunta);		
+		
 	}
 
 }
