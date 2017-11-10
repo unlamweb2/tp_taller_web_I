@@ -21,7 +21,6 @@ public class ServicioPreguntaImpl implements ServicioPregunta{
 	@Transactional
 	public void grabarPregunta(Pregunta Pregunta){
 		PreguntaDao.grabarPregunta(Pregunta);
-		
 	}
 	
 			

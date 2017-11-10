@@ -9,7 +9,9 @@
 </head>
 <body>
 <c:forEach items= "${CursosdelAlumno}" var="cursos" >
-${cursos.nombre}
+
+<div>${cursos.nombre}</div></br>
 </c:forEach>
+
 </body>
 </html>

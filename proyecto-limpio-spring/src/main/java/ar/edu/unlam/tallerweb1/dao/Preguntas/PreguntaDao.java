@@ -9,5 +9,4 @@ public interface PreguntaDao {
 	
 	public void grabarPregunta(Pregunta Pregunta);	
 
-	
 }

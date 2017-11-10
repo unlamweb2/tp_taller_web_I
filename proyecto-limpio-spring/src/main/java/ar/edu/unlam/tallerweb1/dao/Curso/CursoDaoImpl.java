@@ -34,8 +34,8 @@ public class CursoDaoImpl implements CursoDao{
 		
 		
 		return (ArrayList<Curso>) session.createCriteria(Curso.class)
-				.createAlias("usuarios", "miUsuario")//usuarios viene de 
-				.add(Restrictions.eq("miUsuario.id", id))
+				.createAlias("Usuario", "miUsuario")
+				.add(Restrictions.eq("miUsuario", id))
 				.list();
 }
 }

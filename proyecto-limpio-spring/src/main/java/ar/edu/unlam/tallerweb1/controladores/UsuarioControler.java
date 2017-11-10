@@ -64,7 +64,7 @@ public class UsuarioControler {
 	
 	@Inject
 	private ServicioCurso BuscarCursos;
-	@RequestMapping(value="/verCursos/{idCurso}")
+	@RequestMapping(value="/verCursos/{idCurso}", method = RequestMethod.GET)
 	public ModelAndView verCursos(@PathVariable(value="idCurso")long idCurso)
 	{
 	ModelMap model= new ModelMap();	
