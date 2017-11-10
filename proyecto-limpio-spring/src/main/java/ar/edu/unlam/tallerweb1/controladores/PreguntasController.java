@@ -22,7 +22,7 @@ public class PreguntasController{
 		ModelMap model = new ModelMap();
 		Pregunta Pregunta = new Pregunta();
 		model.put("Pregunta", Pregunta);
-		return new ModelAndView("FormularioPreguntas", model);		
+		return new ModelAndView("Preguntas/FormularioPreguntas", model);		
 	}
 	
 	@Inject
@@ -35,6 +35,7 @@ public class PreguntasController{
 		model.put("pregunta", Pregunta);
 		crearPregunta.grabarPregunta(Pregunta);
 		return new ModelAndView("PreguntaExito", model);		
+	
 		
 	}
 }

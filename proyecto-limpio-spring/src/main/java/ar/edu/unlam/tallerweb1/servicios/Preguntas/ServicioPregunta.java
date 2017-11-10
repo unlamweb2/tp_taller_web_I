@@ -7,4 +7,5 @@ public interface ServicioPregunta {
 
 	public void grabarPregunta(Pregunta Pregunta);
 	
+	
 }

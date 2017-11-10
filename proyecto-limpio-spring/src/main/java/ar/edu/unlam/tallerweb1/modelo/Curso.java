@@ -23,9 +23,6 @@ public class Curso implements Serializable{
 	private long id;
 	private String nombre;
 	
-	/*@ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
-    private Set<Usuario> usuario=new HashSet<Usuario>();*/
-	
 	
 	 @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
 	 Set<Usuario> usuarios;
@@ -39,19 +36,12 @@ public class Curso implements Serializable{
 		this.nombre = nombre;
 	}
 	
-	
 	public long getId() {
 		return id;
 	}
 	public void setI(long idCurso) {
 		this.id = idCurso;
 	}
-	/*public Set<Usuario> getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(Set<Usuario> usuario) {
-		this.usuario = usuario;
-	}*/
 	
 	public Set<Usuario> getUsuarios() {
 		return usuarios;

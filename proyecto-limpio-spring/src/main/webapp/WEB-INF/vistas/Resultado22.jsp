@@ -1,10 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
-<head>
- <link href="css/bootstrap.min.css" rel="stylesheet" >
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<head>
 	<!-- Bootstrap core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,14 +30,22 @@
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="css/estilos.css" rel="stylesheet">
+	    
+	     <style>
+    h4 { color: red; }
+    h1 { color: black; }
+  		</style>
+  		
+	</head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Hola ${usuario.nombre}</h1><br>
+<h1>Aprobado, Genio!!!</h1>
 
-<div><a href="verCursos/${usuario.id}"  class="btn btn-primary btn-sm active" role="button">Ver Cursos</a></div>
-
-<div><a href="rendirExamen22"  class="btn btn-danger btn-sm active" role="button">Rendir examen ENSAYO</a></div>
-
-</br></br><div><a href="rendirExamen"  class="btn btn-danger btn-sm active" role="button">Rendir examen</a></div>
+<c:forEach items="${Respuesta}" var="respuestas" >
+${respuestas}
+</c:forEach></br>
+${Examen} 
 </body>
 </html>
