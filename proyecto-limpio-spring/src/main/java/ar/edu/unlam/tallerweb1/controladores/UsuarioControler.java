@@ -62,17 +62,17 @@ public class UsuarioControler {
 	return new ModelAndView("homeAlumno",model);	
 	}
 	
-	@Inject
+	/*@Inject
 	private ServicioCurso BuscarCursos;
-	@RequestMapping(value="/verCursos/{idCurso}")
-	public ModelAndView verCursos(@PathVariable(value="idCurso")long idCurso)
+	@RequestMapping(value="/verCursos/{idUsuario}")
+	public ModelAndView verCursos(@PathVariable(value="idUsuario")long idUsuario)
 	{
 	ModelMap model= new ModelMap();	
 	ArrayList<Curso>cursos = new ArrayList<Curso>();
-	cursos = BuscarCursos.consultarTodosLosCursos(idCurso);
+	cursos = BuscarCursos.consultarTodosLosCursos(idUsuario);
 	model.put("CursosdelAlumno", cursos);
 	return new ModelAndView("cursosAlumno",model);	
-	}
+	}*/
 	
 	
 }

@@ -6,4 +6,5 @@ public interface UsuarioDao {
 	
 	Usuario consultarUsuario (Usuario usuario);
 	public void grabarUsuario(Usuario usuario);
+	//public ArrayList<Curso> consultarCursosAlumno(Long id);
 }

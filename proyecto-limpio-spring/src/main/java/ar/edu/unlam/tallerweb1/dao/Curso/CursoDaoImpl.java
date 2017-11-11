@@ -38,4 +38,6 @@ public class CursoDaoImpl implements CursoDao{
 				.add(Restrictions.eq("miUsuario.id", id))
 				.list();
 }
+	
+	
 }
