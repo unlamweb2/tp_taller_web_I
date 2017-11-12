@@ -22,8 +22,9 @@ public class PreguntasController{
 		ModelMap model = new ModelMap();
 		Pregunta Pregunta = new Pregunta();
 		model.put("Pregunta", Pregunta);
-		return new ModelAndView("Preguntas/FormularioPreguntas", model);		
+		return new ModelAndView("FormularioPreguntas", model);		
 	}
+	
 	
 	@Inject
 	private ServicioPregunta crearPregunta;

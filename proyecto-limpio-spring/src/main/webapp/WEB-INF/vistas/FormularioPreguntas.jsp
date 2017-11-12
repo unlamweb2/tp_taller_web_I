@@ -33,35 +33,26 @@
 	    
 	     <style>
     h6 { color: grey; }
-    h4 { color: white; }
-    h2 {color: white; }
-    h3 {color: black; }
+    h2 {color: black; }
     h1 { color: grey; }
   		</style>
   		
 	</head>
 <body>
+<h1>Ahora creemos las preguntas,y desaprobemos Alumnos</h1>
 
-<header class="panel-primary">
-<div class="container-fluid panel-heading">
-  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <h2>Profesor ${usuario.nombre} ${usuario.apellido}</h2></div>  <div class="col-md-1"><a href=""  class="btn btn-info btn-lg active" role="button">Salir</a></div>
-</div>
-</header>
+<form:form action="guardarPregunta.html" method="POST" modelAttribute="Pregunta">
 
-<br>
-<h3>Por favor elija la accion a realizar</h3>
-<br>
-<br>
-<br>
-<div><a href="cargarPreguntas" class="btn btn-danger btn-sm active" role="button">Cargar Preguntas</a></div>
-<br>
-<br>
-<div><a href="cargarRespuestas" class="btn btn-danger btn-sm active" role="button">Cargar Respuestas</a></div>
-<!-- Footer -->	     
+	<form:label path="idExamen">Pertenece al Examen </form:label>
+	<form:input path="idExamen"/>
 
-	                <div class="footer">
-	                    <center><p><h6>Copyright &copy; Proyecto Colmena 2018</h6></p></center>
-	                </div> 
-	</body>
-</html>
+	<form:label path="nombre">Por favor, ingrese la pregunta</form:label>
+	<form:input path="nombre"/><br><br>
+	
+		
+	
+	
+	<input type="submit" value="Guardar"/>
+</form:form>
+</body>
+</html> 

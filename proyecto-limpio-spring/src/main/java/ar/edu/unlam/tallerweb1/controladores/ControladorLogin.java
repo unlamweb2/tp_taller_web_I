@@ -44,16 +44,20 @@ public class ControladorLogin {
 		
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
-			//request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
+			
 			
 			if(("docente".equals(usuarioBuscado.getRol())))
 			{
-				return new ModelAndView("redirect:/homeDocente");}
+				ModelMap modelDocente = new ModelMap();
+				modelDocente.put("usuario", usuarioBuscado);
+			   
+				return new ModelAndView("homeDocente", modelDocente);}
 			
 			else{
 				
 				if(("alumno".equals(usuarioBuscado.getRol())))
-					{model.put("usuario", usuarioBuscado);
+					{
+					model.put("usuario", usuarioBuscado);
 					
 					ArrayList<Curso>cursos = new ArrayList<Curso>();
 					cursos = BuscarCursos.consultarTodosLosCursos(usuarioBuscado.getId());
