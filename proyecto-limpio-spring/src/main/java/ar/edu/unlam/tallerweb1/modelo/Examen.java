@@ -33,17 +33,17 @@ public class Examen {
 	
 	
 	public Examen() {
-		super();
+		//super();
 	}
 
 
-	public Examen(String nombre, String fecha, String tipo, List<Pregunta> preguntas) {
+	/*public Examen(String nombre, String fecha, String tipo, List<Pregunta> preguntas) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
 		this.tipo = tipo;
 		this.preguntas = preguntas;
-	}
+	}*/
 
 
 	public long getId() {

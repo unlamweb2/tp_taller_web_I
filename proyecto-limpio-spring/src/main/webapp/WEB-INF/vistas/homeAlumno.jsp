@@ -33,23 +33,34 @@
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="css/estilos.css" rel="stylesheet">
+	    
+	     <style>
+    h4 { color: white; }
+    h1 { color: white; }
+  		</style>
+  		
+	    
 </head>
 <body>
-<h1>Hola ${usuario.nombre}</h1><br>
 
-<!--<div><div><a href="verCursos/${usuario.id}"  class="btn btn-primary btn-sm active" role="button">Ver Cursos</a></div>-->
+<header class="panel-primary">
+<div class="container-fluid panel-heading">
+  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+   <div class="col-md-11"> <h4>${usuario.nombre} ${usuario.apellido}</h4></div>  <div class="col-md-1"><a href=""  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+</div>
 
-<!--<div><a href="rendirExamen22"  class="btn btn-danger btn-sm active" role="button">Rendir examen ENSAYO</a></div><br></br>-->
+</header>
+
 
 <div class="row">
   <div class="col-md-4"></div>
 <div class="col-md-4">
-
+<br></br>
 <table class="table table-hover">
 <tr class="danger"><th>Materias</th></tr>
 
 <c:forEach items= "${Materias}" var="cursos" >
-<tr ><td class="info"><a href="rendirExamen22/${cursos.id}">${cursos.nombre} </a>${cursos.id}</td></tr>
+<tr ><td class="info"><a href="rendirExamen22/${cursos.id}">${cursos.nombre} </a>COD: ${cursos.id}</td></tr>
 </c:forEach> </div>
 
  

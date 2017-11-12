@@ -14,7 +14,7 @@ public class Respuesta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
+	private long id;	
 	private String nombre;
 	private Boolean correcta;
 	
@@ -23,22 +23,22 @@ public class Respuesta {
 	private Pregunta pregunta;
 	
 	public Respuesta() {
-		super();
+		//super();
 	}
 	
-	public Respuesta(String nombre, Boolean correcta) {
+	/*public Respuesta(String nombre, Boolean correcta) {
 		super();
 		this.nombre = nombre;
 		this.correcta = correcta;
-	}
+	}*/
 		
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 	
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

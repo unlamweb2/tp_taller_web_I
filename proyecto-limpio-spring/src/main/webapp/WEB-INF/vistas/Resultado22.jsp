@@ -46,6 +46,6 @@
 <c:forEach items="${Respuesta}" var="respuestas" >
 ${respuestas}
 </c:forEach></br>
-${Examen} 
+<!-- ${Examen} -->
 </body>
 </html>

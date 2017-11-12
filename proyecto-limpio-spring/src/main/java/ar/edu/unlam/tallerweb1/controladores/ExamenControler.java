@@ -38,14 +38,14 @@ public class ExamenControler {
 		
 		Examen examen = new Examen();	
 		ModelMap model= new ModelMap();					
-		//pido el examen con ID 1
+		
 		examen= GetExamen.cargarExamen(idCurso);
 		model.put("Examen", examen);
 		return new ModelAndView("homeExamen22",model);		
 	}
 
 	@RequestMapping(path ="/corregir-examen22", method=RequestMethod.POST)
-	public ModelAndView validarLogin22(@RequestParam("RespuestadelExamen22")String[] checkboxValue22,@RequestParam("IdExamen22")long idExamen22)
+	public ModelAndView validarLogin22(@RequestParam("RespuestadelExamen22")String[] checkboxValue22, @RequestParam(value="IdExamen")long idExamen22)
 	{
 		//ArrayList<Respuesta> rta = new ArrayList<Respuesta>();
 		 ModelMap model = new ModelMap();

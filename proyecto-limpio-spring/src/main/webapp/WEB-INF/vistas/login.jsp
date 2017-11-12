@@ -38,19 +38,26 @@
   		
 	</head>
 	<body>
+	<header class="panel-primary">
+<div class="container-fluid panel-heading">
+  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+   
+</div>
+
+</header>
 		<div class = "container">
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 				<%--Definicion de un form asociado a la accion /validar-login por POST. Se indica ademas que el model attribute se--%>
 				<%--debe referenciar con el nombre usuario, spring mapea los elementos de la vista con los atributos de dicho objeto--%>
 					<%--para eso debe coincidir el valor del elemento path de cada input con el nombre de un atributo del objeto --%>
 				<form:form action="validar-login" method="POST" modelAttribute="usuario">
-			    	<h1 class="page-header text-center titulo">COLMENA</h1>
-					<hr class="colorgraph"><br>
+			    	
+					
 
 					<%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
-					<form:input path="email" id="email" type="email"  class="form-control" />
+					<form:input path="email" id="email" type="email"  placeholder="Mail" class="form-control" />
 					<br>
-					<form:input path="password" type="password" id="password" class="form-control"/>     		  
+					<form:input path="password" type="password" id="password" placeholder="Contraseña" class="form-control"/>     		  
 					<br>
 					<br>
 					<button class="btn btn-lg btn-primary btn-block" Type="Submit">Login</button>

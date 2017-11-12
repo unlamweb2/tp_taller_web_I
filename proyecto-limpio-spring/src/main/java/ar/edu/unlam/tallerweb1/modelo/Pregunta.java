@@ -21,7 +21,7 @@ public class Pregunta {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
+	private long id;	
 	private String nombre;
 	
 //	@OneToMany (cascade=CascadeType.ALL)
@@ -38,22 +38,22 @@ public class Pregunta {
 	private Examen examen;
 
 	public Pregunta() {
-		super();
+		//super();
 	}
 
-	public Pregunta(String nombre, List<Respuesta> respuestas) {
+	/*public Pregunta(String nombre, List<Respuesta> respuestas) {
 		super();
 		this.nombre = nombre;
 		this.respuestas = respuestas;	
-	}
+	}*/
 
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
