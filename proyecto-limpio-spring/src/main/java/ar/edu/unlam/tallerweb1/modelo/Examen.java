@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -17,10 +18,13 @@ public class Examen {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;	
+	private long id;	
 	private String nombre;
 	private String fecha;
 	private String tipo;
+	
+	@ManyToOne
+	private Curso curso;
 	
 	
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
@@ -42,12 +46,12 @@ public class Examen {
 	}
 
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -91,9 +95,12 @@ public class Examen {
 		this.preguntas = preguntas;
 	} 
 	
-	
-		
-	
-				
+	public Curso getCurso() {
+		return curso;
+	}
 
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+		
 }

@@ -54,10 +54,12 @@ public class ControladorLogin {
 				
 				if(("alumno".equals(usuarioBuscado.getRol())))
 					{model.put("usuario", usuarioBuscado);
+					
 					ArrayList<Curso>cursos = new ArrayList<Curso>();
 					cursos = BuscarCursos.consultarTodosLosCursos(usuarioBuscado.getId());
 					model.put("Materias", cursos);
-				return new ModelAndView("homeAlumno", model);}
+				
+					return new ModelAndView("homeAlumno", model);}
 				
 				
 				

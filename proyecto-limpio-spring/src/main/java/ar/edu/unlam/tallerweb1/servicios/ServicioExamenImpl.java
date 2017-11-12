@@ -19,10 +19,10 @@ public class ServicioExamenImpl implements ServicioExamen{
 	@Inject
 	private ExamenDao examendao;
 	
-	@Transactional
+	/*@Transactional
 	public ArrayList<Examen> cargarExamen(){
 		return examendao.cargarExamen();
-	}
+	}*/
 	
 	@Transactional
 	public Examen cargarExamen(long Idexamen){

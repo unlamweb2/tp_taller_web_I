@@ -3,11 +3,9 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,30 +33,31 @@ public class ExamenControler {
 		return new ModelAndView("homeExamen",model);		
 	}
 	
-	@RequestMapping("/rendirExamen22")
-	public ModelAndView rendir22() {
+	@RequestMapping("/rendirExamen22/{idCurso}")
+	public ModelAndView rendir22(@PathVariable("idCurso") long idCurso) {
 		
 		Examen examen = new Examen();	
 		ModelMap model= new ModelMap();					
 		//pido el examen con ID 1
-		examen= GetExamen.cargarExamen((long)1);
+		examen= GetExamen.cargarExamen(idCurso);
 		model.put("Examen", examen);
 		return new ModelAndView("homeExamen22",model);		
 	}
 
 	@RequestMapping(path ="/corregir-examen22", method=RequestMethod.POST)
-	public ModelAndView validarLogin(@RequestParam("RespuestadelExamen")String[] checkboxValue,@RequestParam("IdExamen")Long idExamen)
+	public ModelAndView validarLogin22(@RequestParam("RespuestadelExamen22")String[] checkboxValue22,@RequestParam("IdExamen22")long idExamen22)
 	{
 		//ArrayList<Respuesta> rta = new ArrayList<Respuesta>();
 		 ModelMap model = new ModelMap();
 		// rta = GetExamen.corregirRta(checkboxValue);
 		// 
-		model.put("Respuesta", checkboxValue);
-		model.put("Examen", idExamen);
+		model.put("Respuesta", checkboxValue22);
+		model.put("Examen", idExamen22);
 		return new ModelAndView("Resultado22", model);
 	}
+	
 	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
-	public ModelAndView validarLogin(@RequestParam("RespuestadelExamen")long[] checkboxValue, @RequestParam("IdExamen")Long idExamen)
+	public ModelAndView validarLogin( @RequestParam(value="IdExamen", required = false)long idExamen,@RequestParam("RespuestadelExamen")long[] checkboxValue)
 	{		
 		 ModelMap model = new ModelMap();
 		 int aciertos=0; 
@@ -98,3 +97,4 @@ public class ExamenControler {
 		return new ModelAndView("Resultado", model);
 	}
 }
+

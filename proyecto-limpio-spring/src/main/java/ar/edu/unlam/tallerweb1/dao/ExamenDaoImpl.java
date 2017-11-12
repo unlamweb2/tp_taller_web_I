@@ -16,7 +16,7 @@ public class ExamenDaoImpl implements ExamenDao {
 	@Inject
     private SessionFactory sessionFactory;
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Examen> cargarExamen() {
 
@@ -25,11 +25,11 @@ public class ExamenDaoImpl implements ExamenDao {
 		final Session session = sessionFactory.getCurrentSession();
 		return (ArrayList<Examen>) session.createCriteria(Examen.class)
 				.list();
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public Examen cargarExamen(long Idexamen){
+	public Examen cargarExamen(long idCurso){
 		
 		@SuppressWarnings("unused")	
 		Examen ex;
@@ -37,11 +37,14 @@ public class ExamenDaoImpl implements ExamenDao {
 		final Session session = sessionFactory.getCurrentSession();
 		
 		ex=  (Examen) session.createCriteria(Examen.class)
-				.add (Restrictions.eq("id",Idexamen))
+				.createAlias("curso", "miCurso")
+				.add (Restrictions.eq("miCurso.id",idCurso))
     			.uniqueResult();				
-		
 		return ex;
-		
+		/*return (ArrayList<Curso>) session.createCriteria(Curso.class)
+				.createAlias("usuarios", "miUsuario")
+				.add(Restrictions.eq("miUsuario.id", id))
+				.list();*/
 	}
 	
 	@SuppressWarnings("unchecked")

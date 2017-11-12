@@ -35,26 +35,14 @@
     h4 { color: red; }
     h1 { color: black; }
   		</style>
-  	<script type="text/javascript">
- function Cambia_streamcloud(txek){   
-   if(txek.id){
-   if(txek.checked){
-     document.formu.streamcloud.value="ENLACE";
-   }else{
-    document.formu.streamcloud.value="";
-    }
-  }else{
-    document.formu.streamcloud.value="";
-  }
-  } 
-</script>	
-	</head>
 </head>
 <body>
 
-<h1 class="page-header text-center titulo">${Examen.nombre} </h1>
-<form:form action="corregir-examen22" method="POST" >
-<input type="hidden" name="IdExamen" value="${Examen.id}"/>
+<h1 class="page-header text-center titulo">${Examen.nombre}<br>Codigo del examen: ${Examen.id} </h1>
+
+<form:form action="corregir-examen22" method="POST">
+
+<input type="hidden" name="IdExamen22" value="${Examen.id}"/>
 
 <c:forEach items= "${Examen.preguntas}" var="pregunta" >
 
@@ -64,17 +52,15 @@
 				
 		<div class="divClass">
 		
-          <input type="checkbox" name="RespuestadelExamen" value="${respuesta.nombre}" id="Id-rta-alumno" onClick="Cambia_streamcloud(this)">
+          <input type="checkbox" name="RespuestadelExamen22" value="${respuesta.nombre}" id="Id-rta-alumno" >
         <label for="id1">${respuesta.nombre}</label>
    </div>
     
 </c:forEach> 
-
- 
 </c:forEach> 
 <input type="submit" value="Enviar"/>
 </form:form>
 <br/>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
 </body>
 </html>

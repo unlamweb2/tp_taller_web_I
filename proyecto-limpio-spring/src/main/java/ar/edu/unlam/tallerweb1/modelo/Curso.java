@@ -12,9 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="Curso")
 public class Curso implements Serializable{
@@ -26,6 +28,9 @@ public class Curso implements Serializable{
 	
 	 @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
 	 Set<Usuario> usuarios;
+	 
+	 @OneToMany
+	 private Set<Examen> examen = new HashSet<Examen>(0);
 	 
 	public Curso(){}
 	
@@ -39,7 +44,7 @@ public class Curso implements Serializable{
 	public long getId() {
 		return id;
 	}
-	public void setI(long idCurso) {
+	public void setId(long idCurso) {
 		this.id = idCurso;
 	}
 	
@@ -48,5 +53,12 @@ public class Curso implements Serializable{
 	}
 	public void setUsuarios(Set<Usuario> usuarios) {
 		this.usuarios = usuarios;
+	}
+	public Set<Examen> getExamen() {
+		return examen;
+	}
+
+	public void setExamen(Set<Examen> examen) {
+		this.examen = examen;
 	}
 }

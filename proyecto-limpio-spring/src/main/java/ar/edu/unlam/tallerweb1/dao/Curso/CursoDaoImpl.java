@@ -1,7 +1,5 @@
 package ar.edu.unlam.tallerweb1.dao.Curso;
 import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.hibernate.Session;
@@ -11,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.modelo.Curso;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 
 
@@ -34,7 +31,7 @@ public class CursoDaoImpl implements CursoDao{
 		
 		
 		return (ArrayList<Curso>) session.createCriteria(Curso.class)
-				.createAlias("usuarios", "miUsuario")//usuarios viene de 
+				.createAlias("usuarios", "miUsuario")
 				.add(Restrictions.eq("miUsuario.id", id))
 				.list();
 }

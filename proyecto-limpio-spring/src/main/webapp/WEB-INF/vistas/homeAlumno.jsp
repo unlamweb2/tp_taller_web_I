@@ -49,7 +49,7 @@
 <tr class="danger"><th>Materias</th></tr>
 
 <c:forEach items= "${Materias}" var="cursos" >
-<tr ><td class="info"><a href="rendirExamen22">${cursos.nombre}</a></td></tr>
+<tr ><td class="info"><a href="rendirExamen22/${cursos.id}">${cursos.nombre} </a>${cursos.id}</td></tr>
 </c:forEach> </div>
 
  
