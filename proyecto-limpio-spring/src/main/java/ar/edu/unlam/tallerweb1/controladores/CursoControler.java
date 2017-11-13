@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Curso;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
 
 
@@ -17,14 +21,38 @@ import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
 
 @Controller
 public class CursoControler {
+	
+	@Inject
+	private ServicioCurso BuscarCursos;
+	
+	@Inject
+	private ServicioLogin servicioLogin;
+	
 	@RequestMapping("/ingresarCurso")
 	public ModelAndView ingresarCurso()
 	{
-		ModelMap modelo = new ModelMap();
-		Curso curso = new Curso();
-		modelo.put("curso", curso);
-		return new ModelAndView("formularioIngresaCurso", modelo);
+				
+	Usuario usuario = new Usuario();
+	
+	
+	Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
+	
+		ModelMap model = new ModelMap();
+		
+		
+		model.put("usuario", usuarioBuscado);
+		
+		
+		ArrayList<Curso>cursos = new ArrayList<Curso>();
+		cursos = BuscarCursos.consultarTodosLosCursos(usuarioBuscado.getId());
+		model.put("Materias", cursos);
+		
+		
+		return new ModelAndView("formularioIngresaCurso", model);		
 	}
+	
+	
+	
 	@Inject
 	private ServicioCurso registrarCurso;
 	

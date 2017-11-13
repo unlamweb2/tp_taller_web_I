@@ -53,7 +53,7 @@
 <center><h3>Por favor elija la accion a realizar</h3></center>
 <br>
 <br>
-<center><div><a href="cargarPreguntas" class="btn btn-danger btn-sm active" role="button">Seleccionar Materia</a></div></center>
+<center><div><a href="/proyecto-limpio-spring/ingresarCurso" class="btn btn-danger btn-sm active" role="button">Seleccionar Curso</a></div></center>
 <br>
 <br>
 <center><div><a href="cargarPreguntas" class="btn btn-danger btn-sm active" role="button">Cargar Preguntas</a></div></center>
