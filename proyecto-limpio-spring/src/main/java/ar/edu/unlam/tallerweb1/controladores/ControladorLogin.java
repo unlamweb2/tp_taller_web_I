@@ -97,7 +97,14 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/login");
 	}
 	
-
+	//PARA DESLOGUEAR AL USUARIO
+	@RequestMapping(value = "/exit",  method = RequestMethod.GET)
+	public ModelAndView vistaLogout (HttpServletRequest request) {
+		if(request.getSession() != null) {
+			request.getSession().invalidate();
+		}
+		return new ModelAndView("redirect:/");
+	}
 	
 	
 

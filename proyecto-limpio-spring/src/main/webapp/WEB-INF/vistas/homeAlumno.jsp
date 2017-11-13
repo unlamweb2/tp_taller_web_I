@@ -46,7 +46,7 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <h4>${usuario.nombre} ${usuario.apellido}</h4></div>  <div class="col-md-1"><a href=""  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <h4>${usuario.nombre} ${usuario.apellido}</h4></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 
 </header>
