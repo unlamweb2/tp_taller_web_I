@@ -23,30 +23,61 @@
     h1 { color: black; }
   		</style>
   		
+<script language="javascript">
+//VALIDACION CHECKBOX
+function validacion(formu, obj) {
+  limite=1; //limite de checks a seleccionar
+  num=0;
+//  if (obj.checked) {
+    for (i=0;ele=document.getElementById(formu).children[i] ; i++)
+    {   
+    	if (ele.checked) 
+    	num++;	    	
+    }
+  if (num>limite)
+    obj.checked=false;
+  
+//  }
+}  
+</script>  		
   		
 	</head>
 </head>
+
 <body>
-  
+		<div class = "container">
+			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			
+			  
 <form:form action="corregir-examen" method="POST" modelAttribute="Examen" >
+
 <h1 class="page-header text-center  titulo">${Examen.nombre}</h1>
 
  <input type="hidden" name="IdExamen" value="${Examen.id}">
 
 	<c:forEach items= "${Examen.preguntas}" var="pregunta" >
 	
-		<div>${pregunta.nombre}</div>
+		<div id="${pregunta.id}" class = "container" ><h3>${pregunta.nombre}</h3> <BR> 
 			
-		<c:forEach items= "${pregunta.respuestas}" var="respuesta" >
-		 <label for="${respuesta.id}">${respuesta.id}</label>				
-	  <input type="checkbox"  name="RespuestadelExamen" value="${respuesta.id}" id="${respuesta.id}" >${respuesta.nombre} <BR> 
-					       	    
-		</c:forEach> 	 
+			<c:forEach items= "${pregunta.respuestas}" var="respuesta" >	
+		  		<input type="checkbox"  name="RespuestadelExamen" value="${respuesta.id}"  onclick="validacion('${pregunta.id}',this)" >${respuesta.nombre} <BR>			       	    
+			</c:forEach> 	
+		</div>	 
 	 
 	</c:forEach> 
 <input type="submit"  value="Enviar"/>
+
 </form:form>
- 
-<br/>
-</body>
+			
+				<!-- Footer -->	     
+
+	                <div class="footer">
+	                    <center><p>Copyright &copy; Proyecto Colmena 2018</p></center>
+	                </div> 	
+				
+	
+	
+	</body>
+
+
 </html>

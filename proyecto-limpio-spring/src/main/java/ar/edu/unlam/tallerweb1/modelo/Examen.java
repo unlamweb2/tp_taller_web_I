@@ -22,28 +22,28 @@ public class Examen {
 	private String nombre;
 	private String fecha;
 	private String tipo;
+	private int umbral;
 	
-	@ManyToOne
+	@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn (name="idCurso")
 	private Curso curso;
-	
 	
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idExamen")
 	private List<Pregunta> preguntas;
-	
-	
+		
 	public Examen() {
-		//super();
+		super();
 	}
-
-
-	/*public Examen(String nombre, String fecha, String tipo, List<Pregunta> preguntas) {
+	
+	public Examen(String nombre, String fecha, String tipo, List<Pregunta> preguntas,int umbral) {
 		super();
 		this.nombre = nombre;
 		this.fecha = fecha;
 		this.tipo = tipo;
 		this.preguntas = preguntas;
-	}*/
+		this.umbral = umbral;
+	}
 
 
 	public long getId() {
@@ -95,12 +95,15 @@ public class Examen {
 		this.preguntas = preguntas;
 	} 
 	
-	public Curso getCurso() {
-		return curso;
+	public int getUmbral() {
+		return umbral;
 	}
 
-	public void setCurso(Curso curso) {
-		this.curso = curso;
+
+	public void setUmbral(int umbral) {
+		this.umbral = umbral;
 	}
-		
+	
+	
+
 }

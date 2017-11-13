@@ -38,14 +38,14 @@ public class Pregunta {
 	private Examen examen;
 
 	public Pregunta() {
-		//super();
+		super();
 	}
 
-	/*public Pregunta(String nombre, List<Respuesta> respuestas) {
+	public Pregunta(String nombre, List<Respuesta> respuestas) {
 		super();
 		this.nombre = nombre;
 		this.respuestas = respuestas;	
-	}*/
+	}
 
 
 	public long getId() {

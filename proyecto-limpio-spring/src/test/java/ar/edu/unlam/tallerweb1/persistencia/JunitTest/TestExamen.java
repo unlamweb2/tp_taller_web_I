@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 
-/*public class TestExamen extends SpringTest{
+public class TestExamen extends SpringTest{
       
     Examen examen;
 	Pregunta pregunta;
@@ -47,11 +47,27 @@ import java.util.List;
     	
     	preguntas.add( new Pregunta("Significado de 'He Has'",respuestas2)); 
     	
+    	ArrayList <Examen> examenes = new ArrayList();
+    	
+    	examen = new Examen("Ingles","12/12/2018","final",preguntas,100);
+    	
+    	examenes.add(examen);
+    	
+    	Curso curso = new Curso(); 
+    	curso.setExamen(examenes);
+    	curso.setNombre("Ingles 1");
+        	
+    	getSession().save(curso);      
     	
     	
-    	examen = new Examen("Ingles","12/12/2018","final",preguntas);
+    	Usuario usuario = new Usuario();
+    	usuario.setEmail("test@test");
+    	usuario.setNombre("test");
+    	usuario.setRol("alumno");
+    	usuario.setPassword("1234");
     	
-    	getSession().save(examen);      
+    	getSession().save(usuario);   
+    	
     	
     } 	
    
@@ -115,16 +131,8 @@ import java.util.List;
 		
 				
 		}
-   	
-   	
-   	
-   	
-   	
-   	
-          	    	    	      	         	
+            	    	    	      	         	
     }
     
-   
-    
-}*/
+}
     

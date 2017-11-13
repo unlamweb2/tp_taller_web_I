@@ -8,10 +8,11 @@ import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
 public interface ServicioExamen {
 
-	//public ArrayList<Examen> cargarExamen();
+	public ArrayList<Examen> cargarExamen();
 	
 	public Examen cargarExamen(long Idexamen);
 	public ArrayList<Respuesta> corregirRta(String[] rta);
-	public ArrayList<Pregunta> cargarPreguntaPorExamen(long Idexamen);
+	public ArrayList<Pregunta> cargarPreguntaPorExamen(long Idexamen);	
+	public float GetNotaExamen(ArrayList <Pregunta>  preguntas, long[] respuestas);
 	
 }
