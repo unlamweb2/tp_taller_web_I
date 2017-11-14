@@ -29,6 +29,11 @@ public class ServicioExamenImpl implements ServicioExamen{
 	public Examen cargarExamen(long Idexamen){
 		return examendao.cargarExamen(Idexamen);
 	}
+	
+	@Transactional
+	public Examen cargarExamenDinamico(long Idcurso){
+		return examendao.cargarExamen(Idcurso);
+	}
 
 	@Transactional
 	public ArrayList<Respuesta> corregirRta(String[] rta){

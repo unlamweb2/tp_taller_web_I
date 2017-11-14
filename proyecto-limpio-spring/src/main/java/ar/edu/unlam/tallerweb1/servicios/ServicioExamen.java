@@ -11,6 +11,7 @@ public interface ServicioExamen {
 	public ArrayList<Examen> cargarExamen();
 	
 	public Examen cargarExamen(long Idexamen);
+	public Examen cargarExamenDinamico(long Idcurso);
 	public ArrayList<Respuesta> corregirRta(String[] rta);
 	public ArrayList<Pregunta> cargarPreguntaPorExamen(long Idexamen);	
 	public float GetNotaExamen(ArrayList <Pregunta>  preguntas, long[] respuestas);

@@ -10,6 +10,7 @@ public interface ExamenDao {
 	
 	ArrayList<Examen> cargarExamen ();
 	 Examen cargarExamen(long Idexamen);
+	 public Examen cargarExamenDinamico(long idCurso);
 	 ArrayList<Respuesta> corregirRta(String[] rta);
 	 ArrayList<Pregunta>  cargarPreguntaPorExamen(long Idexamen);	
 }

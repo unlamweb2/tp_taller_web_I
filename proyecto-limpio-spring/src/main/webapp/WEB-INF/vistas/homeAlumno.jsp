@@ -37,6 +37,7 @@
 	     <style>
     h4 { color: white; }
     h1 { color: white; }
+   
   		</style>
   		
 	    
@@ -46,7 +47,7 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <h4>${usuario.nombre} ${usuario.apellido}</h4></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <h4>${usuario.nombre} ${usuario.apellido}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 
 </header>
@@ -57,10 +58,10 @@
 <div class="col-md-4">
 <br></br>
 <table class="table table-hover">
-<tr class="danger"><th>Materias</th></tr>
+<tr class="danger" ><th><h2><center>Materias</center></h2></th></tr>
 
 <c:forEach items= "${Materias}" var="cursos" >
-<tr ><td class="info"><a href="rendirExamen22/${cursos.id}">${cursos.nombre} </a>COD: ${cursos.id}</td></tr>
+<tr ><td class="info"><h2><a href="rendirExamenDinamico/${cursos.id}">${cursos.nombre} </a></h2>COD: ${cursos.id}</td></tr>
 </c:forEach> </div>
 
  

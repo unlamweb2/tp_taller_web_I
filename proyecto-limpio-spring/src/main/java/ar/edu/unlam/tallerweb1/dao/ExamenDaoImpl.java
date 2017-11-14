@@ -39,10 +39,44 @@ public class ExamenDaoImpl implements ExamenDao {
 		ex=  (Examen) session.createCriteria(Examen.class)
 				.add (Restrictions.eq("id",Idexamen))
     			.uniqueResult();				
-		
 		return ex;
+		}
+	@SuppressWarnings("unchecked")
+ 	@Override
+	public Examen cargarExamenDinamico(long idCurso){
+
+ 		
+ 		@SuppressWarnings("unused")	
+ 		Examen ex;
+ 		
+ 		final Session session = sessionFactory.getCurrentSession();
+ 		
+ 		ex=  (Examen) session.createCriteria(Examen.class)
+				.createAlias("curso", "miCurso")
+				.add (Restrictions.eq("miCurso.id",idCurso))
+     			.uniqueResult();				
 		
+ 		return ex;
 	}
+	
+	/*@SuppressWarnings("unchecked")
+ 	@Override
+	public Examen cargarExamenDinamico(long idCurso){
+
+ 		
+ 		@SuppressWarnings("unused")	
+ 		Examen ex;
+ 		
+ 		final Session session = sessionFactory.getCurrentSession();
+ 		
+ 		ex=  (Examen) session.createCriteria(Examen.class)
+				.createAlias("curso", "miCurso")
+				.add (Restrictions.eq("miCurso.id",idCurso))
+     			.uniqueResult();				
+		
+ 		return ex;
+	
+ 	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
