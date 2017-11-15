@@ -30,8 +30,11 @@ public class Curso implements Serializable{
 	private long id;
 	private String nombre;
 			
-	 @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
-	 Set<Usuario> usuarios;
+	/* @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
+	 Set<Usuario> usuarios;*/
+	 
+	 @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")			
+	private List<Usuario> usuarios;
 	 
 	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")	
@@ -62,10 +65,10 @@ public class Curso implements Serializable{
 		this.id = idCurso;
 	}
 	
-	public Set<Usuario> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
-	public void setUsuarios(Set<Usuario> usuarios) {
+	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
 	

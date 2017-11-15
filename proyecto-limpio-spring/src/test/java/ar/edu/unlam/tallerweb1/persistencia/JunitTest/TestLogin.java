@@ -3,7 +3,7 @@ package ar.edu.unlam.tallerweb1.persistencia.JunitTest;
 import ar.edu.unlam.tallerweb1.SpringTest;
 import ar.edu.unlam.tallerweb1.controladores.ControladorLogin;
 import ar.edu.unlam.tallerweb1.modelo.*;
-import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
+import ar.edu.unlam.tallerweb1.servicios.Login.*;
 import javassist.expr.Cast;
 
 import org.hibernate.FetchMode;
@@ -31,7 +31,7 @@ import static org.mockito.Mockito.*;
 
 
 public class TestLogin extends SpringTest{
-      
+      /*
     Usuario usuario;
 	    
 	  //SUT subject under test
@@ -71,6 +71,6 @@ public class TestLogin extends SpringTest{
           	    	    	      	         	
     }
     
-   
+   */
     
 }

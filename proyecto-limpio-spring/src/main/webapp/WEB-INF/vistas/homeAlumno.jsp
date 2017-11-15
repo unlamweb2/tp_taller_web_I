@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -40,10 +42,28 @@
    
   		</style>
   		
+<script language="javascript">
+//VALIDACION CHECKBOX
+function validacion(formu, obj) {
+  limite=1; //limite de checks a seleccionar
+  num=0;
+    for (i=0;ele=document.getElementById(formu).children[i] ; i++)
+    {   
+    	if (ele.checked) 
+    	num++;	    	
+    }
+  if (num>limite)
+    obj.checked=false;  
+}  
+</script>  	
+  		
 	    
 </head>
 <body>
 
+<div class = "container">
+			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
@@ -53,23 +73,26 @@
 </header>
 
 
-<div class="row">
-  <div class="col-md-4"></div>
-<div class="col-md-4">
-<br></br>
-<table class="table table-hover">
-<tr class="danger" ><th><h2><center>Materias</center></h2></th></tr>
+
+<form:form action="rendirExamen" method="POST" modelAttribute="Materias" >
 
 <c:forEach items= "${Materias}" var="cursos" >
-<tr ><td class="info"><h2><a href="rendirExamenDinamico/${cursos.id}">${cursos.nombre} </a></h2>COD: ${cursos.id}</td></tr>
-</c:forEach> </div>
-
- 
-</table>
-<div class="col-md-4"></div>
-</div>
 
 
-<br><br><br><br><br><br><div><a href="rendirExamen"  class="btn btn-danger btn-sm active" role="button">Rendir examen</a></div>
+	<div id="${cursos.id}" class = "container" ><h3>${cursos.nombre}</h3> <BR> 
+					
+			<c:forEach items= "${cursos.examen}" var="examen" >
+		  		<input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >${examen.nombre} <BR>			       	    
+			</c:forEach> 	
+	</div>	
+	
+</c:forEach> 
+
+<input type="submit"  value="Enviar"/>
+
+</form:form>
+
+ </div>	</div>	
+
 </body>
 </html>

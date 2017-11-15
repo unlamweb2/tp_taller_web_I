@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,8 +40,11 @@ public class Usuario implements Serializable{
 	/*@ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name="UsuarioCurso")
     private Set<Curso> cursos=new HashSet<Curso>();*/
-	 @ManyToMany
-	    Set<Curso> cursos;
+	 /*@ManyToMany
+	    Set<Curso> cursos;*/
+	 
+	 @ManyToMany(cascade = {CascadeType.ALL})			
+		private List<Curso> cursos;
 	
 	public Usuario(){};
 	public Usuario(String email,String password, String rol) {
@@ -88,10 +92,10 @@ public class Usuario implements Serializable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Set<Curso> getCursos() {
+	public List<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(Set<Curso> cursos) {
+	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
 	

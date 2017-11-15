@@ -24,12 +24,12 @@ public class Examen {
 	private String tipo;
 	private int umbral;
 	
-	/*@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")
-	private Curso curso;*/
-	
-	@ManyToOne
 	private Curso curso;
+	
+	/*@ManyToOne
+	private Curso curso;*/
 	
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idExamen")

@@ -19,11 +19,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 public class TestExamen extends SpringTest{
       
     Examen examen;
+    Examen examen2;
 	Pregunta pregunta;
 	Respuesta respuesta;
 	    
@@ -32,6 +34,9 @@ public class TestExamen extends SpringTest{
     @Transactional @Rollback(true)
     public void llenarDatos()  
     {   
+    	ArrayList <Examen> examenes = new ArrayList();
+    	
+    	/*examen ingles */
     	ArrayList <Pregunta> preguntas = new ArrayList();
     	ArrayList <Respuesta> respuestas = new ArrayList();    	
     	respuestas.add(new Respuesta("No soy",false));
@@ -45,28 +50,50 @@ public class TestExamen extends SpringTest{
     	respuestas2.add(new Respuesta("el es",true));
     	respuestas2.add(new Respuesta("el tiene",true));    	    	    	
     	
-    	preguntas.add( new Pregunta("Significado de 'He Has'",respuestas2)); 
-    	
-    	ArrayList <Examen> examenes = new ArrayList();
-    	
-    	examen = new Examen("Ingles","12/12/2018","final",preguntas,100);
+    	preguntas.add( new Pregunta("Significado de 'He Has'",respuestas2));     	    	    	
+    	examen = new Examen("Examen Ingles","12/12/2018","final",preguntas,100);
     	
     	examenes.add(examen);
     	
+    	/*examen historia*/
+    	ArrayList <Pregunta> preguntas2 = new ArrayList();
+    	ArrayList <Respuesta> respuestas3 = new ArrayList();    	
+    	respuestas3.add(new Respuesta("Negro",false));
+    	respuestas3.add(new Respuesta("blanco",true));    	   	    	    	
+    	
+    	preguntas2.add( new Pregunta("De que color fue el caballlo blanco de San Martin?",respuestas3)); 
+    	
+    	ArrayList <Respuesta> respuestas4 = new ArrayList();     
+    	respuestas4.add(new Respuesta("Francia",true));
+    	respuestas4.add(new Respuesta("Argentina",false));    	    	    	
+    	
+    	preguntas2.add( new Pregunta("Dondfe Murio san Martin'",respuestas4)); 
+    	
+    	
+    	
+    	examen2 = new Examen("Examen Historia","12/12/2018","final",preguntas2,100);
+    	    	   	    	   	    	    	   	
+    	examenes.add(examen2);
+    	
+    	/* fin carga de examenes*/
+    	    	
     	Curso curso = new Curso(); 
     	curso.setExamen(examenes);
-    	curso.setNombre("Ingles 1");
-        	
-    	getSession().save(curso);      
+    	curso.setNombre("Curso 1");
+       
+    	ArrayList <Curso> cursos = new ArrayList();
     	
-    	
+    	cursos.add(curso);
+    	       	
     	Usuario usuario = new Usuario();
     	usuario.setEmail("test@test");
     	usuario.setNombre("test");
     	usuario.setRol("alumno");
     	usuario.setPassword("1234");
     	
-    	getSession().save(usuario);   
+    	usuario.setCursos(cursos);
+    	
+    	getSession().save(usuario);  
     	
     	
     } 	
