@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb1.controladores;
+package ar.edu.unlam.tallerweb1.controladores.Examen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
-import ar.edu.unlam.tallerweb1.servicios.ServicioExamen;;
+import ar.edu.unlam.tallerweb1.servicios.Examen.ServicioExamen;;
 
 @Controller
 public class ExamenControler {

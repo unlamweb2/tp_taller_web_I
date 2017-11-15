@@ -1,5 +1,5 @@
 
-package ar.edu.unlam.tallerweb1.servicios;
+package ar.edu.unlam.tallerweb1.servicios.Examen;
 import java.util.ArrayList;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;

@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb1.dao;
+package ar.edu.unlam.tallerweb1.dao.Examen;
 import java.util.ArrayList;
 
 import ar.edu.unlam.tallerweb1.modelo.Examen;
