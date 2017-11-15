@@ -38,6 +38,7 @@ public class ControladorLogin {
 
 	@Inject
 	private ServicioCurso BuscarCursos;
+	
 	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();

@@ -45,26 +45,23 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>Bienvenido Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <center><h2>Que desea hacer Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 </header>
 
-<br>
-<center><h3>Por favor elija la accion a realizar</h3></center>
-<br>
-<br>
-<center><div><a href="ingresarNuevoExamenDocente" class="btn btn-danger btn-sm active" role="button">Crear Nuevo Examen</a></div></center>
-<br>
-<br>
-<center><div><a href="cargarPreguntas" class="btn btn-danger btn-sm active" role="button">Cargar Preguntas</a></div></center>
+<c:forEach items= "${ExamendelAlumno}" var="cursos" >
+${examenes.nombre}
+</c:forEach>
+
 <br>
 <br>
-<center><div><a href="cargarRespuestas" class="btn btn-danger btn-sm active" role="button">Cargar Respuestas</a></div></center>
+
+<center><div><a href="altaExamen" class="btn btn-danger btn-sm active" role="button">Crear Nuevo Examen</a></div></center>
 
 <!-- Footer -->	     
 
 	                <div class="footer">
 	                    <center><p><h6>Copyright &copy; Proyecto Colmena 2018</h6></p></center>
 	                </div> 
-	</body>
+</body>
 </html>
