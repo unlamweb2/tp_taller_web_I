@@ -69,7 +69,9 @@ public class ControladorLogin {
 				
 				
 				if(("admin".equals(usuarioBuscado.getRol())))
-				return new ModelAndView("redirect:/home");
+					
+				{model.put("usuario", usuarioBuscado);
+				return new ModelAndView("home", model);}
 				model.put("error", "Usuario o clave incorrecta");
 			}
 			

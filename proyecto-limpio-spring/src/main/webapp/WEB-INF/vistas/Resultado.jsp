@@ -22,12 +22,19 @@
   		
 	</head>
 	<body>
-		<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<header class="panel-primary">
+<div class="container-fluid panel-heading">
+  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+   <div class="col-md-11"> <h4>${Nombre}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+</div>
+
+</header>
+<div class="row">
+  <div class="col-md-4"></div>
+<div class="col-md-4">		<br></br>
 			
 				<form:form action="ir_home_alumno" method="POST" modelAttribute="examen">
-			    	<h1 class="page-header text-center titulo">COLMENA</h1>
-					<hr class="colorgraph"><br>
+			    	
 					
 					<form:label path="nombre" id="nombre"  class="form-control">Examen: ${examen.nombre}</form:label>					
 					<form:label path="nombre" id="nombre"   class="form-control">Porcentaje de respuestas correctas: ${nota} %</form:label>
@@ -35,18 +42,16 @@
 					
 							
 				<c:if test="${nota >= examen.umbral}">	
-			      <h1>  <label id="nombre"  class="label label-success">Usted a Aprobado</label>	</h1>		     
+			      <h1>  <label id="nombre"  class="label label-success">Aprobado</label>	</h1>		     
 		        </c:if>	
 		        
 		        <c:if test="${nota < examen.umbral}">			        
-			     <h1>	<label  id="nombre" class="label label-danger"  >Usted a Desaprobado</label> </h1>			      	 
+			     <h1>	<label  id="nombre" class="label label-danger"  >Desaprobado</label> </h1>			      	 
 		        </c:if>	
 								
-				</form:form>
+				</form:form></div>
 				
-			</div>
-		</div>
-		
+	 <div class="col-md-4"></div></div>	
 	
 		<!-- Footer -->	     
 

@@ -61,8 +61,7 @@ function validacion(formu, obj) {
 </head>
 <body>
 
-<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
 			
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
@@ -72,27 +71,33 @@ function validacion(formu, obj) {
 
 </header>
 
-
-
+<div class="row">
+  <div class="col-md-4"></div>
+<div class="col-md-4">
+<br></br>
 <form:form action="rendirExamen" method="POST" modelAttribute="Materias" >
-
+<input type="hidden" name="nombre" value="${usuario.nombre}">
 <c:forEach items= "${Materias}" var="cursos" >
 
 
-	<div id="${cursos.id}" class = "container" ><h3>${cursos.nombre}</h3> <BR> 
+	<h1><span class="label label-info">${cursos.nombre} </span></h1>
 					
 			<c:forEach items= "${cursos.examen}" var="examen" >
-		  		<input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >${examen.nombre} <BR>			       	    
+			<div class="checkbox">
+  <label>
+		  		<h2><input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >Examen</h2> <br>
+		  		 </label>
+</div>			       	    
 			</c:forEach> 	
-	</div>	
+	
 	
 </c:forEach> 
-
-<input type="submit"  value="Enviar"/>
+<br></br>
+<input type="submit" class="btn btn-lg btn-danger btn-block" value="Enviar"/>
 
 </form:form>
 
- </div>	</div>	
-
+	</div>
+<div class="col-md-4"></div></div>
 </body>
 </html>

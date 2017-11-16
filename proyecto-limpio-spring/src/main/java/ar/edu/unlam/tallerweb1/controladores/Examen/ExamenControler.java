@@ -30,13 +30,14 @@ public class ExamenControler {
 	//@RequestMapping("/rendirExamen")
 	//public ModelAndView rendir(@RequestParam("IdExamen")long idExamen) {
 	@RequestMapping("/rendirExamen")
-	public ModelAndView rendir (@RequestParam("idExamen")long idExamen) {
+	public ModelAndView rendir (@RequestParam("idExamen")long idExamen,@RequestParam("nombre")String nombre) {
 			
 		Examen examen = new Examen();	
 		ModelMap model= new ModelMap();					
 		//pido el examen con ID 1
 		examen= examenServicio.cargarExamen((long)idExamen);
 		model.put("Examen", examen);
+		model.put("Nombre", nombre);
 		return new ModelAndView("homeExamen",model);		
 	}
 	

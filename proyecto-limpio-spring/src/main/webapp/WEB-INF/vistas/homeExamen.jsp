@@ -19,7 +19,7 @@
 	         			
   			  			    
 	     <style>
-    h4 { color: red; }
+    h4 { color: white; }
     h1 { color: black; }
   		</style>
   		
@@ -45,13 +45,20 @@ function validacion(formu, obj) {
 </head>
 
 <body>
-		<div class = "container">
-			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			
-			  
-<form:form action="corregir-examen" method="POST" modelAttribute="Examen" >
+		<header class="panel-primary">
+<div class="container-fluid panel-heading">
+  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+   <div class="col-md-11"> <h4>${Nombre}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+</div>
 
-<h1 class="page-header text-center  titulo">${Examen.nombre}</h1>
+</header>
+			
+<div class="row">
+  <div class="col-md-4"></div>
+<div class="col-md-4">			  
+<form:form action="corregir-examen" method="POST" modelAttribute="Examen" >
+<h1><span class="label label-info">${Examen.nombre} </span></h1>
+
 
  <input type="hidden" name="IdExamen" value="${Examen.id}">
 
@@ -65,10 +72,10 @@ function validacion(formu, obj) {
 		</div>	 
 	 
 	</c:forEach> 
-<input type="submit"  value="Enviar"/>
+<input type="submit" class="btn btn-lg btn-danger btn-block" value="Enviar"/>
 
-</form:form>
-			
+</form:form></div>
+	 <div class="col-md-4"></div></div>		
 				<!-- Footer -->	     
 
 	                <div class="footer">
