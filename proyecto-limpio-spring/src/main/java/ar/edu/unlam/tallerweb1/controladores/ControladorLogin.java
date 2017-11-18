@@ -43,6 +43,7 @@ public class ControladorLogin {
 	public ModelAndView validarLogin(@ModelAttribute("usuario") Usuario usuario, HttpServletRequest request) {
 		ModelMap model = new ModelMap();
 		
+		
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
 			
@@ -106,7 +107,7 @@ public class ControladorLogin {
 		if(request.getSession() != null) {
 			request.getSession().invalidate();
 		}
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/login");
 	}
 	
 	

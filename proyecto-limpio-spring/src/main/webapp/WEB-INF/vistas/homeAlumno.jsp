@@ -85,7 +85,7 @@ function validacion(formu, obj) {
 			<c:forEach items= "${cursos.examen}" var="examen" >
 			<div class="checkbox">
   <label>
-		  		<h2><input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >Examen</h2> <br>
+		  		<h2><input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >${examen.nombre}</h2> <br>
 		  		 </label>
 </div>			       	    
 			</c:forEach> 	
