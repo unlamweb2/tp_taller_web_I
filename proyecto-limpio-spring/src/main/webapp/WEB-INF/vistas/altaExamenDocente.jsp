@@ -45,18 +45,32 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>Que desea hacer Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <center><h2>Cargue el Exámen Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 </header>
 
-<c:forEach items= "${ExamendelAlumno}" var="cursos" >
+<h2>Exámenes Existentes:</h2>
+<c:forEach items= "${ExamendelAlumno}" var="examenLista" >
 ${examenes.nombre}
 </c:forEach>
 
 <br>
 <br>
+<h3>Nuevo Exámen</h3>
 
-<center><div><a href="altaExamen" class="btn btn-danger btn-sm active" role="button">Crear Nuevo Examen</a></div></center>
+<form:form action="guardarExamen" method="POST" modelAttribute="Examen"> 
+
+	<form:label path="nombre">Examen</form:label>
+	<form:input path="nombre"/><br><br>
+	
+	
+	<form:label path="umbral">Umbral</form:label>
+	<form:input path="umbral"/>
+	
+			
+	<input type="submit" value="Guardar Nuevo Exámen"/>
+    
+</form:form>
 
 <!-- Footer -->	     
 
