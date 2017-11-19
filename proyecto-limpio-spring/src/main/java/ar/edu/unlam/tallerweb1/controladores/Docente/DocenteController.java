@@ -17,6 +17,7 @@ import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 import ar.edu.unlam.tallerweb1.servicios.Examen.ServicioExamen;
 import ar.edu.unlam.tallerweb1.servicios.Preguntas.ServicioPregunta;
+import ar.edu.unlam.tallerweb1.servicios.Respuesta.ServicioRespuesta;
 
 
 @Controller
@@ -24,6 +25,7 @@ public class DocenteController{
 	
 	
 	/*ALTA EXAMEN*/
+	
 	@RequestMapping("/ingresarNuevoExamenDocente")
 	
 	public ModelAndView homeExamen()
@@ -69,7 +71,7 @@ public class DocenteController{
 	@Inject ServicioPregunta grabarPregunta;
 	
 	@RequestMapping(value="/guardarPregunta", method=RequestMethod.POST)
-	public ModelAndView altaRespuesta(@ModelAttribute("Pregunta") Pregunta pregunta){
+	public ModelAndView altaPregunta(@ModelAttribute("Pregunta") Pregunta pregunta){
 		
 		ModelMap modelPregunta = new ModelMap();
 		grabarPregunta.grabarPregunta(pregunta);  
@@ -81,4 +83,32 @@ public class DocenteController{
 	
 	/*ALTA RESPUESTA*/
 	
+	@RequestMapping("ingresarNuevaRespuestaDocente")
+	
+	public ModelAndView homeRespuesta()
+	{
+		Respuesta respuesta = new Respuesta();
+		
+		ModelMap ModelRespuesta = new ModelMap();
+		ModelRespuesta.put("Respuesta", respuesta);
+		return new ModelAndView ("altaRespuestaDocente", ModelRespuesta);
+			
+		
+	}
+	
+	@Inject ServicioRespuesta grabarRespuesta;
+	
+	@RequestMapping(value="/guardarRespuesta", method=RequestMethod.POST)
+	public ModelAndView altaRespuesta(@ModelAttribute("Respuesta") Respuesta respuesta){
+		
+		ModelMap modelRespuesta = new ModelMap();
+		grabarRespuesta.grabarRespuesta(respuesta);
+		modelRespuesta.put("Respuesta", respuesta);
+		return new ModelAndView ("vistaExitoCargaExamen");		
+		
+	}
+	
+	
+	
 }
+
