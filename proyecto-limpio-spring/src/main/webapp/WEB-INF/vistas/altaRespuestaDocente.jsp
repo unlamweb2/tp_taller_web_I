@@ -49,26 +49,21 @@
 </div>
 </header>
 
-<h2>Exámenes Existentes:</h2>
-<c:forEach items= "${ExamendelAlumno}" var="examenLista" >
-${examenes.nombre}
-</c:forEach>
-
 <br>
 <br>
-<h3>Nuevo Exámen</h3>
+<h3>Ingrese las Posibles Respuestas</h3>
 
-<form:form action="guardarExamen" method="POST" modelAttribute="Examen"> 
+<form:form action="guardarRespuesta" method="POST" modelAttribute="Respuesta"> 
 
-	<form:label path="nombre">Examen</form:label>
-	<form:input path="nombre"/><br><br>
+		
+	<form:input path="nombre" id="nombre"  class="form-control" />
+	<br>
+	<form:input path="correcta" id="correcta"  class="form-control" />
+	<br>
 	
-	
-	<form:label path="umbral">Umbral</form:label>
-	<form:input path="umbral"/>
 	
 			
-	<input type="submit" value="Guardar Nuevo Exámen"/>
+	<input type="submit" value="Guardar Respuesta"/>
     
 </form:form>
 
