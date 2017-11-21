@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.dao.Examen;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Nota;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
@@ -109,6 +110,15 @@ public class ExamenDaoImpl implements ExamenDao {
 		return pr;	 
 		 
 	 }
+	
+
+	@Override	
+	public void GrabarNotaExamen (Nota nota){
+	
+		final Session session = sessionFactory.getCurrentSession();
+		session.save(nota);  
+		
+	}
 }
 
 

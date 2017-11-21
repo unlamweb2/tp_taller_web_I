@@ -47,6 +47,7 @@ public class ControladorLogin {
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
 			
+			request.getSession().setAttribute("idUsuario", usuarioBuscado.getId());
 			
 			if(("docente".equals(usuarioBuscado.getRol())))
 			{

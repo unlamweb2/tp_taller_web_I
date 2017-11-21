@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.assertj.core.util.DateUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Nota;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 import ar.edu.unlam.tallerweb1.servicios.Examen.ServicioExamen;;
@@ -43,19 +45,25 @@ public class ExamenControler {
 	
 			
 	@RequestMapping(path ="/corregir-examen", method=RequestMethod.POST)
-	public ModelAndView CorregirExamen(@RequestParam("RespuestadelExamen")long[] checkboxValue, @RequestParam("IdExamen")long idExamen)
+	public ModelAndView CorregirExamen(@RequestParam("RespuestadelExamen")long[] checkboxValue, @RequestParam("IdExamen")long idExamen, HttpServletRequest request)
 	{		
 		 ModelMap model = new ModelMap();
 		 ArrayList <Pregunta> preguntas;
 		 Examen examen;
-		 float nota=0; 
+		 Nota nota=new Nota(); 
 		 
 		 examen = examenServicio.cargarExamen(idExamen);
 		 preguntas= examenServicio.cargarPreguntaPorExamen(idExamen);
-		 nota = examenServicio.GetNotaExamen(preguntas, checkboxValue);	
-		 		
+		 
+		 nota.setCalificacion( examenServicio.GetNotaExamen(preguntas, checkboxValue));			 
+		 nota.setFecha(DateUtil.now().toString());
+		 nota.setIdExamen(idExamen);
+		 nota.setIdUsuario((long) request.getSession().getAttribute("idUsuario"));
+		 
+		 examenServicio.GrabarNotaExamen(nota);
+		 			 		
 		model.put("examen",examen);	 
-		model.put("nota",nota);		
+		model.put("nota",nota.getCalificacion());		
 		
 		return new ModelAndView("Resultado", model);
 	}

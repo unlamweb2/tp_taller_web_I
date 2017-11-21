@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.Examen.ExamenDao;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Nota;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
@@ -70,10 +71,15 @@ public class ServicioExamenImpl implements ServicioExamen{
 			}		
 		}
 		
-		nota= (aciertos/CantPreguntas)*100;
-		
-		
+		nota= (aciertos/CantPreguntas)*100;			
 		
 		return (float) nota;
+	}
+	
+	@Transactional
+	public void GrabarNotaExamen(Nota nota){
+		
+		examendao.GrabarNotaExamen(nota);
+	
 	}
 }
