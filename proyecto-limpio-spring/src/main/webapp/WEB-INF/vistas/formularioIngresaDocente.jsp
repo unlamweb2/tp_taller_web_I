@@ -9,8 +9,7 @@
 <title>Agregar Docente</title>
 </head>
 <body>
-<form:form action="guardarDocente" method="POST" modelAttribute="docente"> 
-
+<form:form action="guardarDocente.html" method="POST" modelAttribute="docente"> 
 	<form:label path="nombre">Nombre </form:label>
 	<form:input path="nombre"/><br><br>
 	

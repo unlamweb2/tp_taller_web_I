@@ -62,6 +62,7 @@ function validacion(formu, obj) {
 
  <input type="hidden" name="IdExamen" value="${Examen.id}">
 
+	<!--Union de dos clases-->
 	<c:forEach items= "${Examen.preguntas}" var="pregunta" >
 	
 		<div id="${pregunta.id}" class = "container" ><h3>${pregunta.nombre}</h3> <BR> 

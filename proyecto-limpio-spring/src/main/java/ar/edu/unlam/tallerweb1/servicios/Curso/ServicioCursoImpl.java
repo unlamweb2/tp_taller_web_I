@@ -27,5 +27,13 @@ public class ServicioCursoImpl implements ServicioCurso{
 	public ArrayList<Curso> consultarTodosLosCursos(Long id){
 		return cursoDao.consultarTodosLosCursos(id);
 	}
+	@Transactional
+	public ArrayList<Curso> cursosParaAnotarse(){
+		return cursoDao.cursosParaAnotarse();
+	}
 	
+	@Transactional
+	public ArrayList<Curso> cursosxId(long [] idCurso){
+		return cursoDao.cursosxId(idCurso);
+	}
 }

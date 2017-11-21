@@ -28,15 +28,14 @@ public class CursoControler {
 	@Inject
 	private ServicioLogin servicioLogin;
 	
-	@RequestMapping(value="/ingresarCurso")
+	@RequestMapping("/ingresarCurso")
 	public ModelAndView ingresarCurso()
 	{
-					
-		ModelMap model = new ModelMap();
 				
-		Curso cursos = new Curso();
-		model.put("Materias", cursos);	
-		return new ModelAndView("formularioIngresaCurso", model);		
+	Curso curso = new Curso();
+	ModelMap model = new ModelMap();	
+	model.put("Materia", curso);
+	return new ModelAndView("formularioIngresaCurso", model);		
 	}
 	
 	
@@ -49,7 +48,7 @@ public class CursoControler {
 	{
 	ModelMap model= new ModelMap();
 	
-	//model.put("materias",curso);
+	model.put("materias",curso);
 	registrarCurso.grabarCurso(curso);
 	return new ModelAndView("home",model);//devuelve vista listado
 	}	

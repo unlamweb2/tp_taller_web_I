@@ -7,4 +7,5 @@ public interface ServicioUsuario {
 
 	public void grabarUsuario(Usuario usuario);
 	//public ArrayList<Curso> consultarCursosAlumno(Long id);
+	public Usuario UsuarioporId(long idUsuario);
 }

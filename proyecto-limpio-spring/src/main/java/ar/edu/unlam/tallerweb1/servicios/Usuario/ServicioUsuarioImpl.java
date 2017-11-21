@@ -25,5 +25,10 @@ public class ServicioUsuarioImpl implements ServicioUsuario{
 	return usuarioDao.consultarCursosAlumno(id);
 	}*/
 	
+	
+	
+	public Usuario UsuarioporId(long idUsuario){
+		return usuarioDao.UsuarioporId(idUsuario);
+	}
 }
 

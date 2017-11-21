@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -44,7 +45,7 @@ public class Usuario implements Serializable{
 	    Set<Curso> cursos;*/
 	 
 	 @ManyToMany(cascade = {CascadeType.ALL})			
-		private List<Curso> cursos;
+		private ArrayList<Curso> cursos;
 	
 	public Usuario(){};
 	public Usuario(String email,String password, String rol) {
@@ -92,10 +93,10 @@ public class Usuario implements Serializable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public List<Curso> getCursos() {
+	public ArrayList<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(List<Curso> cursos) {
+	public void setCursos(ArrayList<Curso> cursos) {
 		this.cursos = cursos;
 	}
 	

@@ -49,13 +49,13 @@
 </div>
 </header>
 
-<form:form action="guardarCurso" method="POST" modelAttribute="Materias">
+<form:form action="guardarCurso" method="POST" modelAttribute="Materia">
 
 <h4>Cursos Existentes:</h4>
 <br>
+
 	<form:label path="nombre"><h2>Nuevo Curso a Ingresar</h2></form:label>
-	<form:input id="nombre" path="nombre"/><br><br>
-	
+	<form:input path="nombre"/><br><br>
 	
 	
 	

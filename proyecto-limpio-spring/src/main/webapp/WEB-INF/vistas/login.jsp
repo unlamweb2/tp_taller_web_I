@@ -42,7 +42,7 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"><center><h1>Proyecto COLMENA</h1></center></div>
+ 
 </div>
 
 </header>
