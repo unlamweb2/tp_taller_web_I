@@ -45,7 +45,7 @@ public class Usuario implements Serializable{
 	    Set<Curso> cursos;*/
 	 
 	 @ManyToMany(cascade = {CascadeType.ALL})			
-		private ArrayList<Curso> cursos;
+		private List<Curso> cursos;
 	
 	public Usuario(){};
 	public Usuario(String email,String password, String rol) {
@@ -93,10 +93,10 @@ public class Usuario implements Serializable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public ArrayList<Curso> getCursos() {
+	public List<Curso> getCursos() {
 		return cursos;
 	}
-	public void setCursos(ArrayList<Curso> cursos) {
+	public void setCursos(List<Curso> cursos) {
 		this.cursos = cursos;
 	}
 	
