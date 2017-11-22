@@ -39,6 +39,25 @@
     h1 { color: grey; }
   		</style>
   		
+  		<script language="javascript">
+//VALIDACION CHECKBOX
+function validacion() {
+   
+  var idCurso = $('select[id=IdCurso]').val();
+    
+  var todoOk = false;
+       
+  if (idCurso == 0) {
+      alert('Debe seleccionar un curso');      
+  } else  {
+	   todoOk = true;
+  }
+    
+  return todoOk;
+   
+}
+</script>  	
+  		
 	</head>
 <body>
 
@@ -55,9 +74,18 @@
 
 <form:form action="guardarExamen" method="POST" modelAttribute="Examen"> 
 
-
-
 <h3>Nuevo Exámen</h3>
+
+<label for="IdCurso">Curso al cual desea agregar el examen: ${idCursoExamen} </label>
+
+<select id="IdCurso" name="IdCurso" class="form-control">
+<option value="0" selected>(seleccione un curso)</option>
+<c:forEach items= "${Curso}" var="curso" >
+		<option value="${curso.id}">${curso.nombre}</option>	 
+	</c:forEach> 
+</select> 	
+
+		
 			
 	<form:input path="nombre" id="nombre"  class="form-control" placeholder="Nombre del Examen"  />
 	<br>
@@ -70,7 +98,7 @@
 	<br>
 	
 			
-	<input type="submit" value="Guardar Nuevo Exámen"/>
+	<input type="submit"  onclick="return validacion();" value="Guardar Nuevo Exámen"/>
 	
     
 </form:form>

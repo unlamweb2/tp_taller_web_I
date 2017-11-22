@@ -36,4 +36,8 @@ public class ServicioCursoImpl implements ServicioCurso{
 	public ArrayList<Curso> cursosxId(long [] idCurso){
 		return cursoDao.cursosxId(idCurso);
 	}
+	
+	public Curso GetCurso(long idCurso){
+		return cursoDao.GetCurso(idCurso);	
+	}
 }

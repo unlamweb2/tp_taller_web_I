@@ -31,6 +31,15 @@ public class Examen {
 	/*@ManyToOne
 	private Curso curso;*/
 	
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idExamen")
 	private List<Pregunta> preguntas;

@@ -10,4 +10,5 @@ public interface ServicioCurso {
 	public ArrayList<Curso> consultarTodosLosCursos(Long id);
 	public ArrayList<Curso> cursosParaAnotarse();
 	public ArrayList<Curso> cursosxId(long[] idCurso);
+	public Curso GetCurso(long idCurso);
 }

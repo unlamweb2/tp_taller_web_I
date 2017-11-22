@@ -28,7 +28,7 @@
 function validacion(formu, obj) {
   limite=1; //limite de checks a seleccionar
   num=0;
-//  if (obj.checked) {
+
     for (i=0;ele=document.getElementById(formu).children[i] ; i++)
     {   
     	if (ele.checked) 
@@ -37,8 +37,7 @@ function validacion(formu, obj) {
   if (num>limite)
     obj.checked=false;
   
-//  }
-}  
+
 </script>  		
   		
 	</head>
