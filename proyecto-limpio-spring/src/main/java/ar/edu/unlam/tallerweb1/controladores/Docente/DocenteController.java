@@ -34,6 +34,7 @@ public class DocenteController{
 		
 	ModelMap Model = new ModelMap();
 	Model.put("Examen", examen);
+	
 	return new ModelAndView("altaExamenDocente", Model);
 		
 	}
@@ -42,11 +43,14 @@ public class DocenteController{
 	
 	@RequestMapping(value="/guardarExamen", method= RequestMethod.POST)	
 	public ModelAndView altaExamen(@ModelAttribute("Examen") Examen examen){
-		
+		Pregunta pregunta = new Pregunta();
 		
 		ModelMap modelExamen = new ModelMap();
-		cargarExamen.cargarExamen(1);  /*revisar porque no tiene que ser por ID*/
-		modelExamen.put("Examen", examen);
+		cargarExamen.GrabarExamen(examen);  
+		modelExamen.put("idExamen", examen.getId());
+		modelExamen.put("NomExamen", examen.getNombre());
+		modelExamen.put("Pregunta", pregunta);
+				
 		return new ModelAndView("altaPreguntaDocente", modelExamen);				
 		
 	}

@@ -82,4 +82,9 @@ public class ServicioExamenImpl implements ServicioExamen{
 		examendao.GrabarNotaExamen(nota);
 	
 	}
+	
+	@Transactional
+	public long GrabarExamen(Examen examen){
+		return examendao.GrabarExamen(examen);
+	}
 }

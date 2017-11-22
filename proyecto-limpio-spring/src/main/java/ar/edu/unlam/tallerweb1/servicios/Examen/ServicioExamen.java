@@ -17,5 +17,6 @@ public interface ServicioExamen {
 	public ArrayList<Pregunta> cargarPreguntaPorExamen(long Idexamen);	
 	public float GetNotaExamen(ArrayList <Pregunta>  preguntas, long[] respuestas);
 	public void GrabarNotaExamen(Nota nota);
+	public long GrabarExamen(Examen examen);
 	
 }

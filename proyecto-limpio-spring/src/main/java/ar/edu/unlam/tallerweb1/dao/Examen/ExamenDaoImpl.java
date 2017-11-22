@@ -60,25 +60,7 @@ public class ExamenDaoImpl implements ExamenDao {
  		return ex;
 	}
 	
-	/*@SuppressWarnings("unchecked")
- 	@Override
-	public Examen cargarExamenDinamico(long idCurso){
-
- 		
- 		@SuppressWarnings("unused")	
- 		Examen ex;
- 		
- 		final Session session = sessionFactory.getCurrentSession();
- 		
- 		ex=  (Examen) session.createCriteria(Examen.class)
-				.createAlias("curso", "miCurso")
-				.add (Restrictions.eq("miCurso.id",idCurso))
-     			.uniqueResult();				
 		
- 		return ex;
-	
- 	}*/
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Respuesta> corregirRta(String[] rta){
@@ -119,6 +101,15 @@ public class ExamenDaoImpl implements ExamenDao {
 		session.save(nota);  
 		
 	}
+	
+	 public long GrabarExamen(Examen examen){
+		 
+		 final Session session = sessionFactory.getCurrentSession();
+			session.save(examen); 
+			
+			return examen.getId();
+		 
+	 }
 }
 
 

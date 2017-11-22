@@ -15,6 +15,7 @@ public interface ExamenDao {
 	 ArrayList<Respuesta> corregirRta(String[] rta);
 	 ArrayList<Pregunta>  cargarPreguntaPorExamen(long Idexamen);
 	 public void GrabarNotaExamen (Nota nota);
+	 public long GrabarExamen(Examen examen);
 }
 	
 

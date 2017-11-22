@@ -51,16 +51,19 @@
 
 <br>
 <br>
-<h3>Ingrese la pregunta</h3>
 
-<form:form action="guardarPregunta" method="POST" modelAttribute=Pregunta"> 
 
+<form:form action="guardarPregunta" method="POST" modelAttribute="Pregunta"> 
+
+<c:if test="${not empty idExamen}">
+<h3>${idExamen} - ${NomExamen} </h3>
+</c:if>
+
+<h3>Ingrese la pregunta 1</h3>
 		
-	<form:input path="nombre" id="nombre"  class="form-control" />
+	<form:input path="nombre" id="nombre"   class="form-control" />
 	<br>
-	
-	
-			
+				
 	<input type="submit" value="Guardar Nueva Pregunta"/>
     
 </form:form>

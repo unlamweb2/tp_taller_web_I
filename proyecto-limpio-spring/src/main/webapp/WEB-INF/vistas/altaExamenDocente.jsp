@@ -51,22 +51,27 @@
 
 <br>
 <br>
-<h3>Nuevo Exámen</h3>
+
 
 <form:form action="guardarExamen" method="POST" modelAttribute="Examen"> 
 
-		
-	<form:input path="nombre" id="nombre"  class="form-control" />
+
+
+<h3>Nuevo Exámen</h3>
+			
+	<form:input path="nombre" id="nombre"  class="form-control" placeholder="Nombre del Examen"  />
 	<br>
-	<form:input path="fecha" id="fecha" class="form-control" />
+	<form:input path="fecha" id="fecha" class="form-control"  placeholder="Fecha del Examen"/>
+	<br>	
+	<form:input path="tipo" id="tipo" class="form-control"  placeholder="Tipo de Examen"/>
 	<br>
-	<form:input path="tipo" id="tipo" class="form-control" />
-	<br>
-	<form:input path="umbral" id="umbral" class="form-control" />
+	<h5>Porcentaje de respuestas correctas:</h5>
+	<form:input path="umbral" id="umbral" class="form-control" value="70"  />
 	<br>
 	
 			
 	<input type="submit" value="Guardar Nuevo Exámen"/>
+	
     
 </form:form>
 
