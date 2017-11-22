@@ -55,8 +55,8 @@ public class CursoDaoImpl implements CursoDao{
 		final Session session = sessionFactory.getCurrentSession();
 		
 		return (ArrayList<Curso>) session.createCriteria(Curso.class)
-				.add((Criterion) ((Criteria) Restrictions.eq("id",idCurso))
-				.list());
+				.add(Restrictions.eq("id",idCurso))
+				.list();
 }
 	
 }

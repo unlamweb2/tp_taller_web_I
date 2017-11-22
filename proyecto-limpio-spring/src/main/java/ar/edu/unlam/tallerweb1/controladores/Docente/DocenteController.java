@@ -33,7 +33,7 @@ public class DocenteController{
 	Examen examen = new Examen();
 		
 	ModelMap Model = new ModelMap();
-	Model.put("examenes", examen);
+	Model.put("Examen", examen);
 	return new ModelAndView("altaExamenDocente", Model);
 		
 	}

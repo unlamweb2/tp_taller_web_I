@@ -53,7 +53,7 @@ public class AlumnoControler {
 	return new ModelAndView("homeAlumnoSinMateria",model);	//LA VISTA LOS RECIBE PERFECTO. COMPROBADO
 	}
 	@RequestMapping(value="/inscribirAlumno", method = RequestMethod.POST)
-	public ModelAndView guardarAlumno(@RequestParam("idCurso")long[] idCurso, @RequestParam("Alumno")long idAlumno)
+	public ModelAndView guardarAlumno(@RequestParam("idCurso")long[] idCurso, @RequestParam("idAlumno")long idAlumno)
 	{
 		ModelMap model = new ModelMap();
 		model.put("Materia", idCurso);
@@ -63,7 +63,7 @@ public class AlumnoControler {
 		//buscar usuario x id
 		alumnoEncontrado = buscarUsuarioxId.UsuarioporId(idAlumno);
 		ArrayList<Curso>cursos = new ArrayList<Curso>();
-		cursos = buscarCursosDisponibles.cursosxId(idCurso);
+		cursos = buscarCursosDisponibles.cursosxId((long[])idCurso);
 		alumnoEncontrado.setCursos(cursos);
 		inscribirAlumno.anotarAlumno(alumnoEncontrado);
 		return new ModelAndView("Inscripcion", model);
