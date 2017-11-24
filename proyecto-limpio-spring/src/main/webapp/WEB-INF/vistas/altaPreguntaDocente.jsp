@@ -53,19 +53,28 @@
 <br>
 
 
-<form:form action="guardarPregunta" method="POST" modelAttribute="Pregunta"> 
+<form:form action="" method="POST" modelAttribute="examen"> 
 
-<c:if test="${not empty idExamen}">
-<h3>${idExamen} - ${NomExamen} </h3>
-</c:if>
+	<h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1>
+					
+			<c:forEach items= "${examen.preguntas}" var="pregunta" >
+			<div class="checkbox">  				
+  				<form:label path="nombre" id="id">${pregunta.nombre}</form:label>	
+			</div>			       	    
+			</c:forEach> 	
+	    
+</form:form>
 
-<h3>Ingrese la pregunta 1</h3>
-		
-	<form:input path="nombre" id="nombre"   class="form-control" />
-	<br>
+
+<form:form action="guardarPregunta" method="POST" modelAttribute="pregunta"> 
+ <div class="form-group">
+<h1><span class="label label-info">Carga de Preguntas ${examen.nombre} </span></h1>
+ <input type="hidden" name="IdExamen" value="${examen.id}"/>
+
+<form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva pregunta"  />
 				
 	<input type="submit" value="Guardar Nueva Pregunta"/>
-    
+ </div>	   
 </form:form>
 
 <!-- Footer -->	     

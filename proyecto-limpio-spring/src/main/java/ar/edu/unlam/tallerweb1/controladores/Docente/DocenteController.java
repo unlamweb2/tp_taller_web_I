@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
+import org.junit.Assert;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,66 +46,55 @@ public class DocenteController{
 		
 	}
 	
-	@Inject ServicioExamen cargarExamen;
-	
+	@Inject ServicioExamen cargarExamen;	
 	@RequestMapping(value="/guardarExamen", method= RequestMethod.POST)	
 	public ModelAndView altaExamen(@RequestParam("IdCurso")long idCurso, @ModelAttribute("Examen") Examen examen){
 		
-		Curso curso = new Curso();
 		Pregunta pregunta = new Pregunta();
 		
-		curso = serviciocurso.GetCurso(idCurso);
-		
 		ModelMap modelExamen = new ModelMap();
-		
+		Curso curso = new Curso();
+		curso = serviciocurso.GetCurso(idCurso);
 		examen.setCurso(curso);
-			
+							
 		cargarExamen.GrabarExamen(examen);
-				
+								
+		modelExamen.put("examen", examen);		
+		modelExamen.put("pregunta", pregunta);
 		
-		modelExamen.put("idCursoExamen", idCurso);
-		modelExamen.put("idExamen", examen.getId());
-		modelExamen.put("NomExamen", examen.getNombre());
-		modelExamen.put("Pregunta", pregunta);
-				
-		//return new ModelAndView("altaExamenDocente", modelExamen);
 		return new ModelAndView("altaPreguntaDocente", modelExamen);			
 		
 	}
 
-	/*ALTA PREGUNTA*/
 	
-	@RequestMapping("/ingresarNuevaPreguntaDocente")
-	
-	
-	public ModelAndView homePregunta()
-	{
-		Pregunta pregunta = new Pregunta();
-		
-		ModelMap ModelPregunta = new ModelMap();
-		ModelPregunta.put("pregunta", pregunta);
-		return new ModelAndView("altaPreguntaDocente", ModelPregunta);	
-	
-		
-	}
-	
-	@Inject ServicioPregunta grabarPregunta;
-	
+	@Inject ServicioExamen examenServicio;
+	@Inject ServicioPregunta grabarPregunta;	
 	@RequestMapping(value="/guardarPregunta", method=RequestMethod.POST)
-	public ModelAndView altaPregunta(@ModelAttribute("Pregunta") Pregunta pregunta){
-		
+	public ModelAndView altaPregunta(@RequestParam("IdExamen")long idExamen,@ModelAttribute("pregunta") Pregunta pregunta){
 		ModelMap modelPregunta = new ModelMap();
-		grabarPregunta.grabarPregunta(pregunta);  
-		modelPregunta.put("Pregunta", pregunta);
-		return new ModelAndView("altaPreguntaDocente");
+		
+		/*traigo el examen de la base por id*/
+		Examen examen = new Examen();	
+		examen= examenServicio.cargarExamen((long)idExamen);
+		/*relaciono el examen con la pregunta y la guardo */
+		pregunta.setExamen(examen);		
+		grabarPregunta.grabarPregunta(pregunta); 
+		
+		/*mando el examen para poder mostrar todas las preguntas del mismo con un for en la vista*/
+		examen= examenServicio.cargarExamen((long)idExamen);
+		modelPregunta.put("examen", examen);	
+		/*creo y mando una nueva instancia de pregunta para poder dar de alta otra*/
+		pregunta=new Pregunta();
+		modelPregunta.put("pregunta", pregunta);
+		
+		return new ModelAndView("altaPreguntaDocente",modelPregunta);
 				
 		
 	}
 	
 	/*ALTA RESPUESTA*/
 	
-	@RequestMapping("ingresarNuevaRespuestaDocente")
-	
+	@RequestMapping("ingresarNuevaRespuestaDocente")	
 	public ModelAndView homeRespuesta()
 	{
 		Respuesta respuesta = new Respuesta();
@@ -116,8 +106,7 @@ public class DocenteController{
 		
 	}
 	
-	@Inject ServicioRespuesta grabarRespuesta;
-	
+	@Inject ServicioRespuesta grabarRespuesta;	
 	@RequestMapping(value="/guardarRespuesta", method=RequestMethod.POST)
 	public ModelAndView altaRespuesta(@ModelAttribute("Respuesta") Respuesta respuesta){
 		

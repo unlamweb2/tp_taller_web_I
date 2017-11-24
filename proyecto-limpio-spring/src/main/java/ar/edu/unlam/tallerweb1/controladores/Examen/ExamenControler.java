@@ -29,8 +29,7 @@ public class ExamenControler {
 	private ServicioExamen examenServicio;
 	private ServicioExamen GetExamen;
 	
-	//@RequestMapping("/rendirExamen")
-	//public ModelAndView rendir(@RequestParam("IdExamen")long idExamen) {
+
 	@RequestMapping("/rendirExamen")
 	public ModelAndView rendir (@RequestParam("idExamen")long idExamen,@RequestParam("nombre")String nombre) {
 			

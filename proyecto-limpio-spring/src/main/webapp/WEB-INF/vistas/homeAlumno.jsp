@@ -73,25 +73,22 @@ function validacion(formu, obj) {
 
 <div class="row">
   <div class="col-md-4"></div>
-<div class="col-md-4">
-<br></br>
+<div class="col-md-4">		<br></br>
+
 <form:form action="rendirExamen" method="POST" modelAttribute="Materias" >
-<input type="hidden" name="nombre" value="${usuario.nombre}">
+
+<div class="form-check" id="${usuario.id}">		
 <c:forEach items= "${Materias}" var="cursos" >
 
-
-	<h1><span class="label label-info">${cursos.nombre} </span></h1>
-					
-			<c:forEach items= "${cursos.examen}" var="examen" >
-			<div class="checkbox">
-  <label>
-		  		<h2><input type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${cursos.id}',this)" >Examen</h2> <br>
-		  		 </label>
-</div>			       	    
-			</c:forEach> 	
-	
+<h1><span class="label label-info">${cursos.nombre} </span></h1>
+			
+			<c:forEach items= "${cursos.examen}" var="examen" >						
+		  		<input class="form-check-input"  type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${usuario.id}',this)" ><label class="form-check-label">  ${examen.nombre} </label><BR>		       	    
+			
+			</c:forEach> 
 	
 </c:forEach> 
+</div>	
 <br></br>
 <input type="submit" class="btn btn-lg btn-danger btn-block" value="Enviar"/>
 
