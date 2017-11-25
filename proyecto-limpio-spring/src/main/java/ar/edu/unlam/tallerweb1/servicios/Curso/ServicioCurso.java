@@ -9,6 +9,6 @@ public interface ServicioCurso {
 	public void grabarCurso(Curso curso);
 	public ArrayList<Curso> consultarTodosLosCursos(Long id);
 	public ArrayList<Curso> cursosParaAnotarse();
-	public ArrayList<Curso> cursosxId(long[] idCurso);
+	//public ArrayList<Curso> cursosxId(long[] idCurso);
 	public Curso GetCurso(long idCurso);
 }

@@ -38,7 +38,7 @@ public class AlumnoControler {
 	@Inject
 	private ServicioAlumno inscribirAlumno;
 	@Inject ServicioCurso serviciocurso;
-	@Inject
+	//@Inject
 	//private ServicioCurso registrarCurso;
 	
 	//Trae todos los cursos a los que puede anotarse el alumno
@@ -75,6 +75,7 @@ public class AlumnoControler {
 	    {
 	        materia = serviciocurso.GetCurso(idCurso[i]);
 	        System.out.println(materia.getId());//las trae bien
+	        
 	        cursos.add(materia);
 	        //alumnos.add(alumnoEncontrado);ROMPE
 	       	        

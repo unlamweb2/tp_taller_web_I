@@ -45,25 +45,36 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>${usuario.nombre} ${usuario.apellido}</h2></center></div>  <center><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Desloguearse</a></center>
+   <div class="col-md-11"> <center><h2>${usuario.nombre} ${usuario.apellido}</h2></center></div>  <a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a>
 </div>
-</header>
+</header><br><br>
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<div class="panel panel-primary"><div class="panel-heading"><center>Ingresa tus datos</center></div>
+
 
 <form:form action="guardarAlumno" method="POST" modelAttribute="Alumno"> 
-	<form:label path="nombre">Nombre </form:label>
-	<form:input path="nombre"/><br><br>
+	<br><br>
+	<div class="col-xs-12">
+	<form:input path="nombre" placeholder="Nombre" class="form-control"/>
+	</div><br><br><br><br>
+	<div class="col-xs-12">
+	<form:input path="apellido" placeholder="Apellido" class="form-control"/>
+	</div><br><br><br><br>
+	<div class="col-xs-12">
+	<form:input path="password" placeholder="Contraseña" class="form-control"/>
+	</div><br><br><br><br>
+	<div class="col-xs-12">
+	<form:input path="email" placeholder="Mail" class="form-control"/>
+	</div><br><br><br>
 	
-	<form:label path="apellido">Apellido </form:label>
-	<form:input path="apellido"/>
-	
-	<form:label path="password">Contraseña </form:label>
-	<form:input path="password"/>
-	
-	<form:label path="email">Email </form:label>
-	<form:input path="email"/>
-	
-	<input type="submit" value="Guardar"/>
+	<button class="btn btn-lg btn-danger btn-block" Type="Submit">Guardar</button>
+	</form:form>
+	</div>
+<br>
 
-</form:form>
+
+</div>
+<div class="col-md-4"></div>
 </body>
 </html> 
