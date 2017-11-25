@@ -94,28 +94,37 @@ public class DocenteController{
 	
 	/*ALTA RESPUESTA*/
 	
-	@RequestMapping("ingresarNuevaRespuestaDocente")	
-	public ModelAndView homeRespuesta()
-	{
-		Respuesta respuesta = new Respuesta();
+	/*ALTA RESPUESTA*/
+	@Inject ServicioPregunta preguntaServicio;
+	@Inject ServicioRespuesta grabarRespuesta;
+	@RequestMapping(value="/guardarRespuestaDocente", method=RequestMethod.POST)	
+	public ModelAndView altRespuesta(@RequestParam("idPregunta")long idPregunta, @ModelAttribute("respuesta") Respuesta respuesta){
+		
 		
 		ModelMap ModelRespuesta = new ModelMap();
+		
+		/*traigo la pregunta de la base por id*/
+		Pregunta pregunta = new Pregunta();
+		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
+		
+		/*relaciono la pregunta con la respuesta y la guardo */
+		respuesta.setPregunta(pregunta);
+		grabarRespuesta.grabarRespuesta(respuesta);
+		
+		/*mando la pregunta para poder mostrar todas las respuestas del mismo con un for en la vista*/
+		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
+		ModelRespuesta.put("pregunta", pregunta);
+		
+		/*creo y mando una nueva instancia de respuesta para poder dar de alta otra*/
+		respuesta= new Respuesta();		
 		ModelRespuesta.put("Respuesta", respuesta);
+		
 		return new ModelAndView ("altaRespuestaDocente", ModelRespuesta);
 			
 		
-	}
 	
-	@Inject ServicioRespuesta grabarRespuesta;	
-	@RequestMapping(value="/guardarRespuesta", method=RequestMethod.POST)
-	public ModelAndView altaRespuesta(@ModelAttribute("Respuesta") Respuesta respuesta){
-		
-		ModelMap modelRespuesta = new ModelMap();
-		grabarRespuesta.grabarRespuesta(respuesta);
-		modelRespuesta.put("Respuesta", respuesta);
-		return new ModelAndView ("vistaExitoCargaExamen");		
-		
-	}
+  }
+
 	
 	
 	

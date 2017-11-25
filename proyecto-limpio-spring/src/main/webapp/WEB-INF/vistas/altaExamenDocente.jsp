@@ -84,8 +84,8 @@ function validacion() {
 		<option value="${curso.id}">${curso.nombre}</option>	 
 	</c:forEach> 
 </select> 	
-
-		
+<br>
+<br>		
 			
 	<form:input path="nombre" id="nombre"  class="form-control" placeholder="Nombre del Examen"  />
 	<br>

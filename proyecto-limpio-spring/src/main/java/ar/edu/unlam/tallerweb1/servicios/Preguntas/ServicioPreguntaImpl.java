@@ -23,4 +23,9 @@ public class ServicioPreguntaImpl implements ServicioPregunta{
 	}
 	
 			
+	@Transactional
+	public Pregunta cargarPregunta(long IdPregunta){
+		return PreguntaDao.cargarPregunta(IdPregunta);
+	}
+
 }

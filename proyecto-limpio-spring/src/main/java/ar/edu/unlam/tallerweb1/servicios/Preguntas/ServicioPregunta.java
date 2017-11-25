@@ -6,6 +6,7 @@ import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 public interface ServicioPregunta {
 
 	public void grabarPregunta(Pregunta Pregunta);
-	
+	public Pregunta cargarPregunta(long IdPregunta);
+
 	
 }

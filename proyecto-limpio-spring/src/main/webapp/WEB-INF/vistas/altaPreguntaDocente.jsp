@@ -55,10 +55,10 @@
 
 <form:form action="" method="POST" modelAttribute="examen"> 
 
-	<h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1>
+	<center><h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1></center>
 					
 			<c:forEach items= "${examen.preguntas}" var="pregunta" >
-			<div class="checkbox">  				
+			<div class="checkbox">
   				<form:label path="nombre" id="id">${pregunta.nombre}</form:label>	
 			</div>			       	    
 			</c:forEach> 	
@@ -70,7 +70,8 @@
  <div class="form-group">
 <h1><span class="label label-info">Carga de Preguntas ${examen.nombre} </span></h1>
  <input type="hidden" name="IdExamen" value="${examen.id}"/>
-
+<br>
+<br>
 <form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva pregunta"  />
 				
 	<input type="submit" value="Guardar Nueva Pregunta"/>

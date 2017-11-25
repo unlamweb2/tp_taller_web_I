@@ -8,6 +8,7 @@ import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 public interface PreguntaDao {
 	
 	public void grabarPregunta(Pregunta Pregunta);	
+	Pregunta cargarPregunta(long IdPregunta);
 
 	
 }
