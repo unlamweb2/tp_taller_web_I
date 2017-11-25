@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -93,40 +94,27 @@ public class DocenteController{
 	}
 	
 	/*ALTA RESPUESTA*/
+	@Inject ServicioPregunta servicioPregunta;
+	@Inject ServicioExamen getExamen;
 	
-	/*ALTA RESPUESTA*/
-	@Inject ServicioPregunta preguntaServicio;
-	@Inject ServicioRespuesta grabarRespuesta;
-	@RequestMapping(value="/guardarRespuestaDocente", method=RequestMethod.POST)	
-	public ModelAndView altRespuesta(@RequestParam("idPregunta")long idPregunta, @ModelAttribute("respuesta") Respuesta respuesta){
-		
-		
-		ModelMap ModelRespuesta = new ModelMap();
-		
-		/*traigo la pregunta de la base por id*/
-		Pregunta pregunta = new Pregunta();
-		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
-		
-		/*relaciono la pregunta con la respuesta y la guardo */
-		respuesta.setPregunta(pregunta);
-		grabarRespuesta.grabarRespuesta(respuesta);
-		
-		/*mando la pregunta para poder mostrar todas las respuestas del mismo con un for en la vista*/
-		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
-		ModelRespuesta.put("pregunta", pregunta);
-		
-		/*creo y mando una nueva instancia de respuesta para poder dar de alta otra*/
-		respuesta= new Respuesta();		
-		ModelRespuesta.put("Respuesta", respuesta);
-		
-		return new ModelAndView ("altaRespuestaDocente", ModelRespuesta);
-			
-		
+	@RequestMapping ("/guardarRespuestaDocente/{idExamen}/{idPregunta}")
+	public ModelAndView homeRespuesta(@PathVariable long idExamen, @PathVariable long idPregunta){
 	
-  }
-
+		
+	ModelMap ModelRespuesta = new ModelMap();
 	
 	
+	Examen examen = getExamen.cargarExamen((long)idExamen); 
+	Pregunta pregunta = servicioPregunta.cargarPregunta((long)idPregunta);
+		
+	ModelRespuesta.put("examen", examen);
+	ModelRespuesta.put("pregunta", pregunta);
 	
+	return new ModelAndView ("altaRespuestaDocente", ModelRespuesta);		
+	}
+  
 }
+
+		
+
 

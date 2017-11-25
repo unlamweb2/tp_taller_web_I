@@ -57,10 +57,10 @@
 
 	<center><h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1></center>
 					
-			<c:forEach items= "${examen.preguntas}" var="pregunta" >
+			<c:forEach items= "${examen.preguntas}" var="pregunta">
 			<div class="checkbox">
-  				<form:label path="nombre" id="id">${pregunta.nombre}</form:label>	
-			</div>			       	    
+  				<form:label path="nombre" id="id" onClick=" window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/{$examen.Id}/{$pregunta.Id}'">${pregunta.nombre} </form:label>	
+			</div>		       	    
 			</c:forEach> 	
 	    
 </form:form>
@@ -68,7 +68,9 @@
 
 <form:form action="guardarPregunta" method="POST" modelAttribute="pregunta"> 
  <div class="form-group">
-<h1><span class="label label-info">Carga de Preguntas ${examen.nombre} </span></h1>
+<center><h1><span class="label label-info">Carga de Preguntas ${examen.nombre} </span></h1></center>
+<br>
+<br>
  <input type="hidden" name="IdExamen" value="${examen.id}"/>
 <br>
 <br>

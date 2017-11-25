@@ -51,18 +51,20 @@
 
 <br>
 <br>
-<h3>Ingrese las Posibles Respuestas</h3>
 
 
-<form:form action="guardarRespuestaDocente" method="POST" modelAttribute="respuesta"> 
+
+<form:form action="guardarRespuestaDocente" method="POST" modelAttribute="Respuesta"> 
  <div class="form-group">
-<h1><span class="label label-info">Carga de Respuesta de la Pregunta: ${pregunta.nombre} </span></h1>
+<center><h1><span class="label label-info">Carga de Respuesta de la Pregunta: ${pregunta.nombre} </span></h1></center>
+<br>
+<br>
  <input type="hidden" name="IdPregunta" value="$pregunta.id}"/>
 
-<form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva pregunta"  />
+<form:input path="nombre" id="nombre"  class="form-control" placeholder="Escriba la posible Respuesta"  />
 <br>
 <form:input path="correcta" id="correcta"  class="form-control" placeholder="La respuesta es la correcta?"  />
-				
+<br>				
 	<input type="submit" value="Guardar Respuesta"/>
  </div>	   
 </form:form>
