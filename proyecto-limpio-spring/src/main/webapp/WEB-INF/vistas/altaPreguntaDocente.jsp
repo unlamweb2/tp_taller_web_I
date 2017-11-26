@@ -59,7 +59,7 @@
 					
 			<c:forEach items= "${examen.preguntas}" var="pregunta">
 			<div class="checkbox">
-  				<form:label path="nombre" id="id" onClick=" window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/{$examen.Id}/{$pregunta.Id}'">${pregunta.nombre} </form:label>	
+  				<form:label path="nombre" id="id" onClick=" window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/${examen.id}/${pregunta.id}'">${pregunta.nombre} </form:label>	
 			</div>		       	    
 			</c:forEach> 	
 	    
@@ -75,8 +75,9 @@
 <br>
 <br>
 <form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva pregunta"  />
-				
-	<input type="submit" value="Guardar Nueva Pregunta"/>
+<br>
+<br>				
+	<center><input type="submit" value="Guardar Nueva Pregunta"/></center>
  </div>	   
 </form:form>
 
@@ -84,6 +85,6 @@
 
 	                <div class="footer">
 	                    <center><p><h6>Copyright &copy; Proyecto Colmena 2018</h6></p></center>
-	                </div> 
+	                </div>
 </body>
 </html>

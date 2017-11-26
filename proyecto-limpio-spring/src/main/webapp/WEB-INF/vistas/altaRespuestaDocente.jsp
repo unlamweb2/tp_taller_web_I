@@ -49,30 +49,38 @@
 </div>
 </header>
 
-<br>
-<br>
+<form:form action="guardarRespuestaDocenteok" method="POST" modelAttribute="respuesta"> 
+
+<center><h1><span class="label label-info">Examen: ${examen.nombre}</span></h1></center>
+<center><h1><span class="label label-info">Pregunta: ${pregunta.nombre} </span></h1></center>
 
 
 
-<form:form action="guardarRespuestaDocente" method="POST" modelAttribute="Respuesta"> 
  <div class="form-group">
-<center><h1><span class="label label-info">Carga de Respuesta de la Pregunta: ${pregunta.nombre} </span></h1></center>
-<br>
-<br>
- <input type="hidden" name="IdPregunta" value="$pregunta.id}"/>
 
-<form:input path="nombre" id="nombre"  class="form-control" placeholder="Escriba la posible Respuesta"  />
+
+ <input type="hidden" name="idPregunta" value="${pregunta.id}"/>
+
 <br>
-<form:input path="correcta" id="correcta"  class="form-control" placeholder="La respuesta es la correcta?"  />
+<form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva Respuesta"  />
 <br>				
-	<input type="submit" value="Guardar Respuesta"/>
+<form:input path="correcta" id="correcta"  class="form-control" placeholder="La respuesta es correcta?"  />
+<br>
+<br>
+	<center><input type="submit" value="Guardar Nueva Respuesta"/></center>
  </div>	   
 </form:form>
+<br>
+<br>
+
+
+
+
 
 <!-- Footer -->	     
 
 	                <div class="footer">
 	                    <center><p><h6>Copyright &copy; Proyecto Colmena 2018</h6></p></center>
-	                </div> 
+	                </div>
 </body>
 </html>
