@@ -49,7 +49,7 @@
 </div>
 </header>
 
-<form:form action="guardarRespuestaDocenteok" method="POST" modelAttribute="respuesta"> 
+<form:form action="" method="POST" modelAttribute="respuesta"> 
 
 <center><h1><span class="label label-info">Examen: ${examen.nombre}</span></h1></center>
 <center><h1><span class="label label-info">Pregunta: ${pregunta.nombre} </span></h1></center>
@@ -63,13 +63,27 @@
 
 <br>
 <form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva Respuesta"  />
-<br>				
-<form:input path="correcta" id="correcta"  class="form-control" placeholder="La respuesta es correcta?"  />
+<br>
+
+<input type="checkbox" id="checkbox">				
+<label for="correcta">La respuesta ingresada es la Correcta?</label>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 	<center><input type="submit" value="Guardar Nueva Respuesta"/></center>
  </div>	   
 </form:form>
+<br>
+<br>
+<center><h1><span class="label label-info">Usted ha cargado las siguientes posibles Respuestas </span></h1></center>
+
+
+
+
 <br>
 <br>
 

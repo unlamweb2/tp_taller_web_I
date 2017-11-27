@@ -20,7 +20,6 @@ public class ServicioRespuestaImpl implements ServicioRespuesta{
 	public void grabarRespuesta(Respuesta Respuesta){
 		RespuestaDao.grabarRespuesta(Respuesta);
 		
-	}
-	
-			
+	}	
+		
 }

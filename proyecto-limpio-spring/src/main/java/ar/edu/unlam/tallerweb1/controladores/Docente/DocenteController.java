@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores.Docente;
 
 
+import java.awt.Checkbox;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
@@ -122,24 +123,53 @@ public class DocenteController{
 	@Inject ServicioRespuesta grabarRespuesta;
 	@Inject ServicioExamen examenServicio1;
 	@RequestMapping(value="/guardarRespuestaDocenteok", method=RequestMethod.POST)	
-	public ModelAndView altRespuesta(@RequestParam ("idPregunta") long idPregunta, @ModelAttribute("respuesta") Respuesta respuesta){
+	public ModelAndView altRespuesta(@RequestParam ("idExamen") long idExamen, @RequestParam ("idPregunta") long idPregunta,
+									 @ModelAttribute("respuesta") Respuesta respuesta){
 		
 		
 		ModelMap ModelRespuesta = new ModelMap();
 		
-		
+		/*traigo el examen de la base por id*/
+		Examen examen = new Examen();	
+		examen= examenServicio.cargarExamen((long)idExamen);
 		
 		/*traigo la pregunta de la base por id*/
 		Pregunta pregunta = new Pregunta();
 		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
 		
+		
+		/*relaciono el examen con la pregunta y la guardo */
+		pregunta.setExamen(examen);		
+		grabarPregunta.grabarPregunta(pregunta);
+		
+		
+		
+		
 		/*relaciono la pregunta con la respuesta y la guardo */
 		respuesta.setPregunta(pregunta);
 		grabarRespuesta.grabarRespuesta(respuesta);
 		
+		
+		
+		/*seteo la lógica del CheckBox*/		
+		Respuesta respuestaok = new Respuesta();
+		
+		Checkbox checkbox = new Checkbox();
+		
+		if(checkbox.isEnabled())
+		    {
+				respuestaok.setCorrecta(true);
+			}
+		else if(checkbox.isEnabled()==false);
+			{	
+				respuestaok.setCorrecta(false);
+			}			
+		ModelRespuesta.put("checkbox", checkbox);
+		
 		/*mando la pregunta para poder mostrar todas las respuestas del mismo con un for en la vista*/
 		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
 		ModelRespuesta.put("pregunta", pregunta);
+			
 		
 		/*creo y mando una nueva instancia de respuesta para poder dar de alta otra*/
 		respuesta= new Respuesta();		
@@ -147,10 +177,9 @@ public class DocenteController{
 		
 		return new ModelAndView ("altaRespuestaListado", ModelRespuesta);
 		
-}
+	}
 	
-	
-	  
+		  
 }
 
 		
