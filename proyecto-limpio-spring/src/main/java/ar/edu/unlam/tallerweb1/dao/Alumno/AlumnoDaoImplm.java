@@ -21,8 +21,7 @@ public class AlumnoDaoImplm implements AlumnoDao{
 	
 	@Transactional
 	public void anotarAlumno(Usuario alumno){
-		
-	
+
 		Session s = sessionFactory.openSession();
 		s.update(alumno);
 	}

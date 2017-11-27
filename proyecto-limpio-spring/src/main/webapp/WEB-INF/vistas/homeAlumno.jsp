@@ -76,7 +76,7 @@ function validacion(formu, obj) {
 <div class="col-md-4">		<br></br>
 
 <form:form action="rendirExamen" method="POST" modelAttribute="Materias" >
-
+  <input type="hidden" name="nombre" value="${usuario.nombre}">
 <div class="form-check" id="${usuario.id}">		
 <c:forEach items= "${Materias}" var="cursos" >
 

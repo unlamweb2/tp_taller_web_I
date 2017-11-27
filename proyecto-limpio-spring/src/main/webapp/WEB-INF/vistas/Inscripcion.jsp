@@ -13,6 +13,6 @@
 ${cursos}<br>
 
 </c:forEach>
-${Alumno}
+<!--${Alumno.id}-->
 </body>
 </html>

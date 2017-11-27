@@ -20,6 +20,11 @@ public class ServicioUsuarioImpl implements ServicioUsuario{
 		usuarioDao.grabarUsuario(usuario);
 	}
 	
+	@Transactional
+	public void actualizarUsuario(Usuario usuario){
+		usuarioDao.actualizarUsuario(usuario);
+	}
+	
 	/*public ArrayList<Curso> consultarCursosAlumno(Long id){
 	
 	return usuarioDao.consultarCursosAlumno(id);

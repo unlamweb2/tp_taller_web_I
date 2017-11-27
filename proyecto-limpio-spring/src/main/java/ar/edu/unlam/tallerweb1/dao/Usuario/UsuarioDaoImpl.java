@@ -37,6 +37,13 @@ public class UsuarioDaoImpl implements UsuarioDao {
 		Session s = sessionFactory.openSession();
 		s.save(usuario);		
 	}
+	
+	@Transactional
+	public void actualizarUsuario(Usuario usuario){	
+		Session s = sessionFactory.openSession();
+		s.update(usuario);		
+	}
+	
 	@Override
 	public Usuario UsuarioporId(long idUsuario) {
 

@@ -49,6 +49,15 @@ public class CursoDaoImpl implements CursoDao{
 		return (ArrayList<Curso>) session.createCriteria(Curso.class)
 				.list();
 }
+	@SuppressWarnings("unchecked")
+	public ArrayList<Curso> cursosxId(long[] idCurso)
+	{		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return (ArrayList<Curso>) session.createCriteria(Curso.class)
+				.add(Restrictions.eq("id",idCurso))
+				.list();
+	}
 	
 	public Curso GetCurso(long idCurso){
 			final Session session = sessionFactory.getCurrentSession();

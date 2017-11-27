@@ -9,12 +9,14 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
@@ -44,8 +46,12 @@ public class Usuario implements Serializable{
 	 /*@ManyToMany
 	    Set<Curso> cursos;*/
 	 
-	 @ManyToMany(cascade = {CascadeType.ALL})			
-		private List<Curso> cursos;
+	/* @ManyToMany(cascade = {CascadeType.ALL})POSTA
+		private List<Curso> cursos;*/
+	 
+	 @ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+		@JoinColumn (name="idCurso")
+		private Curso curso;
 	
 	public Usuario(){};
 	public Usuario(String email,String password, String rol) {
@@ -93,11 +99,11 @@ public class Usuario implements Serializable{
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public List<Curso> getCursos() {
-		return cursos;
+	public Curso getCursos() {
+		return curso;
 	}
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setCursos (Curso curso) {
+		this.curso = curso;
 	}
 	
 }

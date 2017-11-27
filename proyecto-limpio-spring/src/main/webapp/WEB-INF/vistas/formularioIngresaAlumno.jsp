@@ -52,7 +52,6 @@
 <div class="col-md-4">
 <div class="panel panel-primary"><div class="panel-heading"><center>Ingresa tus datos</center></div>
 
-
 <form:form action="guardarAlumno" method="POST" modelAttribute="Alumno"> 
 	<br><br>
 	<div class="col-xs-12">
@@ -68,11 +67,15 @@
 	<form:input path="email" placeholder="Mail" class="form-control"/>
 	</div><br><br><br>
 	
+<c:forEach items= "${Chorizo}" var="curso" ><br></br>
+
+<input type="checkbox" name="idCurso" value="${curso.id}" > ${curso.nombre}
+
+</c:forEach>
 	<button class="btn btn-lg btn-danger btn-block" Type="Submit">Guardar</button>
 	</form:form>
 	</div>
 <br>
-
 
 </div>
 <div class="col-md-4"></div>

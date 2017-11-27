@@ -33,8 +33,12 @@ public class Curso implements Serializable{
 	/* @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
 	 Set<Usuario> usuarios;*/
 	 
-	 @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")			
-	private List<Usuario> usuarios;
+	 /*@ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")POSTA			
+	private List<Usuario> usuarios;*/
+	 
+	 @OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+		@JoinColumn (name="idCurso")
+		private List<Usuario> usuarios;
 	 
 	/*@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")	
