@@ -23,10 +23,10 @@ public class ServicioCursoImpl implements ServicioCurso{
 		cursoDao.grabarCurso(curso);
 	}
 	
-	@Transactional
+	/*@Transactional
 	public ArrayList<Curso> consultarTodosLosCursos(Long id){
 		return cursoDao.consultarTodosLosCursos(id);
-	}
+	}*/
 	@Transactional
 	public ArrayList<Curso> cursosParaAnotarse(){
 		return cursoDao.cursosParaAnotarse();
@@ -39,5 +39,9 @@ public class ServicioCursoImpl implements ServicioCurso{
 	
 	public Curso GetCurso(long idCurso){
 		return cursoDao.GetCurso(idCurso);	
+	}
+	
+	public Curso consultarCursoAlumno(long id){
+	 return cursoDao.consultarCursoAlumno(id);
 	}
 }

@@ -62,9 +62,13 @@ public class ControladorLogin {
 					{
 					model.put("usuario", usuarioBuscado);
 					
-					ArrayList<Curso>cursos = new ArrayList<Curso>();
+					/*ArrayList<Curso>cursos = new ArrayList<Curso>();
 					cursos = BuscarCursos.consultarTodosLosCursos(usuarioBuscado.getId());
-					model.put("Materias", cursos);
+					model.put("Materias", cursos);*/
+					
+					Curso curso = new Curso();
+					curso = BuscarCursos.consultarCursoAlumno(usuarioBuscado.getId());
+					model.put("Materias", curso);
 				
 					return new ModelAndView("homeAlumno", model);}
 				

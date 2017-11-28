@@ -42,6 +42,7 @@ public class ExamenDaoImpl implements ExamenDao {
     			.uniqueResult();				
 		return ex;
 		}
+	
 	@SuppressWarnings("unchecked")
  	@Override
 	public Examen cargarExamenDinamico(long idCurso){

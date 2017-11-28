@@ -24,7 +24,7 @@ public class Examen {
 	private String tipo;
 	private int umbral;
 	
-	@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@ManyToOne (fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")
 	private Curso curso;
 	
