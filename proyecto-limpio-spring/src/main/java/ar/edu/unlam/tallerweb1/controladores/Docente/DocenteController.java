@@ -179,6 +179,19 @@ public class DocenteController{
 		
 	}
 	
+	/*Vista de Alumnos*/
+	
+	@RequestMapping("/vistaAlumnosDocente")
+	public ModelAndView verAlumnos(){
+		
+		ModelMap modelAlumnoDocente = new ModelMap();
+		
+			
+		
+	return new ModelAndView("vistaAlumnoDocente", modelAlumnoDocente);
+			
+	}
+	
 		  
 }
 

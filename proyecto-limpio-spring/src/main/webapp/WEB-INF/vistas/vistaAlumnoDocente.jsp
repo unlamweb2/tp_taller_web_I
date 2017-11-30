@@ -45,18 +45,15 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>Bienvenido Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <center><h2>Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 </header>
 
 <br>
-<center><h3>Por favor elija la accion a realizar</h3></center>
+<center><h3>Listado de Alumnos dados de Alta</h3></center>
 <br>
 <br>
-<center><div><a href="ingresarNuevoExamenDocente" class="btn btn-danger btn-sm active" role="button">Crear Nuevo Examen</a></div></center>
-<br>
-<br>
-<center><div><a href="vistaAlumnosDocente" class="btn btn-danger btn-sm active" role="button">Visualizar Alumnos</a></div></center>
+
 <br>
 <br>
 
