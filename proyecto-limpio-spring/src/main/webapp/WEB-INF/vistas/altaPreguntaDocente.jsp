@@ -53,13 +53,13 @@
 <br>
 
 
-<form:form action="" method="POST" modelAttribute="examen"> 
+<form:form method="GET" modelAttribute="examen"> 
 
 	<center><h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1></center>
 					
 			<c:forEach items= "${examen.preguntas}" var="pregunta">
-			<div class="checkbox">
-  				<form:label path="nombre" id="id" onClick=" window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/${examen.id}/${pregunta.id}'">${pregunta.nombre} </form:label>	
+			<div class="list-group">	
+  				<form:label class="list-group-item list-group-item-action active" path="nombre" id="id" onClick="window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/${examen.id}/${pregunta.id}'">${pregunta.nombre} </form:label>	
 			</div>		       	    
 			</c:forEach> 	
 	    

@@ -6,9 +6,7 @@
 	<!-- Bootstrap core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    
-	   
-	    
+	    	   	    
 	<!-- Bootstrap core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <!-- Bootstrap theme -->
@@ -49,24 +47,30 @@
 </div>
 </header>
 
-<form:form action="" method="POST" modelAttribute="respuesta"> 
+<form:form action="../../altaRespuestaDocenteok" method="POST" modelAttribute="respuesta"> 
 
 <center><h1><span class="label label-info">Examen: ${examen.nombre}</span></h1></center>
 <center><h1><span class="label label-info">Pregunta: ${pregunta.nombre} </span></h1></center>
 
-
+lalalla ${checkCorrecta}
 
  <div class="form-group">
-
-
- <input type="hidden" name="idPregunta" value="${pregunta.id}"/>
+ 
+	<input type="hidden" name="idExamen" value="${examen.id}"/>
+	 <input type="hidden" name="idPregunta" value="${pregunta.id}"/> 
 
 <br>
-<form:input path="nombre" id="nombre"  class="form-control" placeholder="Ingrese la nueva Respuesta"  />
+	<form:input path="nombre" id="nombre" class="form-control" placeholder="Ingrese la nueva Respuesta"  />
 <br>
-
-<input type="checkbox" id="checkbox">				
-<label for="correcta">La respuesta ingresada es la Correcta?</label>
+ 
+  <label for="checkCorrecta">La respuesta ingresada es la Correcta?</label>
+       <select id="checkCorrecta" name="checkCorrecta">
+   <option value="1">Correcta</option>
+   <option value="0">Incorrecta</option>
+ 
+</select>
+							
+	
 <br>
 <br>
 <br>
@@ -79,8 +83,6 @@
 </form:form>
 <br>
 <br>
-<center><h1><span class="label label-info">Usted ha cargado las siguientes posibles Respuestas </span></h1></center>
-
 
 
 

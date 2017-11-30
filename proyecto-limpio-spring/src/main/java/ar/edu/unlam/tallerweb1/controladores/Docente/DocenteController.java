@@ -5,6 +5,7 @@ import java.awt.Checkbox;
 import java.util.ArrayList;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.junit.Assert;
 import org.springframework.stereotype.Controller;
@@ -100,82 +101,55 @@ public class DocenteController{
 	
 	@RequestMapping ("/guardarRespuestaDocente/{idExamen}/{idPregunta}")
 	public ModelAndView homeRespuesta(@PathVariable long idExamen, @PathVariable long idPregunta){
-	
-		
+			
 	ModelMap ModelRespuesta = new ModelMap();
-	
-	
+		
 	Examen examen = getExamen.cargarExamen((long)idExamen); 
 	Pregunta pregunta = servicioPregunta.cargarPregunta((long)idPregunta);
 	Respuesta respuesta = new Respuesta();	
-	
-	
+			
 	ModelRespuesta.put("examen", examen);
 	ModelRespuesta.put("pregunta", pregunta);
 	ModelRespuesta.put("respuesta", respuesta);
 	
 	return new ModelAndView ("altaRespuestaDocente", ModelRespuesta);		
 	}
-	
-	
-	/*ALTA RESPUESTA*/
-	@Inject ServicioPregunta preguntaServicio;
-	@Inject ServicioRespuesta grabarRespuesta;
-	@Inject ServicioExamen examenServicio1;
-	@RequestMapping(value="/guardarRespuestaDocenteok", method=RequestMethod.POST)	
-	public ModelAndView altRespuesta(@RequestParam ("idExamen") long idExamen, @RequestParam ("idPregunta") long idPregunta,
-									 @ModelAttribute("respuesta") Respuesta respuesta){
 		
-		
+	
+	/*ALTA RESPUESTA*/	
+	@Inject ServicioRespuesta servicioRespuesta;
+	@RequestMapping(value="/altaRespuestaDocenteok", method=RequestMethod.POST)	
+	public ModelAndView altRespuesta( @RequestParam("checkCorrecta")int checkCorrecta, @RequestParam long idExamen, @RequestParam long idPregunta,
+			@ModelAttribute("respuesta") Respuesta respuesta)
+	{
 		ModelMap ModelRespuesta = new ModelMap();
 		
-		/*traigo el examen de la base por id*/
 		Examen examen = new Examen();	
 		examen= examenServicio.cargarExamen((long)idExamen);
-		
+						
 		/*traigo la pregunta de la base por id*/
 		Pregunta pregunta = new Pregunta();
-		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
+		pregunta= grabarPregunta.cargarPregunta((long) idPregunta);
 		
-		
-		/*relaciono el examen con la pregunta y la guardo */
-		pregunta.setExamen(examen);		
-		grabarPregunta.grabarPregunta(pregunta);
-		
-		
-		
-		
+		if (checkCorrecta==1){
+			respuesta.setCorrecta(true);
+		}
+		else
+		{
+			respuesta.setCorrecta(false);
+		}
+				
+				
 		/*relaciono la pregunta con la respuesta y la guardo */
-		respuesta.setPregunta(pregunta);
-		grabarRespuesta.grabarRespuesta(respuesta);
-		
-		
-		
-		/*seteo la lógica del CheckBox*/		
-		Respuesta respuestaok = new Respuesta();
-		
-		Checkbox checkbox = new Checkbox();
-		
-		if(checkbox.isEnabled())
-		    {
-				respuestaok.setCorrecta(true);
-			}
-		else if(checkbox.isEnabled()==false);
-			{	
-				respuestaok.setCorrecta(false);
-			}			
-		ModelRespuesta.put("checkbox", checkbox);
-		
+		respuesta.setPregunta(pregunta);			
+	    servicioRespuesta.grabarRespuesta(respuesta);
+			    			
 		/*mando la pregunta para poder mostrar todas las respuestas del mismo con un for en la vista*/
-		pregunta= preguntaServicio.cargarPregunta((long) idPregunta);
-		ModelRespuesta.put("pregunta", pregunta);
-			
 		
-		/*creo y mando una nueva instancia de respuesta para poder dar de alta otra*/
-		respuesta= new Respuesta();		
-		ModelRespuesta.put("respuesta", respuesta);
-		
-		return new ModelAndView ("altaRespuestaListado", ModelRespuesta);
+		ModelRespuesta.put("examen", examen);
+		ModelRespuesta.put("pregunta", pregunta);			
+		 				
+		return new ModelAndView ("altaPreguntaDocente", ModelRespuesta);
 		
 	}
 	
@@ -185,9 +159,7 @@ public class DocenteController{
 	public ModelAndView verAlumnos(){
 		
 		ModelMap modelAlumnoDocente = new ModelMap();
-		
-			
-		
+				
 	return new ModelAndView("vistaAlumnoDocente", modelAlumnoDocente);
 			
 	}
