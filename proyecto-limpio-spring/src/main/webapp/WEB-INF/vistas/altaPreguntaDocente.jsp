@@ -58,8 +58,18 @@
 	<center><h1><span class="label label-info">Preguntas Cargadas del Examen: ${examen.nombre} </span></h1></center>
 					
 			<c:forEach items= "${examen.preguntas}" var="pregunta">
-			<div class="list-group">	
-  				<form:label class="list-group-item list-group-item-action active" path="nombre" id="id" onClick="window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/${examen.id}/${pregunta.id}'">${pregunta.nombre} </form:label>	
+			<div class="alert alert-primary">	
+  				<form:label  class ="btn btn-primary btn-lg btn-block" path="nombre" id="id" onClick="window.location.href='/proyecto-limpio-spring/guardarRespuestaDocente/${examen.id}/${pregunta.id}'">${pregunta.nombre} </form:label>
+  				<center><h3><span class="label label-info">Respuestas: </span></h3></center> 
+				 <c:forEach  items="${pregunta.respuestas}" var="respuestas"> 				    
+			     	 <label class="list-group-item list-group-item-action list-group-item-primary">${respuestas.nombre}
+			     	 <c:if test="${respuestas.correcta}" >
+			     	 <label class="alert alert-danger">Respuesta Correcta</label> 
+			     	 </c:if>
+			     	 
+			     	 </label>  		    
+			    </c:forEach>
+  					
 			</div>		       	    
 			</c:forEach> 	
 	    
@@ -69,6 +79,7 @@
 <form:form action="guardarPregunta" method="POST" modelAttribute="pregunta"> 
  <div class="form-group">
 <center><h1><span class="label label-info">Carga de Preguntas ${examen.nombre} </span></h1></center>
+
 <br>
 <br>
  <input type="hidden" name="IdExamen" value="${examen.id}"/>

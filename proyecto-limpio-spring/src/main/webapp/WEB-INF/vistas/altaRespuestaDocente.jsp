@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -52,7 +53,7 @@
 <center><h1><span class="label label-info">Examen: ${examen.nombre}</span></h1></center>
 <center><h1><span class="label label-info">Pregunta: ${pregunta.nombre} </span></h1></center>
 
-lalalla ${checkCorrecta}
+
 
  <div class="form-group">
  
@@ -83,8 +84,6 @@ lalalla ${checkCorrecta}
 </form:form>
 <br>
 <br>
-
-
 
 <br>
 <br>

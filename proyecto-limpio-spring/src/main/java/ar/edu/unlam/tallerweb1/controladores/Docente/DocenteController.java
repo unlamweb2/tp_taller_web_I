@@ -146,6 +146,10 @@ public class DocenteController{
 			    			
 		/*mando la pregunta para poder mostrar todas las respuestas del mismo con un for en la vista*/
 		
+		
+		examen= examenServicio.cargarExamen((long)idExamen);
+		pregunta= grabarPregunta.cargarPregunta((long) idPregunta);
+		
 		ModelRespuesta.put("examen", examen);
 		ModelRespuesta.put("pregunta", pregunta);			
 		 				
