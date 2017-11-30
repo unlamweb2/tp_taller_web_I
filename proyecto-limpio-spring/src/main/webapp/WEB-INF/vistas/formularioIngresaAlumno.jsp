@@ -38,6 +38,20 @@
     h3 {color: black; }
     h1 { color: grey; }
   		</style>
+  		<script language="javascript">
+//VALIDACION CHECKBOX
+function validacion(formu, obj) {
+  limite=1; //limite de checks a seleccionar
+  num=0;
+    for (i=0;ele=document.getElementById(formu).children[i] ; i++)
+    {   
+    	if (ele.checked) 
+    	num++;	    	
+    }
+  if (num>limite)
+    obj.checked=false;  
+}  
+</script>
   		
 	</head>
 <body>
@@ -65,14 +79,16 @@
 	</div><br><br><br><br>
 	<div class="col-xs-12">
 	<form:input path="email" placeholder="Mail" class="form-control"/>
-	</div><br><br><br>
+	</div><br>
 	
 	<div class="col-xs-12">
 	<c:forEach items= "${Chorizo}" var="materias" ><br></br>	
-	<input type="checkbox" name="idCurso" value="${materias.id}" > ${materias.nombre}
+	<!--  <input type="checkbox" name="idCurso" value="${materias.id}" > ${materias.nombre}-->
+	<input type="checkbox"  name="idCurso" value="${materias.id}"  onclick="validacion('${materias.id}',this)" >${materias.nombre}
 	</c:forEach>
-	
-	</div><br><br><br>
+	<br>
+	</div>
+	<br>
 	<button class="btn btn-lg btn-danger btn-block" Type="Submit">Guardar</button>
 	</form:form>
 	</div>

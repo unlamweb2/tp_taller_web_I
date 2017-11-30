@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,10 +15,6 @@ import ar.edu.unlam.tallerweb1.modelo.Curso;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.Login.ServicioLogin;
 import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
-
-
-
-
 
 @Controller
 public class CursoControler {
@@ -28,17 +25,28 @@ public class CursoControler {
 	@Inject
 	private ServicioLogin servicioLogin;
 	
-	@RequestMapping("/ingresarCurso")
+	@RequestMapping(value= "/ingresarCurso")
 	public ModelAndView ingresarCurso()
 	{
 				
 	Curso curso = new Curso();
 	ModelMap model = new ModelMap();	
 	model.put("Materia", curso);
+
 	return new ModelAndView("formularioIngresaCurso", model);		
 	}
 	
+	/*@RequestMapping(value="/ingresarCurso/{usuario}")
+	public ModelAndView ingresarCurso(@PathVariable("usuario") String usuario)
+	{
+				
+	Curso curso = new Curso();
+	ModelMap model = new ModelMap();	
+	model.put("Materia", curso);
+	model.put("Usuario", usuario);
 	
+	return new ModelAndView("formularioIngresaCurso", model);		
+	}*/
 	
 	@Inject
 	private ServicioCurso registrarCurso;

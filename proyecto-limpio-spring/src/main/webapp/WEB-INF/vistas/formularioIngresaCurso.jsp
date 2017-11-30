@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -45,22 +47,26 @@
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>${usuario.nombre} ${usuario.apellido}</h2></center></div>  <center><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Desloguearse</a></center>
+  <!--   <div class="col-md-11"> <h2>${Usuario} </h2></div>  <center><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></center>-->
+   <div class="col-md-11"> </div>  <center><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></center>
 </div>
 </header>
-
+<br><br>
 <form:form action="guardarCurso" method="POST" modelAttribute="Materia">
 
-<h4>Cursos Existentes:</h4>
+
 <br>
-
-	<form:label path="nombre"><h2>Nuevo Curso a Ingresar</h2></form:label>
-	<form:input path="nombre"/><br><br>
-	
-	
-	
-	<input type="submit" value="Guardar"/>
-
+	<div class="col-md-4"></div>
+		<div class="col-md-4">
+	<div class="panel panel-primary"><div class="panel-heading">Ingresar curso</div>
+	<br><br>
+	<div class="col-xs-12">
+	<form:input path="nombre" placeholder="Materia" class="form-control"/>
+	</div><br><br><br><br>
+	<input type="submit" class="btn btn-lg btn-danger btn-block" role="button" value="Guardar"/>
+	</div>
+	</div>
+	<div class="col-md-4"></div>
 </form:form>
 </body>
 </html> 

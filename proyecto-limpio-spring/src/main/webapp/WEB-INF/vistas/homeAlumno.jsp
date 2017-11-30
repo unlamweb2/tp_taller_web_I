@@ -55,14 +55,10 @@ function validacion(formu, obj) {
   if (num>limite)
     obj.checked=false;  
 }  
-</script>  	
-  		
-	    
+</script>  		    
 </head>
 <body>
 
-
-			
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
@@ -84,7 +80,7 @@ function validacion(formu, obj) {
 			
 			<c:forEach items= "${Materias.examen}" var="examen" >	
 				<br>		
-		  	<center>	<input class="form-check-input"  type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${usuario.id}',this)" ><label class="form-check-label">  ${examen.nombre} </label></center>		       	    
+		  	<center><input class="form-check-input"  type="checkbox"  name="idExamen" value="${examen.id}"  onclick="validacion('${usuario.id}',this)" ><label class="form-check-label">${examen.nombre}</label></center>		       	    
 			</c:forEach> 
 </div>	
 <br></br>
