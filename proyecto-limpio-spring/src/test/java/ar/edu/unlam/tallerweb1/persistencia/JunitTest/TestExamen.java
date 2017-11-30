@@ -31,11 +31,9 @@ public class TestExamen extends SpringTest{
 	    
 	
     @Before
-    @Transactional @Rollback(true)
+    @Transactional @Rollback(false)
     public void llenarDatos()  
-    {   
-    	ArrayList <Examen> examenes = new ArrayList();
-    	
+    {       	    	
     	/*examen ingles */
     	ArrayList <Pregunta> preguntas = new ArrayList();
     	ArrayList <Respuesta> respuestas = new ArrayList();    	
@@ -53,8 +51,8 @@ public class TestExamen extends SpringTest{
     	preguntas.add( new Pregunta("Significado de 'He Has'",respuestas2));     	    	    	
     	examen = new Examen("Examen Ingles","12/12/2018","final",preguntas,100);
     	
-    	examenes.add(examen);
-    	
+    	getSession().save(examen);  
+    	       	
     	/*examen historia*/
     	ArrayList <Pregunta> preguntas2 = new ArrayList();
     	ArrayList <Respuesta> respuestas3 = new ArrayList();    	
@@ -67,35 +65,15 @@ public class TestExamen extends SpringTest{
     	respuestas4.add(new Respuesta("Francia",true));
     	respuestas4.add(new Respuesta("Argentina",false));    	    	    	
     	
-    	preguntas2.add( new Pregunta("Dondfe Murio san Martin'",respuestas4)); 
-    	
-    	
+    	preguntas2.add( new Pregunta("Donde Murio san Martin'",respuestas4)); 
+    	    	    	
     	
     	examen2 = new Examen("Examen Historia","12/12/2018","final",preguntas2,100);
-    	    	   	    	   	    	    	   	
-    	examenes.add(examen2);
     	
-    	/* fin carga de examenes*/
+    	getSession().save(examen2);     	    	 	    	   	    	    	   	
     	    	
-    	Curso curso = new Curso(); 
-    	curso.setExamen(examenes);
-    	curso.setNombre("Curso 1");
-       
-    	ArrayList <Curso> cursos = new ArrayList();
-    	
-    	cursos.add(curso);
-    	       	
-    	Usuario usuario = new Usuario();
-    	usuario.setEmail("test@test");
-    	usuario.setNombre("test");
-    	usuario.setRol("alumno");
-    	usuario.setPassword("1234");
-    	
-    	usuario.setCursos(cursos);
-    	
-    	getSession().save(usuario);  
-    	
-    	
+    	/* fin carga de examenes*/
+   
     } 	
    
     
@@ -107,56 +85,32 @@ public class TestExamen extends SpringTest{
        List <Respuesta> res;
            	
     	res = getSession().createCriteria(Respuesta.class)
-    			.add (Restrictions.eq("id", Long.parseLong( "31")))
+    			.add (Restrictions.eq("nombre", "Francia"))
     			.list();
     	
     	    	    	
-   	for (Respuesta item : res) {
-    		
-    		System.out.println(item.getId());
-			System.out.println(item.getNombre());
-			
-			Assert.assertEquals(item.getNombre(),"No soy");     	
-    		}
+   	for (Respuesta item : res) {  
+			Assert.assertEquals(item.getNombre(),"Francia");     	
+    }
    	
     List <Pregunta> pre;
    	
    	pre = getSession().createCriteria(Pregunta.class)
-			.add (Restrictions.eq("id", Long.parseLong( "12")))
+			.add (Restrictions.eq("nombre", "Donde Murio san Martin"))
 			.list();
    	
-   	for (Pregunta item : pre) {
-   		
-		System.out.println(item.getId());
-		System.out.println(item.getNombre());
-		
-		Assert.assertEquals(item.getExamen().getNombre(),"Ingles"); 		
+   	for (Pregunta item : pre) {  
+		Assert.assertEquals(item.getNombre(),"Donde Murio san Martin"); 		
 		}
    	
    	List <Examen> ex;
    	ex = getSession().createCriteria(Examen.class)
-			.add (Restrictions.eq("id", Long.parseLong( "7")))
+			.add (Restrictions.eq("nombre", "Examen Historia"))
 			.list();
    	
 	
-   	for (Examen item : ex) {
-   		
-		System.out.println(item.getId());
-		System.out.println(item.getNombre());
-		Assert.assertEquals(item.getNombre(),"Ingles"); 
-				
-		for (Pregunta item2 : item.getPreguntas()){			
-			System.out.println(item2.getId());
-			System.out.println(item2.getNombre());
-			
-			for (Respuesta item3 : item2.getRespuestas()){			
-				System.out.println(item3.getId());
-				System.out.println(item3.getNombre());
-			}
-		}
-		
-		
-				
+   	for (Examen item : ex) {  
+		Assert.assertEquals(item.getNombre(),"Examen Historia"); 				
 		}
             	    	    	      	         	
     }
