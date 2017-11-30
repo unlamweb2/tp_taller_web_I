@@ -47,20 +47,20 @@ function validacion(formu, obj) {
 		<header class="panel-primary">
 <div class="container-fluid panel-heading">
   <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <h4>${Nombre}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+   <div class="col-md-11"> <h4>${Nombre} ${Apellido}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 
 </header>
 			
 <div class="row">
   <div class="col-md-4"></div>
-<div class="col-md-4">			  
+<div class="col-md-4">	<br><br>
+<div class="panel panel-primary"><div class="panel-heading">${Examen.nombre}</div></div>		  
 <form:form action="corregir-examen" method="POST" modelAttribute="Examen" >
-<h1><span class="label label-info">${Examen.nombre} </span></h1>
-
 
  <input type="hidden" name="IdExamen" value="${Examen.id}">
-
+	<input type="hidden" name="nombre" value="${Nombre}">
+  <input type="hidden" name="apellido" value="${Apellido}">
 	<!--Union de dos clases-->
 	<c:forEach items= "${Examen.preguntas}" var="pregunta" >
 	
@@ -72,6 +72,7 @@ function validacion(formu, obj) {
 		</div>	 
 	 
 	</c:forEach> 
+	<br>
 <input type="submit" class="btn btn-lg btn-danger btn-block" value="Enviar"/>
 
 </form:form></div>

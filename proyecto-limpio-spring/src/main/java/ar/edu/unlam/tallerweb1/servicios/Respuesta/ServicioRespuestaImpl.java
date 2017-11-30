@@ -21,5 +21,10 @@ public class ServicioRespuestaImpl implements ServicioRespuesta{
 		RespuestaDao.grabarRespuesta(Respuesta);
 		
 	}	
+	
+	
+	public Respuesta nomRespuesta(long idRta){
+		return RespuestaDao.nomRespuesta(idRta);
+	}
 		
 }

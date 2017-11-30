@@ -6,6 +6,7 @@ import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 public interface ServicioRespuesta {
 
 	public void grabarRespuesta(Respuesta Respuesta);
+	public Respuesta nomRespuesta(long idRta);
 	
 	
 }

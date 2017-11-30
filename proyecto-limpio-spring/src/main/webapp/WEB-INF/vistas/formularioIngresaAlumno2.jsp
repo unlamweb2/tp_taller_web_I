@@ -68,11 +68,15 @@
 	</div><br><br><br>
 	
 	<div class="col-xs-12">
-	<c:forEach items= "${Chorizo}" var="materias" ><br></br>	
-	<input type="checkbox" name="idCurso" value="${materias.id}" > ${materias.nombre}
-	</c:forEach>
 	
-	</div><br><br><br>
+   <form:select path="cursos">
+   <c:forEach  items="${Chorizo}" var="curso">
+     <form:option value="${curso.id}"  >${curso.nombre} </form:option>
+    </c:forEach>
+   </form:select>
+
+
+	</div><br><br>
 	<button class="btn btn-lg btn-danger btn-block" Type="Submit">Guardar</button>
 	</form:form>
 	</div>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.modelo.Curso;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 
 

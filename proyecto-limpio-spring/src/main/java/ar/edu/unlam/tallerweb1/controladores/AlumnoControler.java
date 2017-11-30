@@ -24,8 +24,10 @@ public class AlumnoControler {
 	private ServicioUsuario registrarAlumno;
 	@Inject
 	private ServicioUsuario buscarUsuarioxId;
+	
 	@Inject
 	private ServicioCurso Cursos;
+	
 	@Inject
 	private ServicioAlumno inscribirAlumno;
 	
@@ -35,14 +37,11 @@ public class AlumnoControler {
 		ModelMap modelo = new ModelMap();
 		Usuario alumno = new Usuario();
 		modelo.put("Alumno", alumno);
-		ArrayList<Curso>cursos = new ArrayList<Curso>();
-		cursos = Cursos.cursosParaAnotarse();
-		modelo.put("Chorizo", cursos);
-		
+		ArrayList<Curso>materias = new ArrayList<Curso>();
+		materias = Cursos.cursosParaAnotarse();
+		modelo.put("Chorizo", materias);	
 		return new ModelAndView("formularioIngresaAlumno", modelo);
 	}
-	
-	
 	
 	//Trae todos los cursos a los que puede anotarse el alumno
 	@RequestMapping(value="/guardarAlumno", method = RequestMethod.POST)
@@ -54,17 +53,17 @@ public class AlumnoControler {
 	
 	//ArrayList<Curso>cursos = new ArrayList<Curso>();
 	//cursos = Cursos.cursosParaAnotarse();
-	//model.put("Chorizo", cursos);
+	//model.put("Chorizo", cursos);LA VISTA LOS RECIBE PERFECTO. COMPROBADO
 	//model.put("Alumno", alumno);
 	Curso curso = new Curso();
 	curso = Cursos.GetCurso(idCurso);
 	alumno.setCursos(curso);
 	registrarAlumno.grabarUsuario(alumno);
 
-	return new ModelAndView("homeAlumnoSinMateria",model);	//LA VISTA LOS RECIBE PERFECTO. COMPROBADO
+	return new ModelAndView("redirect:/login");	
 	}
 	
-	@RequestMapping(value="/inscribirAlumno", method = RequestMethod.POST)
+	/*@RequestMapping(value="/inscribirAlumno", method = RequestMethod.POST)
 	public ModelAndView guardarAlumno(@RequestParam("idCurso")long idCurso, @RequestParam("idAlumno")long idAlumno)
 	{
 		ModelMap model = new ModelMap();
@@ -78,17 +77,12 @@ public class AlumnoControler {
 		Curso curso = new Curso();
 		curso = Cursos.GetCurso(idCurso);
 		alumnoEncontrado.setCursos(curso);
-		
 		registrarAlumno.actualizarUsuario(alumnoEncontrado);
-		
 		/*inscripto.add(alumnoEncontrado);
 		curso.setUsuarios(inscripto);
-		Cursos.grabarCurso(curso);*/
-		
-		
-		
-		return new ModelAndView("Inscripcion", model);
-	}
+		Cursos.grabarCurso(curso);*/	
+		//return new ModelAndView("Inscripcion", model);
+	//}
 
 }
 
