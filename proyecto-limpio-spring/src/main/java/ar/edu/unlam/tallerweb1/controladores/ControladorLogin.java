@@ -26,7 +26,10 @@ public class ControladorLogin {
 	
 	 @Inject
 		private ServicioLogin servicioLogin;
-
+	 
+	 @Inject
+		private ServicioCurso servicioCurso;
+	
 	@RequestMapping("/login")
 	public ModelAndView irALogin() {
 
@@ -52,7 +55,13 @@ public class ControladorLogin {
 			if(("docente".equals(usuarioBuscado.getRol())))
 			{
 				ModelMap modelDocente = new ModelMap();
+				
+				ArrayList<Curso> cursos = new ArrayList<Curso>();		
+				cursos =	servicioCurso.cursosParaAnotarse();
+				
+				modelDocente.put("Cursos", cursos);
 				modelDocente.put("usuario", usuarioBuscado);
+				
 			   
 				return new ModelAndView("homeDocente", modelDocente);}
 			
@@ -94,10 +103,6 @@ public class ControladorLogin {
 		return new ModelAndView("home");
 	}
 	
-	@RequestMapping(path = "/homeDocente", method = RequestMethod.GET)
-	public ModelAndView irAHomeDocente() {
-		return new ModelAndView("homeDocente");
-	}
 	
 
 	// Escucha la url /, y redirige a la URL /login, es lo mismo que si se invoca la url /login directamente.

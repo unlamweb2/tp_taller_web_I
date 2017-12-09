@@ -27,15 +27,15 @@ public class Pregunta {
 //	@OneToMany (cascade=CascadeType.ALL)
 //	@JoinColumn (name="idPregunta")	
 	
-	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@ManyToOne (fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST, CascadeType.REFRESH})
+	@JoinColumn (name="idExamen")
+	private Examen examen;
+	
+	@OneToMany(fetch=FetchType.EAGER,cascade= {CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn (name="idPregunta")	
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Respuesta> respuestas; 
 	
-	
-	@ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-	@JoinColumn (name="idExamen")
-	private Examen examen;
 
 	public Pregunta() {
 		super();

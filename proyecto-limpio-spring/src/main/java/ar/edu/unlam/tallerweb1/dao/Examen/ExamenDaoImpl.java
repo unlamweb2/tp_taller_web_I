@@ -28,6 +28,13 @@ public class ExamenDaoImpl implements ExamenDao {
 				.list();
 	}
 	
+	public ArrayList<Nota> getNotas(long Idexamen){
+		final Session session = sessionFactory.getCurrentSession();
+		return (ArrayList<Nota>) session.createCriteria(Nota.class)
+				.add (Restrictions.eq("id",Idexamen))
+				.list();			
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public Examen cargarExamen(long Idexamen){
@@ -99,18 +106,36 @@ public class ExamenDaoImpl implements ExamenDao {
 	public void GrabarNotaExamen (Nota nota){
 	
 		final Session session = sessionFactory.getCurrentSession();
-		session.save(nota);  
-		
+		session.save(nota);  		
 	}
 	
 	 public long GrabarExamen(Examen examen){
 		 
 		 final Session session = sessionFactory.getCurrentSession();
-			session.save(examen); 
-			
-			return examen.getId();
-		 
+			session.save(examen); 			
+			return examen.getId();		 
 	 }
+	 
+	public  ArrayList <Examen> cargarExamenXCurso(long Idcurso){
+	
+		@SuppressWarnings("unused")	
+		ArrayList <Examen> ex;
+		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		ex= (ArrayList<Examen>) session.createCriteria(Examen.class)
+				.add (Restrictions.eq("idCurso",Idcurso))
+    			.list();				
+		return ex;
+	}
+	
+	public void   SetEstadoExamen(Examen examen){
+				
+		final Session session = sessionFactory.getCurrentSession();
+		
+		session.update(examen);
+		
+	}
 }
 
 

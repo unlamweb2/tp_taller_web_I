@@ -8,6 +8,6 @@ public interface RespuestaDao {
 	
 	public void grabarRespuesta(Respuesta Respuesta);	
 	public Respuesta nomRespuesta(long idRta);
-
+	public boolean borrarRespuesta(Respuesta  respuesta);
 	
 }

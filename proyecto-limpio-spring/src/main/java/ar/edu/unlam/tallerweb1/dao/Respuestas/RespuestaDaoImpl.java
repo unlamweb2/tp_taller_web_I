@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.modelo.Curso;
+import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
 
@@ -37,6 +38,24 @@ public class RespuestaDaoImpl implements RespuestaDao{
 		return (Respuesta) session.createCriteria(Respuesta.class)
 				.add(Restrictions.eq("id",idRta))
 				.uniqueResult();
+	}
+	
+	@Override
+	public boolean borrarRespuesta(Respuesta  respuesta){
+		boolean Borro=false;
+		final Session session = sessionFactory.getCurrentSession();
+							
+		try
+		{
+			session.delete(respuesta);
+			Borro=true;
+		}
+		catch(org.hibernate.exception.ConstraintViolationException ex){
+			Borro=false;
+		}
+				
+		return Borro;
+	
 	}
 
 }

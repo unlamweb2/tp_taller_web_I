@@ -1,11 +1,14 @@
 package ar.edu.unlam.tallerweb1.servicios.Respuesta;
 
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.dao.Respuestas.RespuestaDao;
+import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 
 
@@ -25,6 +28,20 @@ public class ServicioRespuestaImpl implements ServicioRespuesta{
 	
 	public Respuesta nomRespuesta(long idRta){
 		return RespuestaDao.nomRespuesta(idRta);
+	}
+	
+			
+	
+	@Transactional
+	public boolean borrarRespuesta( long IdRespuesta){
+		Respuesta respuesta;
+					
+		respuesta = nomRespuesta(IdRespuesta);
+		
+		System.out.print(respuesta.getNombre());
+		
+		return false;	
+		//return RespuestaDao.borrarRespuesta(respuesta);
 	}
 		
 }

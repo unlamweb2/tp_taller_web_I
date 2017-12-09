@@ -4,49 +4,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+		  <link href="css/bootstrap.min.css" rel="stylesheet" >
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    	   	    
-	<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	  
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="css/estilos.css" rel="stylesheet">
-	    
-	    
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	    <link href="js/bootstrap.min.js" rel="stylesheet" >
-	    <link href="js/jquery-1.11.3.min.js" rel="stylesheet" >
-	    
-	      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  			
-  			
-  			<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
-	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	    <link href="css/estilos.css" rel="stylesheet">
-	    
-	     <style>
-    h6 { color: grey; }
-    h4 { color: white; }
-    h2 {color: white; }
-    h3 {color: black; }
-    h1 { color: grey; }
-  		</style>
+	     <link href="../../css/estilos.css" rel="stylesheet">
+	    	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		 
+	    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/funciones.js"></script> 
   		
 	</head>
 <body>
 
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
-  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
-   <div class="col-md-11"> <center><h2>Cargue el Exámen Profesor ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
+  <h1><center><img src="../../img/Logo.jpg"/></center></h1>
+   <div class="col-md-11"> <center><h2>Carga de respuestas ${usuario.nombre} ${usuario.apellido}</h2></center></div>  <div class="col-md-1"><a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 </header>
+
+
+<div class="contenedor">
 
 <form:form action="../../altaRespuestaDocenteok" method="POST" modelAttribute="respuesta"> 
 
@@ -65,7 +46,7 @@
 <br>
  
   <label for="checkCorrecta">La respuesta ingresada es la Correcta?</label>
-       <select id="checkCorrecta" name="checkCorrecta">
+ <select class="btn" id="checkCorrecta" name="checkCorrecta">
    <option value="1">Correcta</option>
    <option value="0">Incorrecta</option>
  
@@ -79,9 +60,11 @@
 <br>
 <br>
 <br>
-	<center><input type="submit" value="Guardar Nueva Respuesta"/></center>
+	<center><input class="btn btn-primary"  type="submit" value="Guardar Nueva Respuesta"/></center>
  </div>	   
 </form:form>
+
+ </div>	 
 <br>
 <br>
 

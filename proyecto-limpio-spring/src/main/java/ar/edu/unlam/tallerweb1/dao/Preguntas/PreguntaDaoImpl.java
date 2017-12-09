@@ -1,6 +1,8 @@
 package ar.edu.unlam.tallerweb1.dao.Preguntas;
 
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
 import javax.inject.Inject;
 
 import org.hibernate.Session;
@@ -42,6 +44,25 @@ public class PreguntaDaoImpl implements PreguntaDao{
     			.uniqueResult();				
 		return pr;
 		}
+	
+	
+	@Override
+	public boolean borrarPregunta(Pregunta pregunta){
+		boolean Borro=false;
+		final Session session = sessionFactory.getCurrentSession();
+				
+		try
+		{
+			session.delete(pregunta);
+			Borro=true;
+		}
+		catch(org.hibernate.exception.ConstraintViolationException ex){
+			Borro=false;
+		}
+				
+		return Borro;
+	
+	}
 
 	
 }

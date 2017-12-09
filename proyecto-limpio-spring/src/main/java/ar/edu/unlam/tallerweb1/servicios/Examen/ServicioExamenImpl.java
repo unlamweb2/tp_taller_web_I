@@ -21,6 +21,7 @@ public class ServicioExamenImpl implements ServicioExamen{
 	@Inject
 	private ExamenDao examendao;
 	
+	
 	@Transactional
 	public ArrayList<Examen> cargarExamen(){
 		return examendao.cargarExamen();
@@ -77,14 +78,39 @@ public class ServicioExamenImpl implements ServicioExamen{
 	}
 	
 	@Transactional
-	public void GrabarNotaExamen(Nota nota){
-		
-		examendao.GrabarNotaExamen(nota);
-	
+	public void GrabarNotaExamen(Nota nota){		
+		examendao.GrabarNotaExamen(nota);	
 	}
 	
 	@Transactional
 	public long GrabarExamen(Examen examen){
 		return examendao.GrabarExamen(examen);
 	}
+	
+	public boolean ExamenYaUtilizado(long Idexamen){
+	
+		Boolean respuesta;
+		
+		ArrayList <Nota> notas  = new ArrayList <Nota>();
+		
+		if(examendao.getNotas(Idexamen).size()==0)
+		{respuesta=false;		
+		}else
+		{respuesta=true;}
+				
+	return respuesta;
+		
+	}
+	
+	public ArrayList <Examen> cargarExamenXCurso (long Idcurso){
+		
+		return examendao.cargarExamenXCurso(Idcurso);
+		
+	}
+	
+	public void SetEstadoExamen(Examen examen){
+				
+		examendao.SetEstadoExamen(examen);
+	}
+	
 }

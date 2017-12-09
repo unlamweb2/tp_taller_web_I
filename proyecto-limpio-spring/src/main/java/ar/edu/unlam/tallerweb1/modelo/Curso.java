@@ -40,11 +40,6 @@ public class Curso implements Serializable{
 		@JoinColumn (name="idCurso")
 		private List<Usuario> usuarios;
 	 
-	/*@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinColumn (name="idCurso")	
-	@Fetch(value = FetchMode.SUBSELECT)	
-	private List<Examen> examen;*/
-	
 	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")	
 	@Fetch(value = FetchMode.SUBSELECT)	

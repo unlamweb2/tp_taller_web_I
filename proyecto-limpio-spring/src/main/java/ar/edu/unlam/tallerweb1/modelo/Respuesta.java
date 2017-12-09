@@ -18,7 +18,7 @@ public class Respuesta {
 	private String nombre;
 	private Boolean correcta;
 	
-	@ManyToOne (fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToOne (fetch=FetchType.LAZY, cascade= {CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn (name="idPregunta")
 	private Pregunta pregunta;
 	

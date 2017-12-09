@@ -9,6 +9,6 @@ public interface PreguntaDao {
 	
 	public void grabarPregunta(Pregunta Pregunta);	
 	Pregunta cargarPregunta(long IdPregunta);
-
+	public boolean borrarPregunta(Pregunta pregunta);
 	
 }

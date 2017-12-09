@@ -82,23 +82,6 @@ public class ExamenControler {
 		
 		return new ModelAndView("Resultado", model);
 	}
-	@RequestMapping("/rendirExamenDinamico/{idCurso}")
-		public ModelAndView rendir22(@PathVariable("idCurso") long idCurso) {
-			
-			Examen examen = new Examen();	
-			ModelMap model= new ModelMap();					
-			
-			examen= GetExamen.cargarExamenDinamico(idCurso);
-			model.put("Examen", examen);
-			return new ModelAndView("homeExamen22",model);		
-}
-	@RequestMapping(path ="/corregir-examenDinamico", method=RequestMethod.POST)
-		public ModelAndView validarLogin22(@RequestParam("RespuestadelExamen22")String[] checkboxValue22, @RequestParam(value="IdExamen")long idExamen22)
-		{
-			
-			ModelMap model = new ModelMap();
-			model.put("Respuesta", checkboxValue22);
-			model.put("Examen", idExamen22);
-			return new ModelAndView("Resultado22", model);
-		}
+
+
 }

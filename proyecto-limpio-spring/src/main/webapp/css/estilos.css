@@ -5,9 +5,26 @@ body {
   	-o-background-size: cover;
   	background-size: cover;
 	background-color: #fff;
-	padding-top: 50px;
-	background-color: #cccccc;
+	
+    margin-left: 5%;
+    margin-right: 5%;
+      
+	background-color: #cccccc;    
 }
+
+.contenedor{
+	 padding-left: 15%;
+padding-right: 15%;	
+}
+
+
+h6 { color: grey; }
+h4 { color: white; }
+h2 {color: white; }
+h3 {color: black; }
+h1 { color: grey; }
+
+
 
 .footer{
 	color: white;

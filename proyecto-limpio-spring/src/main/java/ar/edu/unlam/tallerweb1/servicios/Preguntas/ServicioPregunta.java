@@ -7,6 +7,6 @@ public interface ServicioPregunta {
 
 	public void grabarPregunta(Pregunta Pregunta);
 	public Pregunta cargarPregunta(long IdPregunta);
-
+	public boolean borrarPregunta(long IdPregunta);
 	
 }
