@@ -3,29 +3,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	<!-- Bootstrap core CSS -->	 	    
+	     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- Bootstrap theme -->
+	  
+	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	    <link href="css/estilos.css" rel="stylesheet">
-	    
-	    
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	    <link href="js/bootstrap.min.js" rel="stylesheet" >
-	    <link href="js/jquery-1.11.3.min.js" rel="stylesheet" >
-		    
-	     <style>
-    h4 { color: white; }
-    
-    h1 { color: white; }
-  		</style>
-  		
-	</head>
+	    <link href="${pageContext.request.contextPath}/css/estilos.css" rel="stylesheet">
+	    	    	    	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		 
+	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/funciones.js"></script> 
+	</head> 
 	<body>
 			<header class="panel-primary">
 <div class="container-fluid panel-heading">
-  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+  <h1><center><img src="${pageContext.request.contextPath}/img/Logo.jpg"/></center></h1>
    <div class="col-md-11"> <h4>${Nombre} ${Apellido}</h4></div>  <div class="col-md-1"><a href="login"  class="btn btn-info btn-lg active" role="button">Salir</a></div>
 </div>
 

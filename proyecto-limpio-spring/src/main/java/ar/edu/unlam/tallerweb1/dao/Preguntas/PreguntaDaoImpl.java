@@ -52,7 +52,7 @@ public class PreguntaDaoImpl implements PreguntaDao{
 		final Session session = sessionFactory.getCurrentSession();
 				
 		try
-		{
+		{	session.update(pregunta);
 			session.delete(pregunta);
 			Borro=true;
 		}

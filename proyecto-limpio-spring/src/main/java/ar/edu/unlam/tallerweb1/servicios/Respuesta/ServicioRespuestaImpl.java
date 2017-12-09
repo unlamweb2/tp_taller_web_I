@@ -35,13 +35,10 @@ public class ServicioRespuestaImpl implements ServicioRespuesta{
 	@Transactional
 	public boolean borrarRespuesta( long IdRespuesta){
 		Respuesta respuesta;
-					
+				
 		respuesta = nomRespuesta(IdRespuesta);
 		
-		System.out.print(respuesta.getNombre());
-		
-		return false;	
-		//return RespuestaDao.borrarRespuesta(respuesta);
+		return RespuestaDao.borrarRespuesta(respuesta);
 	}
 		
 }

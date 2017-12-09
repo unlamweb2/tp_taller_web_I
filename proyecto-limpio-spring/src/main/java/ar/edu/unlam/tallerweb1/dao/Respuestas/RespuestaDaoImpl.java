@@ -52,6 +52,7 @@ public class RespuestaDaoImpl implements RespuestaDao{
 		}
 		catch(org.hibernate.exception.ConstraintViolationException ex){
 			Borro=false;
+			
 		}
 				
 		return Borro;

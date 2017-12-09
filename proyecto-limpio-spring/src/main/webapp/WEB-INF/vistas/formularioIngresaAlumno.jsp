@@ -3,62 +3,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	<!-- Bootstrap core CSS -->	 	    
+	     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    
-	   
-	    
-	<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
+	  
 	    <!-- Bootstrap theme -->
 	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	    <link href="css/estilos.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css/estilos.css" rel="stylesheet">
 	    
-	    
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	    <link href="js/bootstrap.min.js" rel="stylesheet" >
-	    <link href="js/jquery-1.11.3.min.js" rel="stylesheet" >
-	    
-	      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  			
-  			
-  			<!-- Bootstrap core CSS -->
-	    <link href="css/bootstrap.min.css" rel="stylesheet" >
-	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-	    <link href="css/estilos.css" rel="stylesheet">
-	    
-	     <style>
-    h6 { color: grey; }
-    h4 { color: white; }
-    h2 {color: black; }
-    h3 {color: black; }
-    h1 { color: grey; }
-  		</style>
-  		<script language="javascript">
-//VALIDACION CHECKBOX
-function validacion(formu, obj) {
-  limite=1; //limite de checks a seleccionar
-  num=0;
-    for (i=0;ele=document.getElementById(formu).children[i] ; i++)
-    {   
-    	if (ele.checked) 
-    	num++;	    	
-    }
-  if (num>limite)
-    obj.checked=false;  
-}  
-</script>
-  		
-	</head>
+	    	    	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>		 
+	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/funciones.js"></script> 
+	</head>  			
 <body>
 
 <header class="panel-primary">
 <div class="container-fluid panel-heading">
-  <h1><center><img src="C:\java\proyectos\proyecto-limpio-spring\src\main\webapp\WEB-INF\vistas\Logo.jpg"/></center></h1>
+    <h1><center><img src="${pageContext.request.contextPath}/img/Logo.jpg"/></center></h1>
    <div class="col-md-11"> <center><h2>${usuario.nombre} ${usuario.apellido}</h2></center></div>  <a href="/proyecto-limpio-spring/exit"  class="btn btn-info btn-lg active" role="button">Salir</a>
 </div>
 </header><br><br>

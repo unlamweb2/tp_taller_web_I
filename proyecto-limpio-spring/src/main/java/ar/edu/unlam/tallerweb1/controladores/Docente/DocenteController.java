@@ -184,8 +184,9 @@ public class DocenteController{
 	
 	/*Borrar Pregunta*/	
 	@RequestMapping(value="/borrarPreguntaDocente/{idExamen}/{idPregunta}", method=RequestMethod.GET)
-	public ModelAndView borrarPregunta(@PathVariable long idExamen, @PathVariable long idPregunta, HttpServletResponse response, ModelMap model){
+	public ModelAndView borrarPregunta(@PathVariable long idExamen, @PathVariable long idPregunta){
 		Examen examen = new Examen();
+		ModelMap model=new ModelMap();
 				
 		/*Valido si el examen ya fue rendido alguna vez*/		
 		if (servicioexamen.ExamenYaUtilizado((long)idExamen)==true){

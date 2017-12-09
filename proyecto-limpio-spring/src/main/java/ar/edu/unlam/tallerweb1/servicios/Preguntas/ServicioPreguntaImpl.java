@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios.Preguntas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -39,16 +40,20 @@ public class ServicioPreguntaImpl implements ServicioPregunta{
 	@Transactional
 	public boolean borrarPregunta( long IdPregunta){
 		Pregunta pregunta;
-		ArrayList <Respuesta> respuesta;
+		List <Respuesta> respuesta ;
 				
 		pregunta = cargarPregunta(IdPregunta);
-		respuesta= (ArrayList<Respuesta>) pregunta.getRespuestas();
+		respuesta= pregunta.getRespuestas();
+		
+		System.out.println("Tamañooooooooooo   respuesta" + respuesta.size());
 		
 		for (int i=0; i< respuesta.size();i++){	
+			System.out.println("Tamañooooooooooo   respuesta  " + respuesta.get(i).getNombre());
 			respuestaDao.borrarRespuesta(respuesta.get(i));	
 		}
 		
 		return PreguntaDao.borrarPregunta(pregunta);
+			
 	}
 
 }
