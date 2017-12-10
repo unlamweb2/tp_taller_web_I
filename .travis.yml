@@ -1,7 +1,9 @@
 language: java
+
 jdk:
+
+  - jdk1.7.0_79
+  - jdk1.8.0_45
   - openjdk7
 
-script: ant build
-
-
+$ git push origin
