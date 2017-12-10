@@ -35,32 +35,23 @@ public class DocenteController{
 	public ModelAndView altaExamen(@RequestParam("IdCurso")long idCurso, @RequestParam("btnAction")String accion){
 		ModelMap model = new ModelMap();	
 		Curso curso = new Curso();	
+		curso = serviciocurso.GetCurso(idCurso);
 		Examen examen = new Examen();	
 		String vista="";
 		
 		switch (accion){
-		case "Ver Examenes": 						
-			curso = serviciocurso.GetCurso(idCurso);
-			//ArrayList <Examen> examenes = servicioexamen.cargarExamenXCurso(idCurso);
-						
-			model.put("Curso", curso);	
-			//model.put("Examenes", examenes);
+		case "Ver Examenes": 	
+			model.put("Curso", curso);			
 			vista="listaExamen";									
 			break;
-		case "Alta Examen": 			
-						
-			curso = serviciocurso.GetCurso(idCurso);
-					
+		case "Alta Examen": 
 			model.put("Curso", curso);	
-			model.put("Examen", examen);
-			
+			model.put("Examen", examen);			
 			vista="altaExamenDocente";				
-			break;
-					
+			break;					
 		case "Ver Alumnos": 
-								
-			vista="vistaAlumnoDocente";					
-			
+			model.put("Curso", curso);						
+			vista="vistaAlumnoCurso";
 		}	
 		
 		return new ModelAndView(vista, model);		
@@ -125,7 +116,7 @@ public class DocenteController{
 	
 	/*ALTA EXAMEN*/
 	@RequestMapping(value="/guardarExamen", method= RequestMethod.POST)	
-	public ModelAndView altaExamen(@RequestParam("IdCurso")long idCurso, @ModelAttribute("Examen") Examen examen){
+	public ModelAndView GuardarExamenDocente(@RequestParam("IdCurso")long idCurso, @ModelAttribute("Examen") Examen examen){
 		
 		Pregunta pregunta = new Pregunta();
 		

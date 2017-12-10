@@ -23,10 +23,15 @@ public class ServicioCursoImpl implements ServicioCurso{
 		cursoDao.grabarCurso(curso);
 	}
 	
-	/*@Transactional
+	@Transactional
+	public void agregar(Curso curso){
+		cursoDao.agregar(curso);
+	}
+		
 	public ArrayList<Curso> consultarTodosLosCursos(Long id){
 		return cursoDao.consultarTodosLosCursos(id);
-	}*/
+	}
+	
 	@Transactional
 	public ArrayList<Curso> cursosParaAnotarse(){
 		return cursoDao.cursosParaAnotarse();
