@@ -36,7 +36,12 @@
 	<div class="panel panel-primary"><div class="panel-heading">Ingresar curso</div>
 	<br><br>
 	<div class="col-xs-12">
-	<form:input path="nombre" placeholder="Materia" class="form-control"/>
+	<label class="control-label" for="nombreCurso">Nombre del curso</label>
+	<form:input path="nombre" id="nombreCurso" placeholder="Nombre Curso" class="form-control"/>
+	
+	<label class="control-label" for="maximoAlumnos">Maximo de Alumnos Permitidos</label>
+	<form:input path="maximoAlumnos" id="maximoAlumnos" placeholder="Alumnos Permitidos" class="form-control"/>
+	
 	</div><br><br><br><br>
 	<input type="submit" class="btn btn-lg btn-danger btn-block" role="button" value="Guardar"/>
 	</div>

@@ -37,19 +37,11 @@
 	<form:input path="apellido" placeholder="Apellido" class="form-control"/>
 	</div><br><br><br><br>
 	<div class="col-xs-12">
-	<form:input path="password" placeholder="Contraseña" class="form-control"/>
-	</div><br><br><br><br>
-	<div class="col-xs-12">
 	<form:input path="email" placeholder="Mail" class="form-control"/>
-	</div><br>
-	
+	</div><br><br><br><br>	
 	<div class="col-xs-12">
-	<c:forEach items= "${Chorizo}" var="materias" ><br></br>	
-	<!--  <input type="checkbox" name="idCurso" value="${materias.id}" > ${materias.nombre}-->
-	<input type="checkbox"  name="idCurso" value="${materias.id}"  onclick="validacion('${materias.id}',this)" >${materias.nombre}
-	</c:forEach>
-	<br>
-	</div>
+	<form:input path="password" placeholder="Contraseña" class="form-control"/>
+	</div><br><br><br><br>	
 	<br>
 	<button class="btn btn-lg btn-danger btn-block" Type="Submit">Guardar</button>
 	</form:form>

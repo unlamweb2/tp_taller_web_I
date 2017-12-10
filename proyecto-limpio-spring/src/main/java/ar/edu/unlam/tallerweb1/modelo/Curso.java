@@ -1,12 +1,10 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -29,17 +27,17 @@ public class Curso implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nombre;
+	private int cantidadAlumnos;
+	private int maximoAlumnos;
 			
-	/* @ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")
-	 Set<Usuario> usuarios;*/
+	 @ManyToMany(fetch=FetchType.EAGER, cascade = {CascadeType.ALL},mappedBy="cursos")	
+	 @Fetch(value = FetchMode.SUBSELECT)	
+	 private Collection<Usuario> usuarios = new ArrayList<Usuario>();
 	 
-	 /*@ManyToMany(cascade = {CascadeType.ALL},mappedBy="cursos")POSTA			
+	/*@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn (name="idCurso")
 	private List<Usuario> usuarios;*/
-	 
-	 @OneToMany (fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-		@JoinColumn (name="idCurso")
-		private List<Usuario> usuarios;
-	 
+	 	
 	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn (name="idCurso")	
 	@Fetch(value = FetchMode.SUBSELECT)	
@@ -69,12 +67,30 @@ public class Curso implements Serializable{
 		this.id = idCurso;
 	}
 	
-	public List<Usuario> getUsuarios() {
+	public Collection<Usuario> getUsuarios() {
 		return usuarios;
 	}
-	public void setUsuarios(List<Usuario> usuarios) {
+
+	public void setUsuarios(Collection<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
 	
+	public int getCantidadAlumnos() {
+		return cantidadAlumnos;
+	}
+
+	public void setCantidadAlumnos(int cantidadAlumnos) {
+		this.cantidadAlumnos = cantidadAlumnos;
+	}
+
+	public int getMaximoAlumnos() {
+		return maximoAlumnos;
+	}
+
+	public void setMaximoAlumnos(int maximoAlumnos) {
+		this.maximoAlumnos = maximoAlumnos;
+	}
+	
+		
 	
 }

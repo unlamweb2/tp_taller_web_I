@@ -27,7 +27,14 @@ public class CursoDaoImpl implements CursoDao{
 		s.save(curso);		
 	}
 	
-	/*@SuppressWarnings("unchecked")
+	@Transactional
+	public void agregar(Curso curso){	
+		//Session s = sessionFactory.openSession();
+		final Session session = sessionFactory.getCurrentSession();
+		session.update(curso);		
+	}
+	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Curso> consultarTodosLosCursos(Long id)
 	{		
 		final Session session = sessionFactory.getCurrentSession();
@@ -37,7 +44,7 @@ public class CursoDaoImpl implements CursoDao{
 				.createAlias("usuarios", "miUsuario")
 				.add(Restrictions.eq("miUsuario.id", id))
 				.list();
-}*/
+}
 	public Curso consultarCursoAlumno(long id)
 	{		
 		final Session session = sessionFactory.getCurrentSession();
