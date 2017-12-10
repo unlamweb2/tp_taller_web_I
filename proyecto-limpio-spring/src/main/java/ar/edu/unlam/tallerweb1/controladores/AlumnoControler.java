@@ -87,13 +87,17 @@ public class AlumnoControler {
 		curso = servicioCurso.GetCurso(idCurso);
 		int canti= curso.getCantidadAlumnos();
 		curso.setCantidadAlumnos(++canti);
-		
-		
+				
 		Usuario alumno = new Usuario();
 		alumno = serviciousuario.UsuarioporId(idAlumno);		
 		
 		Collection<Curso>cursos = new ArrayList<Curso>();
 		cursos = alumno.getCursos();
+		
+for (int i=0; i< cursos.size();i++){
+			
+
+}
 		
 		
 		
@@ -102,7 +106,8 @@ public class AlumnoControler {
 		servicioAlumno.anotarAlumno(alumno);
 		
 		// servicioCurso.agregar(curso);
-				 
+		
+		
 			
 		 
 		alumno = serviciousuario.UsuarioporId(idAlumno);
