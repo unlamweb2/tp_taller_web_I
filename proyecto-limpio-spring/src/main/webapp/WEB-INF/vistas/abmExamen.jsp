@@ -8,7 +8,7 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  
 	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="${pageContext.request.contextPath}/css/estilos.css" rel="stylesheet">
 	    
 	    	    	    

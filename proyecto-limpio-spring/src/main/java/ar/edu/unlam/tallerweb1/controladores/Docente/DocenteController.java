@@ -228,19 +228,23 @@ public class DocenteController{
 		Pregunta pregunta = new Pregunta();
 		pregunta= serviciopregunta.cargarPregunta((long) idPregunta);
 		
-		if (checkCorrecta==1){
-			respuesta.setCorrecta(true);
+		/*valido que solo exista una respuesta correcta*/
+		if (servicioRespuesta.validarRespuesta((long) idPregunta) && (checkCorrecta==1)) {
+			ModelRespuesta.put("mensageErr", "<script type='text/javascript'>alert('Solo puede existir 1 respuesta Correcta por pregunta');</script>");		
 		}
 		else
 		{
-			respuesta.setCorrecta(false);
+			if (checkCorrecta==1)
+				respuesta.setCorrecta(true);			
+			else			
+				respuesta.setCorrecta(false);
+			
+			/*relaciono la pregunta con la respuesta y la guardo */
+			respuesta.setPregunta(pregunta);			
+		    servicioRespuesta.grabarRespuesta(respuesta);			
 		}
-				
-				
-		/*relaciono la pregunta con la respuesta y la guardo */
-		respuesta.setPregunta(pregunta);			
-	    servicioRespuesta.grabarRespuesta(respuesta);
-			    								
+		
+					    								
 		examen= servicioexamen.cargarExamen((long)idExamen);				
 		ModelRespuesta.put("examen", examen);				
 		 				
