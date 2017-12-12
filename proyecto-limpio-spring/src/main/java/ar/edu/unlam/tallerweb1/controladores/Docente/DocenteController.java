@@ -52,6 +52,9 @@ public class DocenteController{
 		case "Ver Alumnos": 
 			model.put("Curso", curso);						
 			vista="vistaAlumnoCurso";
+		case	"Ver Notas":
+			/*                       */
+			vista="vistaNotasAlumnos";
 		}	
 		
 		return new ModelAndView(vista, model);		
@@ -78,12 +81,10 @@ public class DocenteController{
 		Examen examen = new Examen();	
 		examen= servicioexamen.cargarExamen((long)idExamen);
 		
-		examen.setHabilitado(1);
-		
-		servicioexamen.SetEstadoExamen(examen);
-				
-		model.addAttribute("Curso", examen.getCurso());	
-					
+		examen.setHabilitado(1);			
+		servicioexamen.SetEstadoExamen(examen);	
+						
+		model.addAttribute("Curso", examen.getCurso());						
 		return new ModelAndView("listaExamen",model);
 	
 	}
@@ -94,11 +95,10 @@ public class DocenteController{
 		ModelMap model = new ModelMap();
 		Examen examen = new Examen();	
 		examen= servicioexamen.cargarExamen((long)idExamen);
-		
-		examen.setHabilitado(0);
-		
-		servicioexamen.SetEstadoExamen(examen);
-				
+			
+		examen.setHabilitado(0);			
+		servicioexamen.SetEstadoExamen(examen);					
+							
 		model.addAttribute("Curso", examen.getCurso());	
 					
 		return new ModelAndView("listaExamen",model);

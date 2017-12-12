@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -53,20 +54,23 @@ public class AlumnoControler {
 		
 		curso = servicioCurso.GetCurso(idCurso);
 		usuario = serviciousuario.UsuarioporId(idAlumno);
-		
+				
 		Examen examen = new Examen();	
 		String vista="";
 		
 		switch (accion){
 		case "Ver Examenes Pendientes": 
+			
+			curso.setExamen(servicioExamen.GetExamenPendiente ( curso.getExamen(),usuario));		
 			model.put("Alumno", usuario);
 			model.put("Curso", curso);			
-			vista="listaExamenAlumno";									
+			vista="listaExamenAlumno";				
 			break;
 		case "Ver Notas": 
+			curso.setExamen( servicioExamen.GetExamenesRendidos( curso.getExamen(),usuario));
 			model.put("Curso", curso);	
 			model.put("Examen", examen);			
-			vista="";				
+			vista="listaNotaAlumno";				
 			break;					
 		case "Inscribirse a un Curso": 
 			ArrayList <Curso> cursos = servicioCurso.cursosParaAnotarse();
@@ -160,14 +164,18 @@ public class AlumnoControler {
 			 Examen examen;
 			 Nota nota=new Nota(); 
 			 Respuesta nombreRta = new Respuesta();
+			 Usuario usuario;
 			 examen = servicioExamen.cargarExamen(idExamen);
 			 preguntas= servicioExamen.cargarPreguntaPorExamen(idExamen);
 			 
 			 nota.setCalificacion( servicioExamen.GetNotaExamen(preguntas, checkboxValue));			 
-			 nota.setFecha(DateUtil.now().toString());
-			 nota.setIdExamen(idExamen);
-			 nota.setIdUsuario((long) request.getSession().getAttribute("idUsuario"));
-			
+			 nota.setFecha(new SimpleDateFormat("dd-MM-yyyy").format( DateUtil.now()));
+			 nota.setExamen(examen);
+					 
+			 usuario= serviciousuario.UsuarioporId((long) request.getSession().getAttribute("idUsuario"));		
+			 
+			 nota.setUsuario(usuario);
+			 
 			 servicioExamen.GrabarNotaExamen(nota);
 			 			 		
 			model.put("examen",examen);	 
@@ -187,18 +195,7 @@ public class AlumnoControler {
 			return new ModelAndView("Resultado", model);
 		}
 
-
-
-
-
-
-@RequestMapping(value="/homeAlumno",method= RequestMethod.POST)
-public String  IrHomeAlumno()
-{		
-	System.out.print("pasooooooo");
-		 
-		return ("redirect:/homeAlumno");
-	} 	
+	
 
 }
 
