@@ -99,7 +99,7 @@ public class TestLogin extends SpringTest{
 	     
 	   when (servicioExamenMock.cargarExamen((long)1)).thenReturn(examenMock);
 	   
-	   assertThat (examenMock.getId()).isEqualTo((long)1);
+	   assertThat (examenMock.getId()).isEqualTo((long)2);
 	   
    }
    /*
