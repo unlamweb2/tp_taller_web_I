@@ -53,6 +53,9 @@
     <input type="submit" name="btnAction" value="Ver Alumnos"  onclick="return validacionCurso();" class="btn btn-large btn-block btn-primary"/>
      <br />
     <input type="submit" name="btnAction" value="Ver Notas"  onclick="return validacionCurso();" class="btn btn-large btn-block btn-primary"/>
+     <br />
+    <input type="submit" name="btnAction" value="Ver Cursos"   class="btn btn-large btn-block btn-primary"/>
+    
 
 </form:form> 
 <!-- Footer -->	     

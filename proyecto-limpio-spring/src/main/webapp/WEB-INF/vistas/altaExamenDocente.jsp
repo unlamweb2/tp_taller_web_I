@@ -8,7 +8,7 @@
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  
 	    <!-- Bootstrap theme -->
-	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 	    <link href="${pageContext.request.contextPath}/css/estilos.css" rel="stylesheet">
 	    
 	    	    	    
@@ -52,9 +52,15 @@
 	<h5>Porcentaje de respuestas correctas:</h5>
 	<form:input path="umbral" id="umbral" class="form-control" value="70"  />
 	<br>
-				
-	<input class="btn btn-success" type="submit" value="Guardar Nuevo Exámen"/>
 	
+		<c:if test="${not empty mensageErr}">
+				       ${mensageErr}			        
+		</c:if>	
+		
+		 <c:if test="${empty mensageErr}">
+					<input class="btn btn-success" type="submit" value="Guardar Nuevo Exámen"/>        
+		</c:if>	
+						
     
 </form:form>
 

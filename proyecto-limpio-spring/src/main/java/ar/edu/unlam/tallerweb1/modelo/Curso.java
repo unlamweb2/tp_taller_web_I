@@ -29,15 +29,16 @@ public class Curso implements Serializable{
 	private String nombre;
 	private int cantidadAlumnos;
 	private int maximoAlumnos;
-			
-	 @ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST, CascadeType.REFRESH},mappedBy="cursos")	
+	private int cantidadExamen;
+	
+		
+	
+
+	@ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST, CascadeType.REFRESH},mappedBy="cursos")	
 	 @Fetch(value = FetchMode.SUBSELECT)	
 	 private Collection<Usuario> usuarios = new ArrayList<Usuario>();
 	 
-	/*@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinColumn (name="idCurso")
-	private List<Usuario> usuarios;*/
-	 	
+		 	
 	@OneToMany(fetch=FetchType.EAGER,cascade= {CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn (name="idCurso")	
 	@Fetch(value = FetchMode.SUBSELECT)	
@@ -90,6 +91,14 @@ public class Curso implements Serializable{
 	public void setMaximoAlumnos(int maximoAlumnos) {
 		this.maximoAlumnos = maximoAlumnos;
 	}
+	
+	 public int getCantidadExamen() {
+			return cantidadExamen;
+		}
+
+		public void setCantidadExamen(int cantidadExamen) {
+			this.cantidadExamen = cantidadExamen;
+		}
 	
 		
 	

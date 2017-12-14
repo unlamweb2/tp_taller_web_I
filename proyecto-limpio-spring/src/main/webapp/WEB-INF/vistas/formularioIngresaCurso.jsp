@@ -45,6 +45,9 @@
 	<label class="control-label" for="maximoAlumnos">Maximo de Alumnos Permitidos</label>
 	<form:input path="maximoAlumnos" id="maximoAlumnos" placeholder="Alumnos Permitidos" class="form-control"/>
 	
+	<label class="control-label" for="cantidadExamen">Cantidad de Examenes del Curso</label>
+	<form:input path="cantidadExamen" id="cantidadExamen" placeholder="Cantidad de Examenes" class="form-control"/>
+	
 	</div><br><br><br><br>
 	<input type="submit" class="btn btn-lg btn-danger btn-block" role="button" value="Guardar"/>
 	</div>

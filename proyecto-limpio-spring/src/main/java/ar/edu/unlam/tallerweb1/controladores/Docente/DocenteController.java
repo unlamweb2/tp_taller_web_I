@@ -46,13 +46,22 @@ public class DocenteController{
 			break;
 		case "Alta Examen": 
 			model.put("Curso", curso);	
-			model.put("Examen", examen);			
-			vista="altaExamenDocente";				
+			model.put("Examen", examen);
+			
+			if (curso.getExamen().size()>=  curso.getCantidadExamen())
+			  model.put("mensageErr", "<script type='text/javascript'>alert('No se puede realizar la operacion. El curso ha superado la cantidad de examenes permitidos');</script>");
+				
+			  vista="altaExamenDocente";				
 			break;					
 		case "Ver Alumnos": 
 			model.put("Curso", curso);						
 			vista="vistaAlumnoCurso";
-			break;	
+			break;
+		case "Ver Cursos":
+			ArrayList<Curso> cursos = serviciocurso.cursosParaAnotarse();
+			model.put("cursos", cursos);
+			vista="vistaCursosDocente";
+			break;
 		case	"Ver Notas":
 			/*  model.put("Curso", curso);                     */
 			vista="vistaNotasAlumnos";
