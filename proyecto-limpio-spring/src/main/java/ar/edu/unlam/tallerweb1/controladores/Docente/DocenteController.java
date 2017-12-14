@@ -32,7 +32,7 @@ public class DocenteController{
 	@Inject ServicioRespuesta servicioRespuesta;
 	
 	@RequestMapping(value="/IrAccion", method= RequestMethod.POST)	
-	public ModelAndView altaExamen(@RequestParam("IdCurso")long idCurso, @RequestParam("btnAction")String accion){
+	public ModelAndView HomeDocente(@RequestParam("IdCurso")long idCurso, @RequestParam("btnAction")String accion){
 		ModelMap model = new ModelMap();	
 		Curso curso = new Curso();	
 		curso = serviciocurso.GetCurso(idCurso);
@@ -52,8 +52,9 @@ public class DocenteController{
 		case "Ver Alumnos": 
 			model.put("Curso", curso);						
 			vista="vistaAlumnoCurso";
+			break;	
 		case	"Ver Notas":
-			/*                       */
+			/*  model.put("Curso", curso);                     */
 			vista="vistaNotasAlumnos";
 		}	
 		
