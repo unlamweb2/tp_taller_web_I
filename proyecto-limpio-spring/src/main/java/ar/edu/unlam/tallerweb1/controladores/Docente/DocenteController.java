@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import ar.edu.unlam.tallerweb1.modelo.Curso;
 import ar.edu.unlam.tallerweb1.modelo.Examen;
+import ar.edu.unlam.tallerweb1.modelo.Nota;
 import ar.edu.unlam.tallerweb1.modelo.Pregunta;
 import ar.edu.unlam.tallerweb1.modelo.Respuesta;
 import ar.edu.unlam.tallerweb1.servicios.Curso.ServicioCurso;
@@ -32,9 +33,10 @@ public class DocenteController{
 	@Inject ServicioRespuesta servicioRespuesta;
 	
 	@RequestMapping(value="/IrAccion", method= RequestMethod.POST)	
-	public ModelAndView HomeDocente(@RequestParam("IdCurso")long idCurso, @RequestParam("btnAction")String accion){
+	public ModelAndView altaExamen(@RequestParam("IdCurso")long idCurso, @RequestParam("btnAction")String accion){
 		ModelMap model = new ModelMap();	
-		Curso curso = new Curso();	
+		Curso curso = new Curso();
+		Nota nota = new Nota();
 		curso = serviciocurso.GetCurso(idCurso);
 		Examen examen = new Examen();	
 		String vista="";
@@ -46,24 +48,16 @@ public class DocenteController{
 			break;
 		case "Alta Examen": 
 			model.put("Curso", curso);	
-			model.put("Examen", examen);
-			
-			if (curso.getExamen().size()>=  curso.getCantidadExamen())
-			  model.put("mensageErr", "<script type='text/javascript'>alert('No se puede realizar la operacion. El curso ha superado la cantidad de examenes permitidos');</script>");
-				
-			  vista="altaExamenDocente";				
+			model.put("Examen", examen);			
+			vista="altaExamenDocente";				
 			break;					
 		case "Ver Alumnos": 
 			model.put("Curso", curso);						
 			vista="vistaAlumnoCurso";
-			break;
-		case "Ver Cursos":
-			ArrayList<Curso> cursos = serviciocurso.cursosParaAnotarse();
-			model.put("cursos", cursos);
-			vista="vistaCursosDocente";
-			break;
+			
 		case	"Ver Notas":
-			/*  model.put("Curso", curso);                     */
+			model.put("Curso", curso);
+			
 			vista="vistaNotasAlumnos";
 		}	
 		
@@ -115,14 +109,6 @@ public class DocenteController{
 	
 	}
 	
-	
-	
-	
-	/*@RequestMapping(value = "/BorrarExamenDocente/listaExamen", method = RequestMethod.GET)
-	   public String homeExamenDocente() {
-	      return "listaExamen";
-	   }*/
-		
 	
 	/*ALTA EXAMEN*/
 	@RequestMapping(value="/guardarExamen", method= RequestMethod.POST)	
