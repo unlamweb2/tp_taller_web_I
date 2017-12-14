@@ -17,7 +17,7 @@
 	</head>  
 
 
-<body>
+<body onload="deshabilitaRetroceso()">
 		<header class="panel-primary">
 <div class="container-fluid panel-heading">
  <h1><center><img src="${pageContext.request.contextPath}/img/Logo.jpg"/></center></h1>
